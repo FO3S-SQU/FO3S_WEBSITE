@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+    
+    background-color: #f8f9fa; 
+    color: #2d3436; 
+    margin: 0;
+}
+header {
+    background-color: #ffffff; 
+    border-bottom: 1px solid #eaeaea;
+    padding: 15px 10%;
+    
+    
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); 
+    
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+ul{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    gap: 20px;
+}
+#hero {
+    height: 80vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+    text-align: center;
+    padding: 100px 20px;
+    min-height: 60vh;
+}
+
+#slogan {
+    font-style: italic;
+    color: #636e72; /* Slightly faded color for the slogan */
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
