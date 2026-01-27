@@ -62,3 +62,85 @@ ul{
 .members_count_container,.events_count_container {
     text-align: center;
 }
+#upcoming_events {
+    text-align: center;
+    padding: 60px 10%;
+    background-color: #ffffff;
+}
+.btn_small {
+    background-color: #0984e3; 
+    color: #ffffff; 
+    padding: 20px 40px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;      
+   
+    text-align: center;
+}
+
+.footer_main_content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 40px 5%; 
+    box-sizing: border-box; 
+    
+}
+
+
+.footer_nav_group {
+    display: flex;
+    align-items: center;
+    gap: 40px; 
+    justify-content: center;
+}
+
+.footer_links {
+    display: flex;
+    gap: 20px; 
+}
+
+
+.footer_brand h3, 
+.join_btn {
+    white-space: nowrap; 
+}
+
+.join_btn {
+    padding: 10px 20px;
+    
+}
+
+
+.footer_left{
+    display: flex;
+    flex:1;
+    justify-content: flex-start;
+}
+.footer_right{
+    display: flex;
+    flex:1;
+    justify-content: flex-end;
+}
+
+.footer_center {
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.footer_copyright {
+    text-align: center;
+    padding-bottom: 20px;
+    width: 100%;
+}
