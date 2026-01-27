@@ -46,7 +46,19 @@ ul{
 
 #slogan {
     font-style: italic;
-    color: #636e72; /* Slightly faded color for the slogan */
+    color: #636e72; 
     font-size: 1.2rem;
     margin-top: 10px;
+}
+#statistics {
+    display: flex;
+    justify-content: center;
+    padding: 60px 0;
+    background-color: #ffffff; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); 
+    gap: 100px;
+    border-bottom: 1px solid #eee;
+}
+.members_count_container,.events_count_container {
+    text-align: center;
 }
