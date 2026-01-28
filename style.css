@@ -144,3 +144,89 @@ footer {
     padding-bottom: 20px;
     width: 100%;
 }
+
+
+.language_container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.lang_label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    /*  Make the circle size exactly match the track height */
+    height: 30px; 
+    width: 30px;
+    
+    /*  Set left to 0 to remove the gap at the start */
+    left: 0;
+    bottom: 0;
+    
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+    z-index: 2;/* Ensure the slider is above the flag */
+    
+    
+}
+
+
+input:checked + .slider:before {
+    transform: translateX(30px); /* Move the circle to the right when  the input is checked */
+}
+
+
+.flag {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;/* Ensure it's behind the slider */
+    transition: 0.4s;
+    background-size: cover;/* Ensure the flag covers the entire area */
+    background-position: center;/* Center the flag image */
+    border-radius: 34px; 
+    pointer-events: none;
+}
+
+/* Default State: Unchecked (Oman Flag) */
+.flag {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 9'%3E%3Cpath fill='%23fff' d='M0 0h18v3H0z'/%3E%3Cpath fill='%23008000' d='M0 6h18v3H0z'/%3E%3Cpath fill='%23d21034' d='M0 0h6v9H0zm6 3h12v3H6z'/%3E%3Cg fill='%23fff'%3E%3Cpath d='M1.5 1.2c-.3 0-.5.2-.5.5s.2.5.5.5.5-.2.5-.5-.2-.5-.5-.5z'/%3E%3Cpath d='M1 1.8l1 1M2 1.8l-1 1' stroke='%23fff' stroke-width='.2'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/*State 2: Checked (UK Flag) */
+input:checked ~ .flag {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30'%3E%3Cpath d='M0 0v30h60V0z' fill='%23012169'/%3E%3Cpath d='m0 0 60 30m0-30L0 30' stroke='%23fff' stroke-width='6'/%3E%3Cpath d='m0 0 60 30m0-30L0 30' stroke='%23c8102e' stroke-width='4'/%3E%3Cpath d='M30 0v30M0 15h60' stroke='%23fff' stroke-width='10'/%3E%3Cpath d='M30 0v30M0 15h60' stroke='%23c8102e' stroke-width='6'/%3E%3C/svg%3E");
+}
