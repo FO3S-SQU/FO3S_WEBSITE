@@ -83,6 +83,20 @@
             2025 (c) FO3S
         </div>
     </footer>
+    <div id="ideaModal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2>Suggest an Event</h2>
+            
+            <form id="ideaForm">
+                <input type="email" name="email" id="userEmail" placeholder="Your Email" required>
+                <input type="text" name="topic" id="eventTopic" placeholder="Proposed Topic" required>
+                <textarea name="message" id="eventDesc" placeholder="Describe the idea..." required></textarea>
+                <button type="submit" class="btn">Submit Idea</button>
+                <p id="formStatus"></p> 
+            </form>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>

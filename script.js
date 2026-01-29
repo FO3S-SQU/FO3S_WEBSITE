@@ -33,6 +33,35 @@ const observer = new IntersectionObserver((entries) => {
             entry.target.innerText = "0"; // Reset the count when out of view
         }
     });
-}, { threshold: 0.2 });
+}, { threshold: 0.2 });// Incremnt when 20% of the element is visible
 
-counters.forEach(counter => observer.observe(counter));
+counters.forEach(counter => observer.observe(counter));// Observe each counter element
+
+//--- end of the counter animation code ---
+
+// The form submission code starts below
+const ideaForm = document.getElementById('ideaForm');
+const status = document.getElementById('formStatus');
+
+ideaForm.addEventListener('submit', async (event) => {
+    event.preventDefault(); // it prevents the default form submission behavior
+    
+    const data = new FormData(event.target);// Collects the form data like (input values)
+    status.innerText = "Sending...";
+
+    const response = await fetch("https://formspree.io/f/mwvblagk", {
+        method: "POST",
+        body: data,
+        headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+        status.style.color = "green";
+        status.innerText = "Success! Your idea has been sent.";
+        ideaForm.reset();
+        setTimeout(closeModal, 2000); // Closes the modal automatically after 2 seconds
+    } else {
+        status.style.color = "red";
+        status.innerText = "Oops! There was a problem sending your idea.";
+    }
+});
