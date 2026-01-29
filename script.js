@@ -44,24 +44,68 @@ const ideaForm = document.getElementById('ideaForm');
 const status = document.getElementById('formStatus');
 
 ideaForm.addEventListener('submit', async (event) => {
-    event.preventDefault(); // it prevents the default form submission behavior
+    event.preventDefault(); 
     
-    const data = new FormData(event.target);// Collects the form data like (input values)
+    const data = new FormData(event.target);
     status.innerText = "Sending...";
+    status.style.color = "black"; // Reset color to neutral while sending
+//The freezing state when trying to send the form without internet is fixed below 
+    try {
+        // Attempt the network request
+        const response = await fetch("https://formspree.io/f/mwvblagk", {
+            method: "POST",
+            body: data,
+            headers: { 'Accept': 'application/json' }
+        });
 
-    const response = await fetch("https://formspree.io/f/mwvblagk", {
-        method: "POST",
-        body: data,
-        headers: { 'Accept': 'application/json' }
-    });
-
-    if (response.ok) {
-        status.style.color = "green";
-        status.innerText = "Success! Your idea has been sent.";
-        ideaForm.reset();
-        setTimeout(closeModal, 2000); // Closes the modal automatically after 2 seconds
-    } else {
+        if (response.ok) {
+            status.style.color = "green";
+            status.innerText = "Success! Your idea has been sent.";
+            ideaForm.reset();// Clear the form inputs
+            setTimeout(closeModal, 2000); 
+        } else {
+            // This runs if the server is reached but rejects the data
+            status.style.color = "red";
+            status.innerText = "Oops! Server rejected the request.";
+        }
+    } catch (error) {
+        // This runs if there is a network error
+        // If there is no internet, the code execute these two lines  immediately
         status.style.color = "red";
-        status.innerText = "Oops! There was a problem sending your idea.";
+        status.innerText = "No network! Please reconnect and try again.";
     }
 });
+//--- end of the form submission code ---
+
+// the modal code starts below
+const modal = document.getElementById('ideaModal');
+const closeBtn = document.querySelector('.close-btn');
+
+function openModal() {
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden'; // Stop the background from scrolling
+}
+
+
+function closeModal() {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto'; // Re-enable scrolling
+    status.innerText = ""; // Clear status when closing
+}
+
+
+
+// Close when clicking the 'X'
+if (closeBtn) {
+    closeBtn.addEventListener('click', closeModal);
+    
+}
+
+window.addEventListener('click', (event) => {
+    if (event.target === modal) {
+        closeModal();
+    }
+});
+
+//No need for event listener for openModal since it's called directly from HTML
+//--- end of the modal code ---
