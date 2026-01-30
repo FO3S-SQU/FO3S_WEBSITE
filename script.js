@@ -109,3 +109,52 @@ window.addEventListener('click', (event) => {
 
 //No need for event listener for openModal since it's called directly from HTML
 //--- end of the modal code ---
+
+
+
+
+
+const slider = document.querySelector('.ig-slider');
+const chassis = document.querySelector('.phone-chassis');
+let isPaused = false;
+
+// 1. Clone the first slide and add it to the end for a seamless loop
+const firstCard = slider.querySelector('.ig-card').cloneNode(true);
+slider.appendChild(firstCard);
+
+function startAutoSlide() {
+    setInterval(() => {
+        if (!isPaused) {
+            const cardWidth = slider.offsetWidth;
+            const currentScroll = slider.scrollLeft;
+            const maxScroll = slider.scrollWidth - cardWidth;
+
+            // Check if we are on the "cloned" last image
+            if (currentScroll >= maxScroll - 5) {
+                // 1. Instantly jump back to start (no animation)
+                slider.style.scrollBehavior = 'auto';
+                slider.scrollLeft = 0;
+                
+                // 2. Then immediately slide to the second image smoothly
+                setTimeout(() => {
+                    slider.style.scrollBehavior = 'smooth';
+                    slider.scrollBy({ left: cardWidth, behavior: 'smooth' });
+                }, 20);
+            } else {
+                // Normal smooth slide to next
+                slider.style.scrollBehavior = 'smooth';
+                slider.scrollBy({ left: cardWidth, behavior: 'smooth' });
+            }
+        }
+    }, 2000);
+}
+
+// pause sliding on hover or touch
+if (chassis) {
+    chassis.addEventListener('mouseenter', () => isPaused = true);
+    chassis.addEventListener('mouseleave', () => isPaused = false);
+    chassis.addEventListener('touchstart', () => isPaused = true);
+    chassis.addEventListener('touchend', () => isPaused = false);
+}
+
+startAutoSlide();
