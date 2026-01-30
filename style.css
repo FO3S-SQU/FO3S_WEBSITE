@@ -33,6 +33,14 @@ ul{
     list-style: none;
     gap: 20px;
 }
+a{
+    text-decoration: none;
+    color:black;
+    font-weight: bold;
+}
+a:hover{
+    color: #2d3436;
+}
 #hero {
     height: 60vh; 
     display: flex;
@@ -86,7 +94,7 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;      
-   
+    
     text-align: center;
 }
 
@@ -353,61 +361,72 @@ input:checked ~ .flag {
 }
 
 
-#hero {
-    min-height: 30vh; /* Shorter hero so slider is visible on load */
-    padding: 40px 20px 10px 20px;
+.hero-slider {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full screen height */
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-}
-
-
-.phone-chassis {
-    width: 672px;   
-    height: 240px;
-    border: 1px solid #000; 
     background: #000;
-    overflow: hidden;
-    margin: 0 auto;
-    position: relative;
-    border-radius: 0; /* Ensures sharp angles */
 }
 
-.ig-slider {
-    display: flex;
+/* THE SLIDER LAYER */
+.slider-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
+    z-index: 1;
 }
 
-.ig-slider::-webkit-scrollbar {
-    display: none;
-}
-
-.ig-card {
-    flex: 0 0 100%; 
+.c-slide {
+    position: absolute;
+    width: 100%;
     height: 100%;
-    scroll-snap-align: start;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
 }
 
-.ig-card img {
+.c-slide.active {
+    opacity: 0.6; /* Reduced opacity so text is readable */
+}
+
+.c-slide img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
-    
-    image-rendering: -webkit-optimize-contrast; 
-    image-rendering: crisp-edges;
-    
-    
-    filter: contrast(1.02) brightness(1.02); 
 }
-.ig-card img:hover {
-    transform: scale(1.05); /* Slight zoom on hover */
-    transition: transform 0.5s ease;
+
+
+.hero-content {
+    position: relative;
+    z-index: 10; /* Sits on top of the images */
+    color: #fff;
+    max-width: 800px;
+    padding: 20px;
 }
+
+.hero-title {
+    font-size: clamp(2rem, 5vw, 3.5rem); /* Responsive font size */
+    margin-bottom: 20px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.hero-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: #702A2E;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: transform 0.3s;
+}
+
+.hero-btn:hover {
+    transform: scale(1.05);
+}
+

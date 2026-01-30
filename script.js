@@ -114,47 +114,22 @@ window.addEventListener('click', (event) => {
 
 
 
-const slider = document.querySelector('.ig-slider');
-const chassis = document.querySelector('.phone-chassis');
-let isPaused = false;
+document.addEventListener("DOMContentLoaded", function() {
+    const slides = document.querySelectorAll('.c-slide');
+    let currentSlide = 0;
+    const slideInterval = 4000; // Changes every 4 seconds
 
-// 1. Clone the first slide and add it to the end for a seamless loop
-const firstCard = slider.querySelector('.ig-card').cloneNode(true);
-slider.appendChild(firstCard);
+    function nextSlide() {
+        //  Remove 'active' from current slide
+        slides[currentSlide].classList.remove('active');
+        
+        // . move to next index (or back to 0 if at the end)
+        currentSlide = (currentSlide + 1) % slides.length;
+        
+        //  Add 'active' to the new slide
+        slides[currentSlide].classList.add('active');
+    }
 
-function startAutoSlide() {
-    setInterval(() => {
-        if (!isPaused) {
-            const cardWidth = slider.offsetWidth;
-            const currentScroll = slider.scrollLeft;
-            const maxScroll = slider.scrollWidth - cardWidth;
-
-            // Check if we are on the "cloned" last image
-            if (currentScroll >= maxScroll - 5) {
-                // 1. Instantly jump back to start (no animation)
-                slider.style.scrollBehavior = 'auto';
-                slider.scrollLeft = 0;
-                
-                // 2. Then immediately slide to the second image smoothly
-                setTimeout(() => {
-                    slider.style.scrollBehavior = 'smooth';
-                    slider.scrollBy({ left: cardWidth, behavior: 'smooth' });
-                }, 20);
-            } else {
-                // Normal smooth slide to next
-                slider.style.scrollBehavior = 'smooth';
-                slider.scrollBy({ left: cardWidth, behavior: 'smooth' });
-            }
-        }
-    }, 2000);
-}
-
-// pause sliding on hover or touch
-if (chassis) {
-    chassis.addEventListener('mouseenter', () => isPaused = true);
-    chassis.addEventListener('mouseleave', () => isPaused = false);
-    chassis.addEventListener('touchstart', () => isPaused = true);
-    chassis.addEventListener('touchend', () => isPaused = false);
-}
-
-startAutoSlide();
+    
+    setInterval(nextSlide, slideInterval);
+});
