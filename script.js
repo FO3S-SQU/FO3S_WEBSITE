@@ -112,7 +112,7 @@ window.addEventListener('click', (event) => {
 
 
 
-
+// The slideshow code starts below
 
 document.addEventListener("DOMContentLoaded", function() {
     const slides = document.querySelectorAll('.c-slide');
@@ -120,10 +120,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const slideInterval = 4000; // Changes every 4 seconds
 
     function nextSlide() {
-        //  Remove 'active' from current slide
+        //  remove 'active' from current slide
         slides[currentSlide].classList.remove('active');
         
-        // . move to next index (or back to 0 if at the end)
+        // move to next index (or back to 0 if at the end)
         currentSlide = (currentSlide + 1) % slides.length;
         
         //  Add 'active' to the new slide
@@ -133,3 +133,25 @@ document.addEventListener("DOMContentLoaded", function() {
     
     setInterval(nextSlide, slideInterval);
 });
+
+//--- end of the slideshow code ---
+
+//Card generation code starts below
+
+function generateTestCard() {
+    const container = document.getElementById('project-list');
+    
+    // Create the card element
+    const card = document.createElement('div');
+    card.className = 'project-card';
+    
+    
+    card.innerHTML = `
+        <h3>GHOST_DETECTOR_V1.0</h3>
+        <p><strong>LOG_ENTRY:</strong> uses EM wave to detect ghost and process the signal using C++.</p>
+        <a href="#" class="repo-url">ACCESS_SPECTRAL_DATA</a>
+    `;
+    
+    // Add it to your centered grid
+    container.appendChild(card);
+}

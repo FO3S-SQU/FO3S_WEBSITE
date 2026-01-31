@@ -430,3 +430,91 @@ input:checked ~ .flag {
     transform: scale(1.05);
 }
 
+
+
+
+.member-projects {
+    padding: 60px 5%;
+    text-align: center;
+    background-color: #ffffffcf; /* Keeping the page clean */
+}
+
+/* Centers the Invite Card at the top */
+.invite-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px; 
+}
+
+/* The Grid that holds the dynamic projects */
+.project-display-grid {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background: #fff;
+    border: 1px solid #000; 
+    border-radius: 0px; 
+    padding: 30px;
+    width: 100%;
+    max-width: 350px;
+    transition: background 0.2s ease;
+    text-align: left; 
+}
+
+.invite-card {
+    border: 2px dashed #000;
+    background: #fff;
+    max-width: 600px;
+    text-align: center;
+}
+
+
+.project-card:hover {
+    background: #fafafa;
+}
+
+
+.project-card h3 { 
+    color: #000; 
+    margin-bottom: 12px; 
+    text-transform: uppercase; 
+    letter-spacing: 0.5px;
+}
+
+.project-card p { 
+    font-size: 0.95rem; 
+    color: #333; 
+    margin-bottom: 20px; 
+    line-height: 1.6;
+}
+
+/* Link: Underlined Black */
+.repo-url { 
+    color: #000; 
+    font-weight: bold; 
+    text-decoration: underline; 
+}
+
+/* The Button: Solid Black block */
+.submit-btn {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .project-card {
+        max-width: 100%;
+    }
+}
