@@ -162,6 +162,7 @@ footer {
     display: flex;
     align-items: center;
     gap: 10px;
+    direction: ltr !important;
 }
 
 .lang_label {
@@ -494,14 +495,13 @@ input:checked ~ .flag {
     line-height: 1.6;
 }
 
-/* Link: Underlined Black */
 .repo-url { 
     color: #000; 
     font-weight: bold; 
     text-decoration: underline; 
 }
 
-/* The Button: Solid Black block */
+
 .submit-btn {
     background-color: #000;
     color: #fff;
@@ -517,4 +517,46 @@ input:checked ~ .flag {
     .project-card {
         max-width: 100%;
     }
+}
+
+
+
+/* Standard font for English, cleaner font for Arabic */
+body[dir="ltr"] { font-family: 'Courier New', monospace; }
+body[dir="rtl"] { font-family: 'Arial', sans-serif; text-align: right; }
+
+/* Flip the Navbar */
+body[dir="rtl"] nav { flex-direction: row-reverse; }
+body[dir="rtl"] nav ul { flex-direction: row-reverse; }
+
+/* Flip the Statistics */
+body[dir="rtl"] #statistics { flex-direction: row-reverse; }
+
+/* Flip the Footer Layout */
+body[dir="rtl"] .footer_main_content {
+    /* REMOVED flex-direction: row-reverse; <-- This was the problem */
+    display: flex;
+    /* justify-content is mostly handled by the default styles, 
+       but we ensure alignment is correct */
+    justify-content: space-between; 
+    align-items: center;
+    gap: 30px; 
+}
+
+
+body[dir="rtl"] .footer_links {
+    display: flex;
+    gap: 20px;
+
+}
+
+
+body[dir="rtl"] .footer_brand {
+    text-align: right; 
+    align-items: flex-start; /* For flex containers */
+}
+
+
+body[dir="rtl"] .footer_right {
+    justify-content: flex-end; 
 }
