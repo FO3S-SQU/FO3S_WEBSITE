@@ -39,42 +39,7 @@ counters.forEach(counter => observer.observe(counter));// Observe each counter e
 
 //--- end of the counter animation code ---
 
-// The form submission code starts below
-const ideaForm = document.getElementById('ideaForm');
-const status = document.getElementById('formStatus');
 
-ideaForm.addEventListener('submit', async (event) => {
-    event.preventDefault(); 
-    
-    const data = new FormData(event.target);
-    status.innerText = "Sending...";
-    status.style.color = "black"; // Reset color to neutral while sending
-//The freezing state when trying to send the form without internet is fixed below 
-    try {
-        // Attempt the network request
-        const response = await fetch("https://formspree.io/f/mwvblagk", {
-            method: "POST",
-            body: data,
-            headers: { 'Accept': 'application/json' }
-        });
-
-        if (response.ok) {
-            status.style.color = "green";
-            status.innerText = "Success! Your idea has been sent.";
-            ideaForm.reset();// Clear the form inputs
-            setTimeout(closeModal, 2000); 
-        } else {
-            // This runs if the server is reached but rejects the data
-            status.style.color = "red";
-            status.innerText = "Oops! Server rejected the request.";
-        }
-    } catch (error) {
-        // This runs if there is a network error
-        // If there is no internet, the code execute these two lines  immediately
-        status.style.color = "red";
-        status.innerText = "No network! Please reconnect and try again.";
-    }
-});
 //--- end of the form submission code ---
 
 // the modal code starts below
@@ -172,7 +137,7 @@ const translations = {
         labelEvents: "Events Hosted",
         titleEvents: "Upcoming Events",
         eventEmptyTitle: "We're currently brainstorming!",
-        eventEmptyP: "Have a topic you want to learn? Share it with us.",
+        eventEmptyP: "Have an idea for a special event? Share it with us!",
         eventBtn: "Suggest an Idea",
         titleProjects: "Members Projects",
         inviteTitle: "Fill our projects section with your creative projects",
@@ -287,3 +252,4 @@ document.addEventListener('DOMContentLoaded', () => {
     if (languageToggle) languageToggle.checked = (savedLang === 'en');
     updateLanguage(savedLang);
 });
+

@@ -1,3 +1,11 @@
+:root {
+    --color1: #702A2E; /* Maroon */
+    --color2: #E5C52C; /* Gold */
+    --color3: #469033; /* Green */
+    --white: #ffffff;
+}
+
+
 * {
     margin: 0;
     padding: 0;
@@ -26,6 +34,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 ul{
     display: flex;
@@ -503,13 +512,23 @@ input:checked ~ .flag {
 
 
 .submit-btn {
-    background-color: #000;
+    background-color: var(--color3) ;
     color: #fff;
     border: none;
     padding: 12px 25px;
     font-weight: bold;
     cursor: pointer;
     text-transform: uppercase;
+    border-radius: 12px;
+    transition: 0.2s ease;
+}
+.submit-btn:hover {
+    background-color: var(--color1);
+    transform: scale(1.05); 
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.submit-btn:active {
+    transform: scale(0.95); 
 }
 
 /* Responsive */
@@ -559,4 +578,261 @@ body[dir="rtl"] .footer_brand {
 
 body[dir="rtl"] .footer_right {
     justify-content: flex-end; 
+}
+
+
+
+
+/*painting the page*/
+
+/* 1. Theme Variables */
+
+/* 2. General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+/* 3. Header & Footer (Background Color 1) */
+header, 
+footer, 
+.footer_nav_group {
+    background-color: var(--color1) !important;
+    color: var(--white);
+    border: none !important;
+}
+
+/* 4. Navigation Links */
+nav a, 
+.footer_links a {
+    color: var(--white);
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+/* 5. Buttons (Background Color 1) */
+.join_btn, 
+.btn, 
+#submit_idea_btn, 
+.join_btn_footer {
+    background-color: var(--color1) !important;
+    color: var(--white) !important;
+    border: 1px solid var(--white); /* Added to make them visible against Maroon bg */
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+/* 6. Social Media Icons (Color 2) */
+.social-link i, 
+.footer_links i {
+    color: var(--color2) !important;
+    font-size: 1.5rem;
+}
+
+/* Modal Styles */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    color: #333;
+}
+
+/* Modal Title using Color 1 */
+.modal-content h2 {
+    color: var(--color1);
+    margin-bottom: 1rem;
+}
+
+input, textarea {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 8px;
+    border: 1px solid #ccc;
+}
+
+/*  form status success (Color 3) */
+.success-message {
+    color: var(--color3);
+}
+
+/*  RTL Support */
+[dir="rtl"] {
+    text-align: right;
+}
+
+
+
+/* The Join Button Container/Base */
+#footer-join {
+    position: relative;
+    background-color: var(--color1); /* Color 1 */
+    color: var(--white);
+    padding: 12px 28px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    overflow: hidden; /* Keeps the circulating lines inside the border radius */
+    transition: all 0.5s ease; /* Smooth color transitions */
+    z-index: 1;
+}
+
+
+#footer-join::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+        transparent, 
+        var(--color2), /* Color 2 */
+        var(--color3), /* Color 3 */
+        transparent 30%
+    );
+    animation: rotateLines 3s linear infinite;
+    z-index: -2;
+}
+
+
+#footer-join::after {
+    content: '';
+    position: absolute;
+    inset: 3px; /* This creates the 'thickness' of the circulating line */
+    background: var(--color1);
+    border-radius: 5px;
+    z-index: -1;
+    transition: background 0.5s ease;
+}
+
+/* Hover Effect: Smoothly change background to Color 3 */
+#footer-join:hover {
+    color: var(--white);
+    transform: scale(1.05);
+}
+
+#footer-join:hover::after {
+    background: var(--color3); /* Smoothly transitions to Color 3 */
+}
+
+
+#footer-join:active {
+    transform: scale(0.95);
+}
+
+#footer-join:active::after {
+    background: var(--color2);
+}
+
+/* The Animation for the circulating lines */
+@keyframes rotateLines {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+.stats-section {
+    background: none !important;
+    padding: 20px 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+
+.stat-item {
+    text-align: center;
+    padding: 10px;
+}
+
+
+h2[id$="_count"] {
+    color: black !important;
+    font-family: 'Arial', sans-serif; 
+    font-weight: 800 !important;   
+    font-size: 2.2rem;             
+    margin: 0;
+}
+
+
+#label-members, 
+#label-events {
+    color: black !important;
+    font-weight: 700 !important;
+    font-size: 1rem;              
+    text-transform: uppercase;
+    margin-top: 5px;
+    display: block;
+}
+
+
+
+.no-events {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;    
+    text-align: center;
+    
+   
+    gap: 12px; 
+    
+    padding: 40px;
+}
+
+#event-btn {
+    background-color: var(--color1);
+    color: white;
+    border-radius: 8px;
+    padding: 10px 24px;
+    border: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#event-btn:hover {
+    background-color: var(--color2);
+}
+
+
+.logo img {
+    
+    height: 45px;    
+    width: auto;    
+    
+    
+    filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.8)) 
+            drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
+
+   
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+.logo img:hover {
+    transform: scale(1.05); /* Very slight grow when hovered */
 }
