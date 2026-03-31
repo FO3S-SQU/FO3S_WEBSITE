@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FO3S | About Us</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="fo3s_logo-removebg-preview.png" alt="FO3S logo">
+                </a>
+            </div>
+            <ul>
+                <li><a href="index.html" id="nav-home">Home</a></li>
+                <li><a href="about.html" id="nav-about">About</a></li>
+                <li><a href="index.html#upcoming_events" id="nav-events">Events</a></li>
+                <li><a href="contact.html" id="nav-contact">Contact</a></li>
+            </ul>
+            <div class="language_container">
+                <span class="lang_label">English</span>
+                <label class="switch">
+                    <input type="checkbox" id="language_toggle">
+                    <span class="slider round"></span>
+                    <span class="flag"></span>
+                </label>
+                <span class="lang_label">العربية</span>
+            </div>
+        </nav>
+    </header>
+
+    <main class="about-main">
+        <section class="about-hero">
+            <div class="about-hero-text">
+                <p class="about-kicker">Who We Are | من نحن</p>
+                <h1>FO3S – Free &amp; Open Source Software Society</h1>
+                <p class="about-lead">
+                    A community that believes in openness, collaboration, and knowledge sharing through free and open source software.
+                    <br>
+                    مجتمع يؤمن بالانفتاح والتعاون وتبادل المعرفة من خلال البرمجيات الحرة ومفتوحة المصدر.
+                </p>
+            </div>
+        </section>
+
+        <section class="about-tabs-section">
+            <div class="about-tabs">
+                <button class="about-tab is-active" data-tab="who">
+                    <span>About FO3S</span>
+                    <span class="tab-sub">من نحن؟</span>
+                </button>
+                <button class="about-tab" data-tab="goals">
+                    <span>Our Goals</span>
+                    <span class="tab-sub">أهدافنا</span>
+                </button>
+                <button class="about-tab" data-tab="foss">
+                    <span>Free &amp; Open Source</span>
+                    <span class="tab-sub">البرمجيات الحرة</span>
+                </button>
+                <button class="about-tab" data-tab="initiative">
+                    <span>National Initiative</span>
+                    <span class="tab-sub">المبادرة الوطنية</span>
+                </button>
+                <button class="about-tab" data-tab="contact">
+                    <span>Contact</span>
+                    <span class="tab-sub">التواصل معنا</span>
+                </button>
+            </div>
+
+            <div class="about-panels">
+                <!-- Who We Are -->
+                <article class="about-panel is-active" id="tab-who">
+                    <h2>من نحن؟ – FO3S</h2>
+                    <p>
+                        نحن جماعة البرمجيات الحرة والمفتوحة المصدر <strong>Free &amp; Open Source Software Society (FO3S)</strong>.
+                        تأسست الجماعة في عام 2010 تحت إشراف مركز أبحاث الاتصالات والمعلومات في جامعة السلطان قابوس،
+                        نتيجة مذكرة تفاهم وقعتها الجامعة مع هيئة تقنية المعلومات (ITA).
+                    </p>
+                    <hr>
+                    <p>
+                        <strong>Who are we?</strong><br>
+                        We are the <strong>Free &amp; Open Source Software Society (FO3S)</strong>, a student community founded in 2010
+                        under the supervision of the Communication and Information Research Center at Sultan Qaboos University,
+                        following a memorandum of understanding signed between the University and the Information Technology Authority (ITA).
+                    </p>
+                </article>
+
+                <!-- Goals -->
+                <article class="about-panel" id="tab-goals">
+                    <h2>أهدافنا</h2>
+                    <p>تهدف الجماعة إلى نشر ثقافة البرمجيات الحرة والمفتوحة المصدر من خلال الوسائل التالية:</p>
+                    <ul class="about-list">
+                        <li>المؤتمرات، المعارض، والورش.</li>
+                        <li>المشاريع، الصحف، والمطويات.</li>
+                        <li>التواصل الاجتماعي وباستخدام مختبراتنا المجهزة.</li>
+                        <li>تقديم الدعم التقني.</li>
+                        <li>إصدار أول توزيعة عمانية مبنية على نظام جنو/لينكس.</li>
+                        <li>استبدال البرامج الاحتكارية ببرامج حرة ومفتوحة المصدر.</li>
+                    </ul>
+                    <hr>
+                    <h3>Our Goals</h3>
+                    <p>The society aims to spread the culture of free and open source software through:</p>
+                    <ul class="about-list">
+                        <li>Organizing conferences, exhibitions, and workshops.</li>
+                        <li>Creating projects, newsletters, and printed materials.</li>
+                        <li>Community outreach and activities using our equipped labs.</li>
+                        <li>Providing technical support and guidance.</li>
+                        <li>Releasing the first Omani GNU/Linux distribution.</li>
+                        <li>Replacing proprietary software with free and open source alternatives.</li>
+                    </ul>
+                </article>
+
+                <!-- Contact -->
+                <article class="about-panel" id="tab-contact">
+                    <h2>كيفية التواصل معنا؟</h2>
+                    <div class="contact-grid">
+                        <div class="contact-card">
+                            <h3>وسائل التواصل الاجتماعي</h3>
+                            <p>Insta: <strong>@FO3S</strong></p>
+                            <p>Twitter: <strong>@FO3S</strong></p>
+                        </div>
+                        <div class="contact-card">
+                            <h3>الهاتف والبريد</h3>
+                            <p>Phone: <strong>24143697</strong></p>
+                            <p>Mail: <strong>fo3s.squ@fossc.com</strong> | <strong>fo3s@squ.edu.om</strong></p>
+                        </div>
+                    </div>
+                    <p class="contact-note">
+                        جماعة البرمجيات الحرة والمفتوحة المصدر - FO3S<br>
+                        Free &amp; Open Source Software Society
+                    </p>
+                </article>
+
+                <!-- What is FOSS -->
+                <article class="about-panel" id="tab-foss">
+                    <h2>ما هي البرمجيات الحرة والمفتوحة المصدر؟</h2>
+                    <p>
+                        هي البرمجيات التي يمكن استخدامها، ونسخها، ودراستها، وتعديلها، وإعادة توزيعها بدون قيود.
+                        وقد لجأت الكثير من الحكومات لهذه البرمجيات مثل حكومة البرازيل، ألمانيا، روسيا، بلجيكا، فنزويلا وغيرها.
+                    </p>
+                    <p>
+                        تكون البرمجيات حرة إذا امتلك مستخدموها الحريات الأساسية التالية:
+                    </p>
+                    <ul class="about-list">
+                        <li>حرية تشغيل البرنامج لأي غرض كان.</li>
+                        <li>حرية دراسة كيفية عمل البرنامج وتعديله ليعمل وفق رغباتك.</li>
+                        <li>حرية توزيع نسخ من إصداراتك المعدلة للآخرين.</li>
+                        <li>حرية تطوير البرنامج وتحسينه وإظهارها للعالم.</li>
+                    </ul>
+                    <hr>
+                    <h3>What is Free &amp; Open Source Software?</h3>
+                    <p>
+                        Free and open source software (FOSS) can be used, copied, studied, modified, and redistributed without restrictive limitations.
+                        Many governments around the world have adopted FOSS, such as Brazil, Germany, Russia, Belgium, Venezuela, and others.
+                    </p>
+                    <p>Software is considered “free” when users have the following essential freedoms:</p>
+                    <ul class="about-list">
+                        <li>The freedom to run the program for any purpose.</li>
+                        <li>The freedom to study how the program works and adapt it to your needs.</li>
+                        <li>The freedom to redistribute copies, including your modified versions.</li>
+                        <li>The freedom to improve the program and share your improvements with the world.</li>
+                    </ul>
+                </article>
+
+                <!-- National Initiative -->
+                <article class="about-panel" id="tab-initiative">
+                    <h2>مبادرة دعم البرمجيات الحرة والمفتوحة المصدر</h2>
+                    <p>
+                        تعتبر المبادرة الوطنية لدعم البرمجيات الحرة والمفتوحة المصدر جزءاً من إستراتيجية عمان الرقمية
+                        في تنمية قطاع تقنية المعلومات في السلطنة. وتم تدشين المبادرة في شهر مارس 2010م خلال فترة انعقاد
+                        ندوة البرمجيات الحرة بمسقط، وتدعم هيئة تقنية المعلومات هذه المبادرة بالتعاون مع المؤسسات الحكومية
+                        والمهنية ذات العلاقة.
+                    </p>
+                    <p>تهدف المبادرة إلى:</p>
+                    <ul class="about-list">
+                        <li>التعريف بالبرمجيات الحرة والمفتوحة المصدر كخيار بديل للبرمجيات الأخرى.</li>
+                        <li>بناء القدرات البشرية المتخصصة في مجال البرمجيات الحرة من خلال التدريب المتخصص.</li>
+                        <li>تشجيع البحث والتطوير والإبداع في مجال البرمجيات الحرة.</li>
+                    </ul>
+                    <hr>
+                    <h3>National FOSS Support Initiative</h3>
+                    <p>
+                        The national initiative to support free and open source software is part of Oman’s Digital Strategy
+                        for developing the ICT sector. It was launched in March 2010 during the Free Software Seminar in Muscat,
+                        and is supported by the Information Technology Authority in collaboration with relevant governmental
+                        and professional institutions.
+                    </p>
+                    <p>The initiative aims to:</p>
+                    <ul class="about-list">
+                        <li>Promote FOSS as a viable alternative to proprietary software.</li>
+                        <li>Build human capacity in FOSS through specialized training programs.</li>
+                        <li>Encourage research, development, and innovation in the FOSS ecosystem.</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer_container">
+        <div class="footer_main_content">
+            <div class="footer_brand footer_left">
+                <h3 id="footer-brand">Free and Open Source Software Society</h3>
+            </div>
+            <div class="footer_right">
+                <button id="footer-join" class="join_btn">Join Us</button>
+            </div>
+        </div>
+        <div class="footer_copyright" id="footer-copy">
+            2025 (c) FO3S
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

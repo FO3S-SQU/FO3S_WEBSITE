@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FO3S | Submit a Project</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="fo3s_logo-removebg-preview.png" alt="FO3S logo" />
+                </a>
+            </div>
+            <ul>
+                <li><a href="index.html" id="nav-home">Home</a></li>
+                <li><a href="about.html" id="nav-about">About</a></li>
+                <li><a href="index.html#upcoming_events" id="nav-events">Events</a></li>
+                <li><a href="contact.html" id="nav-contact">Contact</a></li>
+            </ul>
+            <div class="language_container">
+                <span class="lang_label">English</span>
+                <label class="switch">
+                    <input type="checkbox" id="language_toggle">
+                    <span class="slider round"></span>
+                    <span class="flag"></span>
+                </label>
+                <span class="lang_label">العربية</span>
+            </div>
+        </nav>
+    </header>
+
+    <main class="submit-main">
+        <section class="submit-hero">
+            <div class="submit-hero-text">
+                <p class="submit-kicker" id="submit-kicker">Project Submission</p>
+                <h1 id="submit-title">Submit your project to FO3S</h1>
+                <p class="submit-lead" id="submit-lead">
+                    Share your idea with the community. Fill in your basic info and the project details.
+                </p>
+            </div>
+        </section>
+
+        <section class="submit-shell">
+            <div class="submit-progress" aria-hidden="true">
+                <div class="submit-progress-bar" id="progress-bar"></div>
+            </div>
+
+            <form class="submit-form" id="projectForm" novalidate>
+                <div class="submit-grid">
+                    <!-- Visitor info -->
+                    <div class="submit-card">
+                        <div class="submit-card-head">
+                            <h2 id="card-visitor-title">Visitor information</h2>
+                            <p id="card-visitor-sub">Basic personal details</p>
+                        </div>
+
+                        <div class="field">
+                            <label for="fullName" id="lbl-fullname">Full name</label>
+                            <input id="fullName" name="fullName" type="text" autocomplete="name" required minlength="2" />
+                            <small class="hint" id="hint-fullname">Required</small>
+                        </div>
+
+                        <div class="field">
+                            <label for="email" id="lbl-email">Email</label>
+                            <input id="email" name="email" type="email" autocomplete="email" required />
+                            <small class="hint" id="hint-email">Required</small>
+                        </div>
+
+                        <div class="field">
+                            <label for="phone" id="lbl-phone">Phone (optional)</label>
+                            <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" />
+                            <small class="hint" id="hint-phone">Example: 9xxxxxxx</small>
+                        </div>
+
+                        <div class="field">
+                            <label for="org" id="lbl-org">University / Organization (optional)</label>
+                            <input id="org" name="org" type="text" autocomplete="organization" />
+                        </div>
+
+                        <div class="field">
+                            <label for="social" id="lbl-social">Social / GitHub (optional)</label>
+                            <input id="social" name="social" type="text" placeholder="github.com/username" />
+                        </div>
+                    </div>
+
+                    <!-- Project details -->
+                    <div class="submit-card">
+                        <div class="submit-card-head">
+                            <h2 id="card-project-title">Project details</h2>
+                            <p id="card-project-sub">Title, description, and links</p>
+                        </div>
+
+                        <div class="field">
+                            <label for="projectTitle" id="lbl-ptitle">Project title</label>
+                            <input id="projectTitle" name="projectTitle" type="text" required minlength="3" maxlength="80" />
+                            <small class="hint">
+                                <span id="hint-ptitle">Required</span>
+                                <span class="counter" id="count-ptitle">0/80</span>
+                            </small>
+                        </div>
+
+                        <div class="field">
+                            <label for="projectSummary" id="lbl-psummary">Short summary</label>
+                            <textarea id="projectSummary" name="projectSummary" rows="3" required minlength="10" maxlength="220"></textarea>
+                            <small class="hint">
+                                <span id="hint-psummary">Required</span>
+                                <span class="counter" id="count-psummary">0/220</span>
+                            </small>
+                        </div>
+
+                        <div class="field">
+                            <label for="projectDesc" id="lbl-pdesc">Full description</label>
+                            <textarea id="projectDesc" name="projectDesc" rows="6" required minlength="30" maxlength="1200"></textarea>
+                            <small class="hint">
+                                <span id="hint-pdesc">Required</span>
+                                <span class="counter" id="count-pdesc">0/1200</span>
+                            </small>
+                        </div>
+
+                        <div class="field">
+                            <label for="tech" id="lbl-tech">Technologies (optional)</label>
+                            <input id="tech" name="tech" type="text" placeholder="HTML, CSS, JS, Python..." />
+                        </div>
+
+                        <div class="field two-col">
+                            <div>
+                                <label for="repoUrl" id="lbl-repo">Repository URL (optional)</label>
+                                <input id="repoUrl" name="repoUrl" type="url" inputmode="url" placeholder="https://github.com/..." />
+                            </div>
+                            <div>
+                                <label for="demoUrl" id="lbl-demo">Demo URL (optional)</label>
+                                <input id="demoUrl" name="demoUrl" type="url" inputmode="url" placeholder="https://..." />
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="files" id="lbl-files">Attachments (optional)</label>
+                            <input id="files" name="files" type="file" multiple accept=".png,.jpg,.jpeg,.pdf,.zip" />
+                            <small class="hint" id="hint-files">You can attach screenshots or a PDF.</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="submit-actions">
+                    <label class="consent">
+                        <input type="checkbox" id="consent" required />
+                        <span id="lbl-consent">I agree to share these details with FO3S for review.</span>
+                    </label>
+
+                    <div class="submit-buttons">
+                        <button type="button" class="btn-ghost" id="previewBtn">
+                            <i class="fa-regular fa-eye"></i>
+                            <span id="btn-preview">Preview</span>
+                        </button>
+                        <button type="submit" class="btn-primary" id="submitBtn">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span id="btn-submit">Submit</span>
+                        </button>
+                    </div>
+
+                    <p class="submit-status" id="formStatus" role="status" aria-live="polite"></p>
+                </div>
+            </form>
+
+            <div class="preview-modal" id="previewModal" aria-hidden="true">
+                <div class="preview-card" role="dialog" aria-modal="true" aria-label="Preview">
+                    <button class="preview-close" id="previewClose" type="button" aria-label="Close">×</button>
+                    <h2 id="preview-title">Preview</h2>
+                    <div class="preview-content" id="previewContent"></div>
+                    <div class="preview-footer">
+                        <button type="button" class="btn-primary" id="previewOk">
+                            <span id="btn-preview-ok">Looks good</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer_container">
+        <div class="footer_main_content">
+            <div class="footer_brand footer_left">
+                <h3 id="footer-brand">Free and Open Source Software Society</h3>
+            </div>
+                    </a>
+            <div class="footer_right">
+                <button id="footer-join" class="join_btn">Join Us</button>
+            </div>
+        </div>
+        <div class="footer_copyright" id="footer-copy">
+            2025 (c) FO3S
+        </div>
+    </footer>
+
+    <script src="project-submit.js"></script>
+</body>
+</html>
+

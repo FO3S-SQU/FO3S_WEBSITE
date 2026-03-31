@@ -252,4 +252,32 @@ document.addEventListener('DOMContentLoaded', () => {
     if (languageToggle) languageToggle.checked = (savedLang === 'en');
     updateLanguage(savedLang);
 });
+                
+
+// --- About page tabs (if present) ---
+document.addEventListener('DOMContentLoaded', () => {
+    const tabButtons = document.querySelectorAll('.about-tab');
+    const panels = document.querySelectorAll('.about-panel');
+
+    if (!tabButtons.length || !panels.length) return;
+
+    tabButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const target = btn.getAttribute('data-tab');
+            if (!target) return;
+
+            // Activate button
+            tabButtons.forEach(b => b.classList.remove('is-active'));
+            btn.classList.add('is-active');
+
+            // Show matching panel
+            panels.forEach(panel => {
+                panel.classList.toggle(
+                    'is-active',
+                    panel.id === `tab-${target}`
+                );
+            });
+        });
+    });
+});
 
