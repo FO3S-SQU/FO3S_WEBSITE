@@ -101,24 +101,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 //--- end of the slideshow code ---
 
-//Card generation code starts below
 
-function generateTestCard() {
-    const container = document.getElementById('project-list');
-    
-    // Create the card element
-    const card = document.createElement('div');
-    card.className = 'project-card';
-    
-    
-    card.innerHTML = `
-        <h3>GHOST_DETECTOR_V1.0</h3>
-        <p><strong>LOG_ENTRY:</strong> uses EM wave to detect ghost and process the signal using C++.</p>
-        <a href="#" class="repo-url">ACCESS_SPECTRAL_DATA</a>
-    `;
-    
-        container.appendChild(card);
-}
 
 
 
@@ -161,7 +144,7 @@ const translations = {
         navEvents: "الفعاليات", 
         navContact: "تواصل معنا",
         heroSubtitle: "نتعلم لنبرمج، نبرمج لنتعلم",
-        heroTitle: "مرحباً بكم في جمعية <br> البرمجيات الحرة ومفتوحة المصدر",
+        heroTitle: "مرحباً بكم في جماعة <br> البرمجيات الحرة والمفتوحة المصدر",
         heroBtn: "انضم إلينا",
         labelMembers: "الأعضاء", 
         labelEvents: "فعالية مستضافة",
@@ -255,7 +238,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
                 
 
-// --- About page tabs (if present) ---
+
 document.addEventListener('DOMContentLoaded', () => {
     const tabButtons = document.querySelectorAll('.about-tab');
     const panels = document.querySelectorAll('.about-panel');
@@ -282,6 +265,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// Use a block scope to avoid variable name conflicts with other scripts
+{
+    const modal = document.getElementById("projectModal");
+    const openBtn = document.getElementById("invite-btn");
+    const closeBtn = document.getElementById("closeModal");
 
+    // Open Modal
+    if (openBtn) {
+        openBtn.addEventListener('click', () => {
+            modal.style.display = "flex";
+        });
+    }
+
+    // close Modal using X button
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = "none";
+        });
+    }
+
+    // Close Modal when clicking outside - using addEventListener to prevent overwriting other scripts
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+}
 
 

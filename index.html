@@ -16,7 +16,7 @@
                 <li><a href="#home" id="nav-home">Home</a></li>
                 <li><a href="about.html" id="nav-about">About</a></li>
                 <li><a href="#upcoming_events" id="nav-events">Events</a></li>
-                <li><a href="#contact" id="nav-contact">Contact</a></li>
+                
             </ul>
             <div class="language_container">
                <span class="lang_label">English</span>
@@ -72,23 +72,47 @@
     </main>
 
     <section class="member-projects">
-        <div class="container">
-            <h2 id="title-projects">Members Projects</h2>
+    <div class="container">
+        <h2 id="title-projects">Members Projects</h2>
 
-            <div class="invite-wrapper">
-                <div class="project-card invite-card">
-                    <div class="icon">🚀</div>
-                    <h3 id="invite-title">Fill our projects section with your creative projects</h3>
-                    <p id="invite-p">Built something cool? Share your GitHub link!</p>
-                    
-                    <button class="submit-btn" id="invite-btn" onclick="generateTestCard()">Submit Project (TEST)</button>
-                </div>
+        <div class="invite-wrapper">
+            <div class="project-card invite-card">
+                <div class="icon">🚀</div>
+                <h3 id="invite-title">Fill our projects section with your creative projects</h3>
+                <p id="invite-p">Built something cool? Share your GitHub link!</p>
+                <button class="submit-btn" id="invite-btn">Submit Project (TEST)</button>
             </div>
-
-            <div id="project-list" class="project-display-grid">
-                </div>
         </div>
-    </section>
+
+        <div id="project-list" class="project-display-grid">
+            </div>
+    </div>
+</section>
+
+<div id="projectModal" class="modal-overlay">
+    <div class="modal-content">
+        <span class="close-modal" id="closeModal">&times;</span>
+        <h2 style="color: var(--accent); margin-bottom: 20px;">Deploy to Fleet</h2>
+        
+        <form name="member-projects" method="POST" data-netlify="true" id="submissionForm">
+            <input type="hidden" name="form-name" value="member-projects" />
+
+            <div class="input-group">
+                <label>Project Title</label>
+                <input type="text" name="title" id="memberTitle" placeholder="e.g. ATmega8 Controller" required>
+            </div>
+            <div class="input-group">
+                <label>GitHub URL</label>
+                <input type="url" name="url" id="memberUrl" placeholder="https://github.com/..." required>
+            </div>
+            <div class="input-group">
+                <label>Brief Description</label>
+                <textarea name="description" id="memberDesc" maxlength="150" placeholder="Describe your masterpiece..." required></textarea>
+            </div>
+            <button type="submit" class="submit-btn" style="width: 100%;">Launch ⚓</button>
+        </form>
+    </div>
+</div>
 
 
     <footer class="footer_container">
