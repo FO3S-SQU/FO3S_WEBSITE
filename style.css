@@ -1,9 +1,7 @@
 html, body {
-    /* Prevents the 'rubber-band' effect on the whole page */
-    overscroll-behavior: none;
-    
-    /* Optional: If you only want to stop it vertically but allow it horizontally */
-    /* overscroll-behavior-y: none; */
+ 
+
+  overscroll-behavior: none; 
 }
 
 

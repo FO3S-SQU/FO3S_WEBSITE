@@ -124,6 +124,7 @@ function generateTestCard() {
 
 
 // 1. TRANSLATION DICTIONARY
+copyRight = `${new Date().getFullYear()} © FO3S`;
 const translations = {
     en: {
         navHome: "Home", 
@@ -145,7 +146,7 @@ const translations = {
         inviteBtn: "Submit Project",
         footerBrand: "Free and Open Source Software Society",
         footerJoin: "Join Us", 
-        footerCopy: "2025 (c) FO3S",
+        footerCopy: copyRight,
         // Modal
         modalTitle: "Suggest an Event",
         placeholderEmail: "Your Email",
@@ -174,7 +175,7 @@ const translations = {
         inviteBtn: "إرسال المشروع",
         footerBrand: "جماعة البرمجيات الحرة والمفتوحة المصدر",
         footerJoin: "انضم إلينا", 
-        footerCopy: "2025 (c) FO3S",
+        footerCopy: copyRight,
         // Modal
         modalTitle: "اقترح فعالية",
         placeholderEmail: "بريدك الإلكتروني",
@@ -252,4 +253,35 @@ document.addEventListener('DOMContentLoaded', () => {
     if (languageToggle) languageToggle.checked = (savedLang === 'en');
     updateLanguage(savedLang);
 });
+                
+
+// --- About page tabs (if present) ---
+document.addEventListener('DOMContentLoaded', () => {
+    const tabButtons = document.querySelectorAll('.about-tab');
+    const panels = document.querySelectorAll('.about-panel');
+
+    if (!tabButtons.length || !panels.length) return;
+
+    tabButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const target = btn.getAttribute('data-tab');
+            if (!target) return;
+
+            // Activate button
+            tabButtons.forEach(b => b.classList.remove('is-active'));
+            btn.classList.add('is-active');
+
+            // Show matching panel
+            panels.forEach(panel => {
+                panel.classList.toggle(
+                    'is-active',
+                    panel.id === `tab-${target}`
+                );
+            });
+        });
+    });
+});
+
+
+
 

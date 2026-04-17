@@ -14,7 +14,7 @@
             <div class="logo"><img src="fo3s_logo-removebg-preview.png" alt="logo" srcset=""></div>
             <ul>
                 <li><a href="#home" id="nav-home">Home</a></li>
-                <li><a href="#about" id="nav-about">About</a></li>
+                <li><a href="about.html" id="nav-about">About</a></li>
                 <li><a href="#upcoming_events" id="nav-events">Events</a></li>
                 <li><a href="#contact" id="nav-contact">Contact</a></li>
             </ul>
@@ -118,7 +118,10 @@
         </div>
         
         <div class="footer_copyright" id="footer-copy">
-            2025 (c) FO3S
+            <span id="copyright-year"></span> (c) FO3S
+                <script>
+                    document.getElementById('copyright-year').innerText = new Date().getFullYear();
+                </script>
         </div>
     </footer>
     <div id="ideaModal" class="modal-overlay">
