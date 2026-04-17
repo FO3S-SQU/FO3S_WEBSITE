@@ -1579,3 +1579,18 @@ h2[id$="_count"] {
 }
 
 
+
+#submissionForm {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; 
+}
+
+#submissionForm input, 
+#submissionForm textarea {
+    width: 100%;
+    
+    box-sizing: border-box; 
+}
+
+

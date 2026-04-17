@@ -270,27 +270,71 @@ document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById("projectModal");
     const openBtn = document.getElementById("invite-btn");
     const closeBtn = document.getElementById("closeModal");
+    const projectGrid = document.getElementById('project-list');
+    const submissionForm = document.getElementById('submissionForm');
 
-    // Open Modal
-    if (openBtn) {
-        openBtn.addEventListener('click', () => {
-            modal.style.display = "flex";
-        });
-    }
+    const hideModal = () => {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto";
+    };
 
-    // close Modal using X button
-    if (closeBtn) {
-        closeBtn.addEventListener('click', () => {
-            modal.style.display = "none";
-        });
-    }
-
-    // Close Modal when clicking outside - using addEventListener to prevent overwriting other scripts
-    window.addEventListener('click', (event) => {
-        if (event.target === modal) {
-            modal.style.display = "none";
-        }
+    if (openBtn) openBtn.addEventListener('click', () => {
+        modal.style.display = "flex";
+        document.body.style.overflow = "hidden";
     });
+
+    if (closeBtn) closeBtn.addEventListener('click', hideModal);
+
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) hideModal();
+    });
+
+    if (submissionForm) {
+        submissionForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const formData = new FormData(submissionForm);
+            
+            try {
+                await fetch("/", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body: new URLSearchParams(formData).toString(),
+                });
+                alert("⚓ Signal Sent to Fleet!");
+                hideModal();
+                submissionForm.reset();
+                setTimeout(updateFleetDisplay, 2000);
+            } catch (error) {
+                alert("❌ Connection lost. Check your signal.");
+            }
+        });
+    }
+
+    async function updateFleetDisplay() {
+        const API_URL = 'https://sheetdb.io/api/v1/5ix7dvsn155ip'; 
+
+        try {
+            const response = await fetch(API_URL);
+            const data = await response.json();
+
+            if (data && data.length > 0) {
+                projectGrid.innerHTML = ''; 
+                data.forEach(project => {
+                    projectGrid.innerHTML += `
+                        <div class="project-card">
+                            <div class="icon">🚀</div>
+                            <h3>${project.title}</h3>
+                            <p>${project.description}</p>
+                            <small>Built by: <strong>${project.owner}</strong></small>
+                            <br><br>
+                            <a href="${project.url}" target="_blank" class="submit-btn" style="text-decoration:none">View Source ⚓</a>
+                        </div>`;
+                });
+            }
+        } catch (err) {
+            console.log("Waiting for fleet signals...");
+        }
+    }
+
+    window.addEventListener('load', updateFleetDisplay);
 }
-
-

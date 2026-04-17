@@ -92,11 +92,14 @@
 <div id="projectModal" class="modal-overlay">
     <div class="modal-content">
         <span class="close-modal" id="closeModal">&times;</span>
-        <h2 style="color: var(--accent); margin-bottom: 20px;">Deploy to Fleet</h2>
+        <h2 style="color: var(--accent); margin-bottom: 20px;">Share us your masterpiece!</h2>
         
         <form name="member-projects" method="POST" data-netlify="true" id="submissionForm">
             <input type="hidden" name="form-name" value="member-projects" />
-
+            <div class="input-group">
+                <label>Owner Name</label>
+                <input type="text" name="owner" id="memberName" placeholder="e.g. the commodore" required>
+            </div>
             <div class="input-group">
                 <label>Project Title</label>
                 <input type="text" name="title" id="memberTitle" placeholder="e.g. ATmega8 Controller" required>
@@ -109,7 +112,7 @@
                 <label>Brief Description</label>
                 <textarea name="description" id="memberDesc" maxlength="150" placeholder="Describe your masterpiece..." required></textarea>
             </div>
-            <button type="submit" class="submit-btn" style="width: 100%;">Launch ⚓</button>
+            <button type="submit" class="submit-btn" style="width: 100%;">Post Project</button>
         </form>
     </div>
 </div>
@@ -126,9 +129,7 @@
                     <a href="#" class="social-link">
                         <i class="fab fa-instagram"></i> <span id="footer-ig">Instagram</span>
                     </a>
-                    <a href="#" class="social-link">
-                        <i class="fab fa-linkedin"></i> <span id="footer-li">LinkedIn</span>
-                    </a>
+                    
                     <a href="mailto:fo3s@squ.edu.om" class="social-link">
                         <i class="fas fa-envelope"></i> <span id="footer-mail">Email</span>
                     </a>
