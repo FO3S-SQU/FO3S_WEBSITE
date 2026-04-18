@@ -310,31 +310,36 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    async function updateFleetDisplay() {
-        const API_URL = 'https://script.google.com/macros/s/AKfycbyn-ihIDVR7d5AItkJ5g__6Wc8iG_9pgwTJZI0K1hSoG5Z5T5qHm9pRi8pMYP3T0ZW9/exec'; 
+ async function updateFleetDisplay() {
+    const API_URL = 'https://script.google.com/macros/s/AKfycbyn-ihIDVR7d5AItkJ5g__6Wc8iG_9pgwTJZI0K1hSoG5Z5T5qHm9pRi8pMYP3T0ZW9/exec'; 
 
-        try {
-            const response = await fetch(API_URL);
-            const data = await response.json();
+    try {
+        const response = await fetch(API_URL);
+        const data = await response.json();
 
-            if (data && data.length > 0) {
-                projectGrid.innerHTML = ''; 
-                data.forEach(project => {
-                    projectGrid.innerHTML += `
-                        <div class="project-card">
-                            <div class="icon">🚀</div>
-                            <h3>${project.title}</h3>
-                            <p>${project.description}</p>
-                            <small>Built by: <strong>${project.owner}</strong></small>
-                            <br><br>
-                            <a href="${project.url}" target="_blank" class="submit-btn" style="text-decoration:none">View Project</a>
-                        </div>`;
-                });
-            }
-        } catch (err) {
-            console.log("Waiting for fleet signals...");
+        if (data && data.length > 0) {
+            projectGrid.innerHTML = ''; // تنظيف الشبكة قبل العرض
+            
+            data.forEach(project => {
+                // استخراج البيانات مع دعم الحروف الكبيرة والصغيرة لضمان المرونة
+                const title = project.title || project.Title || "Untitled";
+                const desc = project.description || project.Description || "No description provided.";
+                const owner = project.owner || project.Owner || "Anonymous";
+                const url = project.url || project.Url || "#";
+
+                projectGrid.innerHTML += `
+                    <div class="project-card">
+                        <div class="icon">🚀</div>
+                        <h3>${title}</h3>
+                        <p>${desc}</p>
+                        <small>Built by: <strong>${owner}</strong></small>
+                        <br><br>
+                        <a href="${url}" target="_blank" class="submit-btn" style="text-decoration:none">View Project</a>
+                    </div>`;
+            });
         }
+    } catch (err) {
+        console.log("Waiting for fleet signals...");
     }
-
-    window.addEventListener('load', updateFleetDisplay);
+}
 } 
