@@ -312,34 +312,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function updateFleetDisplay() {
         const API_URL = 'https://script.google.com/macros/s/AKfycbyn-ihIDVR7d5AItkJ5g__6Wc8iG_9pgwTJZI0K1hSoG5Z5T5qHm9pRi8pMYP3T0ZW9/exec'; 
+        
+        const cachedData = localStorage.getItem('fleetData');
+        if (cachedData) {
+            renderProjects(JSON.parse(cachedData));
+        }
 
         try {
             const response = await fetch(API_URL);
             const data = await response.json();
 
             if (data && data.length > 0) {
-                projectGrid.innerHTML = ''; 
-                
-                data.forEach(project => {
-                    const title = project.title || project.Title || "Untitled";
-                    const desc = project.description || project.Description || "No description provided.";
-                    const owner = project.owner || project.Owner || "Anonymous";
-                    const url = project.url || project.Url || "#";
-
-                    projectGrid.innerHTML += `
-                        <div class="project-card">
-                            <div class="icon">🚀</div>
-                            <h3>${title}</h3>
-                            <p>${desc}</p>
-                            <small>Built by: <strong>${owner}</strong></small>
-                            <br><br>
-                            <a href="${url}" target="_blank" class="submit-btn" style="text-decoration:none">View Project</a>
-                        </div>`;
-                });
+                localStorage.setItem('fleetData', JSON.stringify(data));
+                renderProjects(data);
             }
         } catch (err) {
             console.log("Waiting for fleet signals...");
         }
+    }
+
+    function renderProjects(projects) {
+        if (!projectGrid) return;
+        projectGrid.innerHTML = ''; 
+        
+        projects.forEach(project => {
+            const title = project.title || project.Title || "Untitled";
+            const desc = project.description || project.Description || "No description provided.";
+            const owner = project.owner || project.Owner || "Anonymous";
+            const url = project.url || project.Url || "#";
+
+            projectGrid.innerHTML += `
+                <div class="project-card">
+                    <div class="icon">🚀</div>
+                    <h3>${title}</h3>
+                    <p>${desc}</p>
+                    <small>Built by: <strong>${owner}</strong></small>
+                    <br><br>
+                    <a href="${url}" target="_blank" class="submit-btn" style="text-decoration:none">View Project</a>
+                </div>`;
+        });
     }
 
     updateFleetDisplay();
