@@ -311,7 +311,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function updateFleetDisplay() {
-        const API_URL = 'https://script.google.com/macros/s/AKfycbxZ62b52hvUmh_UM2ublGgU6deSiMKB51GVKxv9w7erZXR9Nlh2TRrnyXpMMC9uDr2wJA/exec'; 
+        const API_URL = 'https://script.google.com/macros/s/AKfycbxIwNN58pFN4Kjr9qFAHYiTbfrQX0NvSH_9OIWHJszzcTTV_5GNfPiy62-ICSHHdrcdig/exec'; 
 
         try {
             const response = await fetch(API_URL);
@@ -337,4 +337,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     window.addEventListener('load', updateFleetDisplay);
-}
+} 
