@@ -303,7 +303,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert("Project submitted successfully!");
                 hideModal();
                 submissionForm.reset();
-                setTimeout(updateFleetDisplay, 2000);
+                setTimeout(updateFleetDisplay, 3000);
             } catch (error) {
                 alert("❌ Connection lost.");
             }
@@ -312,45 +312,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function updateFleetDisplay() {
         const API_URL = 'https://script.google.com/macros/s/AKfycbweKA_ZqYf-6VYXzOSWNXvLQ7QNQixlzrWnC5NpXZcvZYOnomZRzU4JvWCXfdkfeT8QkQ/exec'; 
-        
-        const cachedData = localStorage.getItem('fleetData');
-        if (cachedData) {
-            renderProjects(JSON.parse(cachedData));
-        }
 
         try {
             const response = await fetch(API_URL);
             const data = await response.json();
 
             if (data && data.length > 0) {
-                localStorage.setItem('fleetData', JSON.stringify(data));
-                renderProjects(data);
+                projectGrid.innerHTML = ''; 
+                
+                data.forEach(project => {
+                    const title = project.title || project.Title || "Untitled";
+                    const desc = project.description || project.Description || "No description provided.";
+                    const owner = project.owner || project.Owner || "Anonymous";
+                    const url = project.url || project.Url || "#";
+
+                    projectGrid.innerHTML += `
+                        <div class="project-card">
+                            <div class="icon">🚀</div>
+                            <h3>${title}</h3>
+                            <p>${desc}</p>
+                            <small>Built by: <strong>${owner}</strong></small>
+                            <br><br>
+                            <a href="${url}" target="_blank" class="submit-btn" style="text-decoration:none">View Project</a>
+                        </div>`;
+                });
+            } else {
+                projectGrid.innerHTML = '<p>No projects in the fleet yet.</p>';
             }
         } catch (err) {
             console.log("Waiting for fleet signals...");
         }
-    }
-
-    function renderProjects(projects) {
-        if (!projectGrid) return;
-        projectGrid.innerHTML = ''; 
-        
-        projects.forEach(project => {
-            const title = project.title || project.Title || "Untitled";
-            const desc = project.description || project.Description || "No description provided.";
-            const owner = project.owner || project.Owner || "Anonymous";
-            const url = project.url || project.Url || "#";
-
-            projectGrid.innerHTML += `
-                <div class="project-card">
-                    <div class="icon">🚀</div>
-                    <h3>${title}</h3>
-                    <p>${desc}</p>
-                    <small>Built by: <strong>${owner}</strong></small>
-                    <br><br>
-                    <a href="${url}" target="_blank" class="submit-btn" style="text-decoration:none">View Project</a>
-                </div>`;
-        });
     }
 
     updateFleetDisplay();
