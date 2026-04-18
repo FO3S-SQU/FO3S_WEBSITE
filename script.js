@@ -300,7 +300,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     headers: { "Content-Type": "application/x-www-form-urlencoded" },
                     body: new URLSearchParams(formData).toString(),
                 });
-                alert("⚓ Signal Sent to Fleet!");
+                alert("Project submitted successfully! It will appear on this page shortly.");
                 hideModal();
                 submissionForm.reset();
                 setTimeout(updateFleetDisplay, 2000);
@@ -311,7 +311,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function updateFleetDisplay() {
-        const API_URL = 'https://sheetdb.io/api/v1/5ix7dvsn155ip'; 
+        const API_URL = 'https://script.google.com/macros/s/AKfycbxZ62b52hvUmh_UM2ublGgU6deSiMKB51GVKxv9w7erZXR9Nlh2TRrnyXpMMC9uDr2wJA/exec'; 
 
         try {
             const response = await fetch(API_URL);
@@ -327,7 +327,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <p>${project.description}</p>
                             <small>Built by: <strong>${project.owner}</strong></small>
                             <br><br>
-                            <a href="${project.url}" target="_blank" class="submit-btn" style="text-decoration:none">View Source ⚓</a>
+                            <a href="${project.url}" target="_blank" class="submit-btn" style="text-decoration:none">View Project</a>
                         </div>`;
                 });
             }

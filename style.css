@@ -716,7 +716,7 @@ input, textarea {
     background: conic-gradient(
         transparent, 
         var(--color2), /* Color 2 */
-        var(--color3), /* Color 3 */
+        /* Color 3 */
         transparent 30%
     );
     animation: rotateLines 3s linear infinite;
