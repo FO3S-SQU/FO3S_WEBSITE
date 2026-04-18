@@ -311,7 +311,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function updateFleetDisplay() {
-        const API_URL = 'https://script.google.com/macros/s/AKfycbxIwNN58pFN4Kjr9qFAHYiTbfrQX0NvSH_9OIWHJszzcTTV_5GNfPiy62-ICSHHdrcdig/exec'; 
+        const API_URL = 'https://script.google.com/macros/s/AKfycbwXKS6URuab94MTTQVq4q7Py9A0Ns42Stu4WAe4KLhCLL2WzzYnwAiBAHYN1BR0LXTfQg/exec'; 
 
         try {
             const response = await fetch(API_URL);
