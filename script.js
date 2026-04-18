@@ -311,7 +311,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function updateFleetDisplay() {
-        const API_URL = 'https://script.google.com/macros/s/AKfycbyn-ihIDVR7d5AItkJ5g__6Wc8iG_9pgwTJZI0K1hSoG5Z5T5qHm9pRi8pMYP3T0ZW9/exec'; 
+        const API_URL = 'https://script.google.com/macros/s/AKfycbweKA_ZqYf-6VYXzOSWNXvLQ7QNQixlzrWnC5NpXZcvZYOnomZRzU4JvWCXfdkfeT8QkQ/exec'; 
         
         const cachedData = localStorage.getItem('fleetData');
         if (cachedData) {
