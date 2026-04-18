@@ -337,7 +337,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>`;
                 });
             } else {
-                projectGrid.innerHTML = '<p>No projects in the fleet yet.</p>';
+                projectGrid.innerHTML = '<p></p>';
             }
         } catch (err) {
             console.log("Waiting for fleet signals...");
