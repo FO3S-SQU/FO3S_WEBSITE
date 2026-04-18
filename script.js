@@ -300,46 +300,47 @@ document.addEventListener('DOMContentLoaded', () => {
                     headers: { "Content-Type": "application/x-www-form-urlencoded" },
                     body: new URLSearchParams(formData).toString(),
                 });
-                alert("Project submitted successfully! It will appear on this page shortly.");
+                alert("Project submitted successfully!");
                 hideModal();
                 submissionForm.reset();
                 setTimeout(updateFleetDisplay, 2000);
             } catch (error) {
-                alert("❌ Connection lost. Check your signal.");
+                alert("❌ Connection lost.");
             }
         });
     }
 
- async function updateFleetDisplay() {
-    const API_URL = 'https://script.google.com/macros/s/AKfycbyn-ihIDVR7d5AItkJ5g__6Wc8iG_9pgwTJZI0K1hSoG5Z5T5qHm9pRi8pMYP3T0ZW9/exec'; 
+    async function updateFleetDisplay() {
+        const API_URL = 'https://script.google.com/macros/s/AKfycbyn-ihIDVR7d5AItkJ5g__6Wc8iG_9pgwTJZI0K1hSoG5Z5T5qHm9pRi8pMYP3T0ZW9/exec'; 
 
-    try {
-        const response = await fetch(API_URL);
-        const data = await response.json();
+        try {
+            const response = await fetch(API_URL);
+            const data = await response.json();
 
-        if (data && data.length > 0) {
-            projectGrid.innerHTML = ''; // تنظيف الشبكة قبل العرض
-            
-            data.forEach(project => {
-                // استخراج البيانات مع دعم الحروف الكبيرة والصغيرة لضمان المرونة
-                const title = project.title || project.Title || "Untitled";
-                const desc = project.description || project.Description || "No description provided.";
-                const owner = project.owner || project.Owner || "Anonymous";
-                const url = project.url || project.Url || "#";
+            if (data && data.length > 0) {
+                projectGrid.innerHTML = ''; 
+                
+                data.forEach(project => {
+                    const title = project.title || project.Title || "Untitled";
+                    const desc = project.description || project.Description || "No description provided.";
+                    const owner = project.owner || project.Owner || "Anonymous";
+                    const url = project.url || project.Url || "#";
 
-                projectGrid.innerHTML += `
-                    <div class="project-card">
-                        <div class="icon">🚀</div>
-                        <h3>${title}</h3>
-                        <p>${desc}</p>
-                        <small>Built by: <strong>${owner}</strong></small>
-                        <br><br>
-                        <a href="${url}" target="_blank" class="submit-btn" style="text-decoration:none">View Project</a>
-                    </div>`;
-            });
+                    projectGrid.innerHTML += `
+                        <div class="project-card">
+                            <div class="icon">🚀</div>
+                            <h3>${title}</h3>
+                            <p>${desc}</p>
+                            <small>Built by: <strong>${owner}</strong></small>
+                            <br><br>
+                            <a href="${url}" target="_blank" class="submit-btn" style="text-decoration:none">View Project</a>
+                        </div>`;
+                });
+            }
+        } catch (err) {
+            console.log("Waiting for fleet signals...");
         }
-    } catch (err) {
-        console.log("Waiting for fleet signals...");
     }
+
+    updateFleetDisplay();
 }
-} 
