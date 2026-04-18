@@ -273,6 +273,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const projectGrid = document.getElementById('project-list');
     const submissionForm = document.getElementById('submissionForm');
 
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyEjP993_SYpEqXSR_zOjImnkSduo10XqETd_WYX0YC-TkYgu8yiABIq-mEWCYeDavBvw/exec';
+
     const hideModal = () => {
         modal.style.display = "none";
         document.body.style.overflow = "auto";
@@ -293,34 +295,43 @@ document.addEventListener('DOMContentLoaded', () => {
         submissionForm.addEventListener("submit", async (e) => {
             e.preventDefault();
             const formData = new FormData(submissionForm);
+            const url = (formData.get('url') || "").toLowerCase();
+
+            if (!url.includes("github.com")) {
+                alert("❌ Sabotage detected! Only GitHub URLs are allowed.");
+                return;
+            }
             
             try {
-                await fetch("/", {
+                await fetch(GOOGLE_SCRIPT_URL, {
                     method: "POST",
+                    mode: "no-cors",
                     headers: { "Content-Type": "application/x-www-form-urlencoded" },
                     body: new URLSearchParams(formData).toString(),
                 });
-                alert("Project submitted successfully!");
+                
+                alert("Project submitted successfully to the fleet!");
                 hideModal();
                 submissionForm.reset();
                 setTimeout(updateFleetDisplay, 3000);
             } catch (error) {
-                alert("❌ Connection lost.");
+                alert("❌ Signal lost. Check your connection.");
             }
         });
     }
 
     async function updateFleetDisplay() {
-        const API_URL = 'https://script.google.com/macros/s/AKfycbyEjP993_SYpEqXSR_zOjImnkSduo10XqETd_WYX0YC-TkYgu8yiABIq-mEWCYeDavBvw/exec'; 
-
         try {
-            const response = await fetch(API_URL);
+            const response = await fetch(GOOGLE_SCRIPT_URL);
             const data = await response.json();
 
             if (data && data.length > 0) {
                 projectGrid.innerHTML = ''; 
                 
-                data.forEach(project => {
+                
+                const reversedData = [...data].reverse();
+
+                reversedData.forEach(project => {
                     const title = project.title || project.Title || "Untitled";
                     const desc = project.description || project.Description || "No description provided.";
                     const owner = project.owner || project.Owner || "Anonymous";
