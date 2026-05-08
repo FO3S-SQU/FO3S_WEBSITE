@@ -1,9 +1,3 @@
-// Set copyright year dynamically
-const copyrightYearEl = document.getElementById('copyright-year');
-if (copyrightYearEl) {
-    copyrightYearEl.innerText = new Date().getFullYear();
-}
-
 const counters = document.querySelectorAll('h2[id$="_count"]');// Select all h2 elements with IDs ending with '_count'
 
 const animateCount = (element) => {
@@ -174,11 +168,21 @@ const translations = {
     }
 };
 
-const languageToggle = document.getElementById('language_toggle');
+// ── Language button listeners (wired after header.js injects the DOM) ──
+function setActiveLangBtn(lang) {
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('lang-btn--active', btn.dataset.lang === lang);
+    });
+}
 
-languageToggle.addEventListener('change', () => {
-    const lang = languageToggle.checked ? 'en' : 'ar';
-    updateLanguage(lang);
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const lang = btn.dataset.lang;
+            updateLanguage(lang);
+            setActiveLangBtn(lang);
+        });
+    });
 });
 
 function updateLanguage(lang) {
@@ -239,8 +243,8 @@ function updateLanguage(lang) {
 // Initial load check
 document.addEventListener('DOMContentLoaded', () => {
     const savedLang = localStorage.getItem('preferred_lang') || 'ar';
-    if (languageToggle) languageToggle.checked = (savedLang === 'en');
     updateLanguage(savedLang);
+    setActiveLangBtn(savedLang);
 });
                 
 

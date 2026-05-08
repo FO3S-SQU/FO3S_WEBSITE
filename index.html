@@ -14,32 +14,15 @@
     <link rel="icon" href="assets/images/fo3s-logo.png" type="image/png">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="component/header.js" defer></script>
+    <script src="component/footer.js" defer></script>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo"><img src="assets/images/fo3s-logo.png" alt="FO3S Logo"></div>
-            <ul>
-                <li><a href="#home" id="nav-home">Home</a></li>
-                <li><a href="about.html" id="nav-about">About</a></li>
-                <li><a href="#upcoming_events" id="nav-events">Events</a></li>
-                
-            </ul>
-            <div class="language_container">
-               <span class="lang_label">English</span>
-               <label class="switch">
-                    <input type="checkbox" id="language_toggle" aria-label="Toggle language between English and Arabic">
-                    <span class="slider round"></span>
-                    <span class="flag"></span>
-               </label>
-               <span class="lang_label">العربية</span>
-            </div>
-        </nav>
-    </header>
+    <header></header>
     <main>
         <section class="hero-slider">
             <div class="slider-wrapper">
-                <div class="c-slide active"><img src="assets/images/ws-preview.jpg" alt="FO3S Workshop 1"></div>
+                <div class="c-slide active"><img src="assets/images/ws-preview.webp" alt="FO3S Workshop 1"></div>
             </div>
 
             <div class="hero-content">
@@ -121,36 +104,7 @@
     </div>
 </div>
 
-    <footer class="footer_container">
-        <div class="footer_main_content">
-            <div class="footer_brand footer_left">
-                <h3 id="footer-brand">Free and Open Source Software Society</h3>
-            </div>
-
-            <div class="footer_nav_group footer_center">
-                <div class="footer_links">
-                    <a href="https://www.instagram.com/fo3s_squ" class="social-link" aria-label="FO3S on Instagram">
-                        <i class="fab fa-instagram" aria-hidden="true"></i> <span id="footer-ig">Instagram</span>
-                    </a>
-                    <a href="https://github.com/FO3S-SQU" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="FO3S on GitHub">
-                        <i class="fab fa-github" aria-hidden="true"></i> <span id="footer-github">GitHub</span>
-                    </a>
-                    <a href="mailto:fo3s@squ.edu.om" class="social-link" aria-label="Email FO3S">
-                        <i class="fas fa-envelope" aria-hidden="true"></i> <span id="footer-mail">Email</span>
-                    </a>
-                </div>
-            </div>
-            <div class="footer_right">
-             <a href="about.html"><button id="footer-join" class="join_btn">Join Us</button></a>
-            </div>
-                
-    
-        </div>
-        
-        <div class="footer_copyright" id="footer-copy">
-            <span id="copyright-year"></span> &copy; FO3S
-        </div>
-    </footer>
+    <footer></footer>
     <div id="ideaModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="ideaModalTitle">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal()" aria-label="Close modal">&times;</span>
