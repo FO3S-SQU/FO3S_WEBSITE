@@ -3,15 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free and open source software society</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <title>FO3S – Free and Open Source Software Society</title>
+    <meta name="description" content="Free and Open Source Software Society (FO3S) at Sultan Qaboos University. Learn to code, code to learn. Join workshops, explore member projects, and help spread FOSS culture.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fo3s-squ.github.io/FO3S_WEBSITE/">
+    <meta property="og:title" content="FO3S – Free and Open Source Software Society">
+    <meta property="og:description" content="A student community at SQU promoting free and open source software through events, projects, and knowledge sharing.">
+    <meta property="og:image" content="assets/images/fo3s_logo-removebg-preview.png">
+    <link rel="canonical" href="https://fo3s-squ.github.io/FO3S_WEBSITE/">
+    <link rel="icon" href="assets/images/fo3s_logo-removebg-preview.png" type="image/png">
+    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
     <header>
         <nav>
-            <div class="logo"><img src="fo3s_logo-removebg-preview.png" alt="logo" srcset=""></div>
+            <div class="logo"><img src="assets/images/fo3s_logo-removebg-preview.png" alt="FO3S Logo"></div>
             <ul>
                 <li><a href="#home" id="nav-home">Home</a></li>
                 <li><a href="about.html" id="nav-about">About</a></li>
@@ -21,7 +28,7 @@
             <div class="language_container">
                <span class="lang_label">English</span>
                <label class="switch">
-                    <input type="checkbox" id="language_toggle">
+                    <input type="checkbox" id="language_toggle" aria-label="Toggle language between English and Arabic">
                     <span class="slider round"></span>
                     <span class="flag"></span>
                </label>
@@ -32,15 +39,14 @@
     <main>
         <section class="hero-slider">
             <div class="slider-wrapper">
-                <div class="c-slide active"><img src="wkshp1.jpg"></div>
-                <div class="c-slide"><img src="wkshp2.jfif"></div>
-                <div class="c-slide"><img src="wkshp3.jfif"></div>
+                <div class="c-slide active"><img src="assets/images/wkshp1.jpg" alt="FO3S Workshop 1"></div>
+                <div class="c-slide"><img src="assets/images/wkshp2.jpg" alt="FO3S Workshop 2" loading="lazy"></div>
             </div>
 
             <div class="hero-content">
                 <p class="hero-subtitle" id="hero-subtitle">LEARN TO CODE, CODE TO LEARN</p>
                 <h1 class="hero-title" id="hero-title">Welcome to the Free and <br> Open Source Software Society</h1>
-                <a href="#" class="hero-btn" id="hero-btn">Join Us</a>
+                <a href="about.html" class="hero-btn" id="hero-btn">Join Us</a>
             </div>
         </section>
         <section id="statistics" class="stats-section">
@@ -64,7 +70,7 @@
                     <div class="placeholder-icon">💡</div>
                     <h3 id="event-empty-title">We're currently brainstorming!</h3>
                     <p id="event-empty-p">Have an idea for a special event? Share it with us!.</p>
-                    <button class="btn-small" id="event-btn" onclick="openModal()">Suggest an Idea</button>
+                    <button class="btn-small" id="event-btn" onclick="openModal()" aria-haspopup="dialog">Suggest an Idea</button>
                 </div>
             </div>
         </section>
@@ -89,10 +95,10 @@
     </div>
 </section>
 
-<div id="projectModal" class="modal-overlay">
+<div id="projectModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="projectModalTitle">
     <div class="modal-content">
-        <span class="close-modal" id="closeModal">&times;</span>
-        <h2 style="color: var(--accent); margin-bottom: 20px;">Share us your masterpiece!</h2>
+        <span class="close-modal" id="closeModal" aria-label="Close modal">&times;</span>
+        <h2 id="projectModalTitle" class="modal-heading">Share us your masterpiece!</h2>
         
         <form name="member-projects" id="submissionForm">
             <div class="input-group">
@@ -111,7 +117,7 @@
                 <label>Brief Description</label>
                 <textarea name="description" id="memberDesc" maxlength="150" placeholder="Describe your masterpiece..." required></textarea>
             </div>
-            <button type="submit" class="submit-btn" style="width: 100%;">Post Project</button>
+            <button type="submit" class="submit-btn submit-btn--full">Post Project</button>
         </form>
     </div>
 </div>
@@ -124,36 +130,32 @@
 
             <div class="footer_nav_group footer_center">
                 <div class="footer_links">
-                    <a href="https://www.instagram.com/fo3s_squ" class="social-link">
-                        <i class="fab fa-instagram"></i> <span id="footer-ig">Instagram</span>
+                    <a href="https://www.instagram.com/fo3s_squ" class="social-link" aria-label="FO3S on Instagram">
+                        <i class="fab fa-instagram" aria-hidden="true"></i> <span id="footer-ig">Instagram</span>
                     </a>
-                    <a href="https://github.com/FO3S-SQU" target="_blank" class="social-link">
-                        <i class="fab fa-github"></i> <span id="footer-github">GitHub</span>
+                    <a href="https://github.com/FO3S-SQU" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="FO3S on GitHub">
+                        <i class="fab fa-github" aria-hidden="true"></i> <span id="footer-github">GitHub</span>
                     </a>
-                    
-                    <a href="mailto:fo3s@squ.edu.om" class="social-link">
-                        <i class="fas fa-envelope"></i> <span id="footer-mail">Email</span>
+                    <a href="mailto:fo3s@squ.edu.om" class="social-link" aria-label="Email FO3S">
+                        <i class="fas fa-envelope" aria-hidden="true"></i> <span id="footer-mail">Email</span>
                     </a>
                 </div>
             </div>
             <div class="footer_right">
-             <button id="footer-join" class="join_btn">Join Us</button>
+             <a href="about.html"><button id="footer-join" class="join_btn">Join Us</button></a>
             </div>
                 
     
         </div>
         
         <div class="footer_copyright" id="footer-copy">
-            <span id="copyright-year"></span> (c) FO3S
-                <script>
-                    document.getElementById('copyright-year').innerText = new Date().getFullYear();
-                </script>
+            <span id="copyright-year"></span> &copy; FO3S
         </div>
     </footer>
-    <div id="ideaModal" class="modal-overlay">
+    <div id="ideaModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="ideaModalTitle">
         <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
-            <h2>Suggest an Event</h2>
+            <span class="close-btn" onclick="closeModal()" aria-label="Close modal">&times;</span>
+            <h2 id="ideaModalTitle">Suggest an Event</h2>
             
             <form id="ideaForm">
                 <input type="email" name="email" id="userEmail" placeholder="Your Email" required>
@@ -164,6 +166,6 @@
             </form>
         </div>
     </div>
-    <script src="script.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>

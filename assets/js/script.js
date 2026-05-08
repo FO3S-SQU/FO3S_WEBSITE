@@ -1,3 +1,9 @@
+// Set copyright year dynamically
+const copyrightYearEl = document.getElementById('copyright-year');
+if (copyrightYearEl) {
+    copyrightYearEl.innerText = new Date().getFullYear();
+}
+
 const counters = document.querySelectorAll('h2[id$="_count"]');// Select all h2 elements with IDs ending with '_count'
 
 const animateCount = (element) => {

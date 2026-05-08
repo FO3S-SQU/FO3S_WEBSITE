@@ -100,7 +100,7 @@ a:hover{
     padding: 60px 10%;
     background-color: #ffffff;
 }
-.btn_small {
+.btn-small {
     background-color: #0984e3; 
     color: #ffffff; 
     padding: 20px 40px;
@@ -151,7 +151,7 @@ footer {
 
 .join_btn {
     padding: 10px 20px;
-    
+    text-decoration: none;
 }
 
 
@@ -317,6 +317,15 @@ input:checked ~ .flag {
     position: relative;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+.modal-heading {
+    color: var(--accent);
+    margin-bottom: 20px;
+}
+
+.submit-btn--full {
+    width: 100%;
 }
 
 /* 3. The Form Elements */
