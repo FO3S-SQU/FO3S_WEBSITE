@@ -1,14 +1,6 @@
 html, body {
-    
     overscroll-behavior: none;
-    
-    
 }
-
-
-
-
-
 
 :root {
     --color1: #702A2E; /* Maroon */
@@ -17,19 +9,19 @@ html, body {
     --white: #ffffff;
 }
 
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 body {
-    
+    font-family: 'Inter', sans-serif;
     background-color: #f8f9fa; 
     color: #2d3436; 
     margin: 0;
 }
+
 header {
     background-color: #ffffff; 
     border-bottom: 1px solid #eaeaea;
@@ -42,6 +34,7 @@ header {
     top: 0;
     z-index: 100;
 }
+
 nav {
     display: flex;
     justify-content: space-between;
@@ -49,20 +42,24 @@ nav {
     flex-wrap: nowrap;
     gap: 20px;
 }
+
 ul{
     display: flex;
     justify-content: space-between;
     list-style: none;
     gap: 20px;
 }
+
 a{
     text-decoration: none;
     color:black;
     font-weight: bold;
 }
+
 a:hover{
     color: #2d3436;
 }
+
 #hero {
     height: 60vh; 
     display: flex;
@@ -84,6 +81,7 @@ a:hover{
     font-size: 1.2rem;
     margin-top: 10px;
 }
+
 #statistics {
     display: flex;
     justify-content: center;
@@ -93,14 +91,17 @@ a:hover{
     gap: 100px;
     border-bottom: 1px solid #eee;
 }
+
 .members_count_container,.events_count_container {
     text-align: center;
 }
+
 #upcoming_events {
     text-align: center;
     padding: 60px 10%;
     background-color: #ffffff;
 }
+
 .btn-small {
     background-color: #0984e3; 
     color: #ffffff; 
@@ -131,7 +132,6 @@ footer {
     
 }
 
-
 .footer_nav_group {
     display: flex;
     align-items: center;
@@ -143,7 +143,6 @@ footer {
     display: flex;
     gap: 20px; 
 }
-
 
 .footer_brand h3, 
 .join_btn {
@@ -252,10 +251,12 @@ footer {
 .nav-toggle.is-open .hamburger-line:nth-child(1) {
     transform: translateY(7px) rotate(45deg);
 }
+
 .nav-toggle.is-open .hamburger-line:nth-child(2) {
     opacity: 0;
     transform: scaleX(0);
 }
+
 .nav-toggle.is-open .hamburger-line:nth-child(3) {
     transform: translateY(-7px) rotate(-45deg);
 }
@@ -286,7 +287,6 @@ footer {
     margin-top: 10px;
 }
 
-
 /* 1. The Dimmed Background (Frosted Glass) */
 #ideaModal {
     display: none; 
@@ -311,7 +311,7 @@ footer {
     max-width: 400px;
     position: relative;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-    font-family: 'Segoe UI', Roboto, sans-serif;
+    font-family: inherit;
 }
 
 .modal-heading {
@@ -367,8 +367,6 @@ footer {
     transition: background 0.3s ease;
 }
 
-
-
 /* 5. Status Messages */
 #formStatus {
     font-size: 13px;
@@ -377,15 +375,16 @@ footer {
     min-height: 20px;
     font-weight: bold;
 }
+
 .close-btn{
     cursor: pointer;
     font-weight: bold;
 
 }
+
 .close-btn:hover {
     opacity: 0.7;
 }
-
 
 .hero-slider {
     position: relative;
@@ -426,7 +425,6 @@ footer {
     object-fit: cover;
 }
 
-
 .hero-content {
     position: relative;
     z-index: 10; /* Sits on top of the images */
@@ -455,9 +453,6 @@ footer {
 .hero-btn:hover {
     transform: scale(1.05);
 }
-
-
-
 
 .member-projects {
     padding: 60px 5%;
@@ -500,11 +495,9 @@ footer {
     text-align: center;
 }
 
-
 .project-card:hover {
     background: #fafafa;
 }
-
 
 .project-card h3 { 
     color: #000; 
@@ -526,7 +519,6 @@ footer {
     text-decoration: underline; 
 }
 
-
 .submit-btn {
     background-color: var(--color3) ;
     color: #fff;
@@ -538,11 +530,13 @@ footer {
     border-radius: 12px;
     transition: 0.2s ease;
 }
+
 .submit-btn:hover {
     background-color: var(--color1);
     transform: scale(1.05); 
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
+
 .submit-btn:active {
     transform: scale(0.95); 
 }
@@ -554,11 +548,9 @@ footer {
     }
 }
 
-
-
 /* Standard font for English, cleaner font for Arabic */
-body[dir="ltr"] { font-family: 'Courier New', monospace; }
-body[dir="rtl"] { font-family: 'Arial', sans-serif; text-align: right; }
+body[dir="ltr"] { font-family: 'Inter', sans-serif; }
+body[dir="rtl"] { font-family: 'Tajawal', sans-serif; text-align: right; }
 
 /* Flip the Navbar (desktop only) */
 body[dir="rtl"] nav { flex-direction: row-reverse; }
@@ -580,26 +572,20 @@ body[dir="rtl"] .footer_main_content {
     gap: 30px; 
 }
 
-
 body[dir="rtl"] .footer_links {
     display: flex;
     gap: 20px;
 
 }
 
-
 body[dir="rtl"] .footer_brand {
     text-align: right; 
     align-items: flex-start; /* For flex containers */
 }
 
-
 body[dir="rtl"] .footer_right {
     justify-content: flex-end; 
 }
-
-
-
 
 /*painting the page*/
 
@@ -610,7 +596,6 @@ body[dir="rtl"] .footer_right {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
 }
 
 /* 3. Header & Footer (Background Color 1) */
@@ -694,8 +679,6 @@ input, textarea {
     text-align: right;
 }
 
-
-
 /* The Join Button Container/Base */
 #footer-join {
     position: relative;
@@ -710,7 +693,6 @@ input, textarea {
     transition: all 0.5s ease; /* Smooth color transitions */
     z-index: 1;
 }
-
 
 #footer-join::before {
     content: '';
@@ -728,7 +710,6 @@ input, textarea {
     animation: rotateLines 3s linear infinite;
     z-index: -2;
 }
-
 
 #footer-join::after {
     content: '';
@@ -750,7 +731,6 @@ input, textarea {
     background: var(--color3); /* Smoothly transitions to Color 3 */
 }
 
-
 #footer-join:active {
     transform: scale(0.95);
 }
@@ -769,7 +749,6 @@ input, textarea {
     }
 }
 
-
 .stats-section {
     background: none !important;
     padding: 20px 0;
@@ -780,21 +759,18 @@ input, textarea {
     flex-wrap: wrap;
 }
 
-
 .stat-item {
     text-align: center;
     padding: 10px;
 }
 
-
 h2[id$="_count"] {
     color: black !important;
-    font-family: 'Arial', sans-serif; 
+    font-family: 'Inter', sans-serif;
     font-weight: 800 !important;   
     font-size: 2.2rem;             
     margin: 0;
 }
-
 
 #label-members, 
 #label-events {
@@ -806,17 +782,12 @@ h2[id$="_count"] {
     display: block;
 }
 
-
-
 .no-events {
     display: flex;
     flex-direction: column; 
     align-items: center;    
     text-align: center;
-    
-   
     gap: 12px; 
-    
     padding: 40px;
 }
 
@@ -836,17 +807,11 @@ h2[id$="_count"] {
     background-color: var(--color2);
 }
 
-
 .logo img {
-    
     height: 45px;    
     width: auto;    
-    
-    
     filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.8)) 
             drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
-
-   
     transition: transform 0.3s ease;
     display: block;
 }
@@ -854,7 +819,6 @@ h2[id$="_count"] {
 .logo img:hover {
     transform: scale(1.05); /* Very slight grow when hovered */
 }
-
 
 /* =========================
    About Page Styles
@@ -1625,9 +1589,6 @@ h2[id$="_count"] {
     }
 }
 
-
-
-
 .modal-content {
     background-color: #f4f4f9;
     border: 1px solid #d1d1d1;
@@ -1680,8 +1641,6 @@ h2[id$="_count"] {
     color: #333;
 }
 
-
-
 #submissionForm {
     display: flex;
     flex-direction: column;
@@ -1691,8 +1650,5 @@ h2[id$="_count"] {
 #submissionForm input, 
 #submissionForm textarea {
     width: 100%;
-    
     box-sizing: border-box; 
 }
-
-
