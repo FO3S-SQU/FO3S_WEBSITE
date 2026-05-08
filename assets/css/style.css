@@ -26,10 +26,7 @@ header {
     background-color: #ffffff; 
     border-bottom: 1px solid #eaeaea;
     padding: 15px 10%;
-    
-    
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); 
-    
     position: sticky;
     top: 0;
     z-index: 100;
@@ -144,16 +141,9 @@ footer {
     gap: 20px; 
 }
 
-.footer_brand h3, 
-.join_btn {
+.footer_brand h3{
     white-space: nowrap; 
 }
-
-.join_btn {
-    padding: 10px 20px;
-    text-decoration: none;
-}
-
 
 .footer_left{
     display: flex;
@@ -178,7 +168,6 @@ footer {
     width: 100%;
 }
 
-
 /* --- Language Switcher Pill --- */
 .lang-switcher {
     display: flex;
@@ -199,9 +188,18 @@ footer {
     cursor: pointer;
     transition: background 0.25s ease, color 0.25s ease;
     white-space: nowrap;
-    font-family: inherit;
     letter-spacing: 0.03em;
     line-height: 1.4;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.lang-flag {
+    width: 20px;
+    object-fit: cover;
+    border-radius: 2px;
+    display: block;
 }
 
 .lang-btn:hover,
@@ -311,7 +309,6 @@ footer {
     max-width: 400px;
     position: relative;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-    font-family: inherit;
 }
 
 .modal-heading {
@@ -552,6 +549,10 @@ footer {
 body[dir="ltr"] { font-family: 'Inter', sans-serif; }
 body[dir="rtl"] { font-family: 'Tajawal', sans-serif; text-align: right; }
 
+/* Per-language content visibility */
+body[dir="ltr"] :not(.lang-btn)[data-lang="ar"] { display: none; }
+body[dir="rtl"] :not(.lang-btn)[data-lang="en"] { display: none; }
+
 /* Flip the Navbar (desktop only) */
 body[dir="rtl"] nav { flex-direction: row-reverse; }
 @media (min-width: 769px) {
@@ -616,10 +617,9 @@ nav a,
 }
 
 /* 5. Buttons (Background Color 1) */
-.join_btn, 
+
 .btn, 
-#submit_idea_btn, 
-.join_btn_footer {
+#submit_idea_btn {
     background-color: var(--color1) !important;
     color: var(--white) !important;
     border: 1px solid var(--white); /* Added to make them visible against Maroon bg */
@@ -677,66 +677,6 @@ input, textarea {
 /*  RTL Support */
 [dir="rtl"] {
     text-align: right;
-}
-
-/* The Join Button Container/Base */
-#footer-join {
-    position: relative;
-    background-color: var(--color1); /* Color 1 */
-    color: var(--white);
-    padding: 12px 28px;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    overflow: hidden; /* Keeps the circulating lines inside the border radius */
-    transition: all 0.5s ease; /* Smooth color transitions */
-    z-index: 1;
-}
-
-#footer-join::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: conic-gradient(
-        transparent, 
-        var(--color2), /* Color 2 */
-        /* Color 3 */
-        transparent 30%
-    );
-    animation: rotateLines 3s linear infinite;
-    z-index: -2;
-}
-
-#footer-join::after {
-    content: '';
-    position: absolute;
-    inset: 3px; /* This creates the 'thickness' of the circulating line */
-    background: var(--color1);
-    border-radius: 5px;
-    z-index: -1;
-    transition: background 0.5s ease;
-}
-
-/* Hover Effect: Smoothly change background to Color 3 */
-#footer-join:hover {
-    color: var(--white);
-    transform: scale(1.05);
-}
-
-#footer-join:hover::after {
-    background: var(--color3); /* Smoothly transitions to Color 3 */
-}
-
-#footer-join:active {
-    transform: scale(0.95);
-}
-
-#footer-join:active::after {
-    background: var(--color2);
 }
 
 /* The Animation for the circulating lines */
@@ -1614,7 +1554,6 @@ h2[id$="_count"] {
     border-radius: 10px;
     padding: 12px;
     color: #333;
-    font-family: inherit;
     transition: 0.3s;
 }
 

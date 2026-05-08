@@ -30,12 +30,6 @@
                     </a>
                 </div>
             </div>
-
-            <div class="footer_right">
-                <a href="about.html">
-                    <button id="footer-join" class="join_btn">Join Us</button>
-                </a>
-            </div>
         </div>
 
         <div class="footer_copyright" id="footer-copy">

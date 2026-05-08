@@ -128,7 +128,6 @@ const translations = {
         inviteP: "Built something cool? Share your GitHub link!",
         inviteBtn: "Submit Project",
         footerBrand: "Free and Open Source Software Society",
-        footerJoin: "Join Us", 
         footerCopy: copyRight,
         // Modal
         modalTitle: "Suggest an Event",
@@ -157,7 +156,6 @@ const translations = {
         inviteP: "شاركنا مشروعك عبر رابط GitHub!",
         inviteBtn: "إرسال المشروع",
         footerBrand: "جماعة البرمجيات الحرة والمفتوحة المصدر",
-        footerJoin: "انضم إلينا", 
         footerCopy: copyRight,
         // Modal
         modalTitle: "اقترح فعالية",
@@ -227,7 +225,6 @@ function updateLanguage(lang) {
     
     // Footer
     setEl('footer-brand', t.footerBrand);
-    setEl('footer-join', t.footerJoin);
     setEl('footer-copy', t.footerCopy);
 
     // Modal Text & Placeholders

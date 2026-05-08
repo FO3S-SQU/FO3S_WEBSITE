@@ -27,16 +27,16 @@
             </ul>
 
             <div class="nav-right">
-                <div class="lang-switcher" role="group" aria-label="Language selection">
-                    <button class="lang-btn" data-lang="ar">\uD83C\uDDF4\uD83C\uDDF2 AR</button>
-                    <button class="lang-btn" data-lang="en">\uD83C\uDDEC\uD83C\uDDE7 EN</button>
-                </div>
-
                 <button class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false">
                     <span class="hamburger-line"></span>
                     <span class="hamburger-line"></span>
                     <span class="hamburger-line"></span>
                 </button>
+
+                <div class="lang-switcher" role="group" aria-label="Language selection">
+                    <button class="lang-btn" data-lang="ar"><img src="assets/images/oman.webp" alt="Oman flag" class="lang-flag"> AR</button>
+                    <button class="lang-btn" data-lang="en"><img src="assets/images/uk.webp" alt="UK flag" class="lang-flag"> EN</button>
+                </div>
             </div>
         </nav>
     `;
