@@ -561,3 +561,32 @@
       .join-section { padding: 52px 20px; }
       footer { padding: 20px; flex-direction: column; align-items: flex-start; }
     }
+
+    html[dir="rtl"] body {
+      direction: rtl;
+      font-family: 'Noto Sans Arabic', var(--sans);
+      text-align: right;
+    }
+
+    html[dir="rtl"] .nav-logo,
+    html[dir="rtl"] .terminal,
+    html[dir="rtl"] .terminal-body,
+    html[dir="rtl"] .footer-logo {
+      direction: ltr;
+      text-align: left;
+    }
+
+    html[dir="rtl"] .hero-eyebrow {
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+    }
+
+    html[dir="rtl"] .freedom,
+    html[dir="rtl"] .event,
+    html[dir="rtl"] .initiative-card {
+      text-align: right;
+    }
+
+    html[dir="rtl"] .initiative-goals li::before {
+      content: '←';
+    }
