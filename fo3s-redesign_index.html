@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FO3S – Free & Open Source Software Society</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -561,3 +571,354 @@
       .join-section { padding: 52px 20px; }
       footer { padding: 20px; flex-direction: column; align-items: flex-start; }
     }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#home" class="nav-logo">
+    <img src="https://fo3s-squ.github.io/FO3S_WEBSITE/fo3s_logo-removebg-preview.png" alt="FO3S logo" />
+    <div>
+      <span class="nav-logo-text">FO3S</span>
+      <span class="nav-logo-sub">Sultan Qaboos University</span>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#freedoms">What is FOSS</a>
+    <a href="#events">Events</a>
+    <a href="#projects">Projects</a>
+    <button class="nav-lang" title="Switch to Arabic">ع</button>
+    <a href="#join" class="btn-join-nav">Join us ↗</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">Since 2010 · Sultan Qaboos University · ITA Partnership</div>
+      <h1>Build freely.<br><em>Share openly.</em></h1>
+      <p class="hero-sub">
+        Oman's student-led free and open source software community — founded at SQU in 2010
+        with a mission to spread open-source culture, build local capacity, and contribute back to the world.
+      </p>
+
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="dot dot-r"></div>
+          <div class="dot dot-y"></div>
+          <div class="dot dot-g"></div>
+          <span class="terminal-title">fo3s-mission.sh</span>
+        </div>
+        <div class="terminal-body">
+          <div><span class="t-prompt">$</span><span id="typed-cmd"></span><span class="cursor"></span></div>
+          <span class="t-out" id="typed-out" style="opacity:0"></span>
+        </div>
+      </div>
+
+      <div class="hero-ctas">
+        <a href="#join" class="btn-primary">Become a member ↗</a>
+        <a href="https://github.com/FO3S-SQU" target="_blank" class="btn-secondary">GitHub →</a>
+      </div>
+    </div>
+
+    <div class="hero-logo-display">
+      <img src="https://fo3s-squ.github.io/FO3S_WEBSITE/fo3s_logo-removebg-preview.png" alt="FO3S" />
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat">
+    <div class="stat-val">2010</div>
+    <div class="stat-lbl">Founded</div>
+  </div>
+  <div class="stat">
+    <div class="stat-val">ITA</div>
+    <div class="stat-lbl">Backed by</div>
+  </div>
+  <div class="stat">
+    <div class="stat-val">4</div>
+    <div class="stat-lbl">Core freedoms</div>
+  </div>
+  <div class="stat">
+    <div class="stat-val">∞</div>
+    <div class="stat-lbl">Open to all</div>
+  </div>
+</div>
+
+<!-- WORKSHOP PHOTO STRIP -->
+<div class="photo-strip">
+  <div class="photo-strip-inner">
+    <div class="photo-slot">
+      <img src="https://fo3s-squ.github.io/FO3S_WEBSITE/wkshp1.jpg" alt="FO3S workshop" />
+      <span class="photo-slot-label">Workshop</span>
+    </div>
+    <div class="photo-slot">
+      <img src="https://fo3s-squ.github.io/FO3S_WEBSITE/wkshp2.jfif" alt="FO3S session" />
+      <span class="photo-slot-label">Community</span>
+    </div>
+    <div class="photo-slot">
+      <img src="https://fo3s-squ.github.io/FO3S_WEBSITE/wkshp3.jfif" alt="FO3S event" />
+      <span class="photo-slot-label">Events</span>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="sec-label">// من نحن — who we are</div>
+  <h2 class="sec-title">FO3S – Free &amp; Open Source Software Society</h2>
+  <p class="sec-desc">
+    Founded in 2010 under the supervision of the Communication and Information Research Center at SQU,
+    following a memorandum of understanding with the Information Technology Authority (ITA).
+    We believe openness, collaboration, and free knowledge are the foundation of meaningful technology.
+  </p>
+  <div class="about-grid">
+    <div class="about-card">
+      <div class="about-card-icon">🎙️</div>
+      <h3>Conferences, exhibitions &amp; workshops</h3>
+      <p>Regular technical events open to all students — from install fests to full-day symposiums on open-source technology and culture.</p>
+    </div>
+    <div class="about-card">
+      <div class="about-card-icon">📰</div>
+      <h3>Projects, newsletters &amp; printed materials</h3>
+      <p>We produce resources that spread FOSS knowledge across the university and beyond — both digital and in print.</p>
+    </div>
+    <div class="about-card">
+      <div class="about-card-icon">🧪</div>
+      <h3>Community labs &amp; technical support</h3>
+      <p>Access our equipped labs, get hands-on help, and find mentorship from peers who've been building in the open-source world.</p>
+    </div>
+    <div class="about-card">
+      <div class="about-card-icon">🇴🇲</div>
+      <h3>The first Omani GNU/Linux distribution</h3>
+      <p>Our flagship long-term project — building an Omani-made GNU/Linux distro and replacing proprietary software in institutions with free alternatives.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- FOUR FREEDOMS -->
+<section class="freedoms-section" id="freedoms">
+  <div class="sec-label">// ما هي البرمجيات الحرة — what is FOSS</div>
+  <h2 class="sec-title">The four essential freedoms</h2>
+  <p class="sec-desc">
+    Software is considered "free" when its users have these four freedoms. Governments across
+    Brazil, Germany, Russia, Belgium, Venezuela and others have adopted FOSS as policy.
+  </p>
+  <div class="freedoms-grid">
+    <div class="freedom">
+      <div class="freedom-num">00</div>
+      <div>
+        <h3>Freedom to run</h3>
+        <p>Run the program for any purpose, without restriction or limitation.</p>
+        <div class="freedom-ar">حرية تشغيل البرنامج لأي غرض كان</div>
+      </div>
+    </div>
+    <div class="freedom">
+      <div class="freedom-num">01</div>
+      <div>
+        <h3>Freedom to study</h3>
+        <p>Study how the program works and adapt it to your needs. Access to source code is required.</p>
+        <div class="freedom-ar">حرية دراسة كيفية عمل البرنامج وتعديله</div>
+      </div>
+    </div>
+    <div class="freedom">
+      <div class="freedom-num">02</div>
+      <div>
+        <h3>Freedom to redistribute</h3>
+        <p>Share copies freely so you can help your community and the wider world.</p>
+        <div class="freedom-ar">حرية توزيع نسخ من إصداراتك المعدلة</div>
+      </div>
+    </div>
+    <div class="freedom">
+      <div class="freedom-num">03</div>
+      <div>
+        <h3>Freedom to improve</h3>
+        <p>Improve the program and release your improvements publicly so the whole community benefits.</p>
+        <div class="freedom-ar">حرية تطوير البرنامج وتحسينه وإظهارها للعالم</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- NATIONAL INITIATIVE -->
+<section class="initiative" id="initiative">
+  <div class="sec-label">// المبادرة الوطنية — national initiative</div>
+  <h2 class="sec-title">Oman's FOSS support initiative</h2>
+  <p class="sec-desc">Part of Oman's Digital Strategy for developing the ICT sector, launched March 2010 during the Free Software Seminar in Muscat.</p>
+  <div class="initiative-card">
+    <div class="initiative-badge">🇴🇲</div>
+    <div>
+      <h3>National FOSS Support Initiative — مبادرة دعم البرمجيات الحرة</h3>
+      <p>Supported by the Information Technology Authority (ITA) in collaboration with governmental and professional institutions across Oman, the initiative aims to build a sustainable open-source ecosystem in the Sultanate.</p>
+      <ul class="initiative-goals">
+        <li>Promote FOSS as a viable alternative to proprietary software across institutions</li>
+        <li>Build human capacity in FOSS through specialized training programs</li>
+        <li>Encourage research, development, and innovation in the FOSS ecosystem</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- EVENTS -->
+<section id="events">
+  <div class="sec-label">// upcoming events</div>
+  <h2 class="sec-title">What's on</h2>
+  <p class="sec-desc">Workshops, talks, and community sessions — all open to SQU students of any major or skill level.</p>
+  <div class="events-list">
+    <div class="event-empty">
+      <p>We're currently brainstorming our next events. Have an idea? We'd love to hear it.</p>
+      <button class="btn-primary" onclick="document.getElementById('suggest-modal').classList.add('open')">Suggest an idea →</button>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- PROJECTS -->
+<section id="projects" style="background: var(--surface);">
+  <div class="sec-label">// member projects</div>
+  <h2 class="sec-title">Built by the community</h2>
+  <p class="sec-desc">SQU students building in the open. Share your project so others can learn from, use, and contribute to your work.</p>
+  <div class="projects-grid">
+    <div class="project-empty">
+      <p>Our projects board is open. Built something cool? Share it with the FO3S community.</p>
+      <button class="btn-primary" onclick="document.getElementById('project-modal').classList.add('open')">Submit your project →</button>
+    </div>
+  </div>
+</section>
+
+<!-- JOIN -->
+<section class="join-section" id="join">
+  <div class="join-badge">// open to all SQU students</div>
+  <h2>Start contributing today</h2>
+  <p>No experience required — just curiosity and a willingness to learn, share, and build in the open.</p>
+  <div class="join-ctas">
+    <a href="mailto:fo3s@squ.edu.om" class="btn-primary">Get in touch ↗</a>
+    <a href="https://www.instagram.com/fo3s_squ" target="_blank" class="btn-secondary">Instagram →</a>
+    <a href="https://github.com/FO3S-SQU" target="_blank" class="btn-secondary">GitHub →</a>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <div class="contact-card-label">Phone</div>
+      <div class="contact-card-val">24143697</div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-card-label">Email</div>
+      <div class="contact-card-val">fo3s@squ.edu.om</div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-card-label">Instagram</div>
+      <div class="contact-card-val">@fo3s_squ</div>
+    </div>
+  </div>
+  <div class="topic-cloud">
+    <span class="topic">linux</span>
+    <span class="topic">git</span>
+    <span class="topic">python</span>
+    <span class="topic">gnu</span>
+    <span class="topic">web</span>
+    <span class="topic">security</span>
+    <span class="topic">devops</span>
+    <span class="topic">ai</span>
+    <span class="topic">privacy</span>
+    <span class="topic">عمان</span>
+    <span class="topic">مفتوح المصدر</span>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <img src="https://fo3s-squ.github.io/FO3S_WEBSITE/fo3s_logo-removebg-preview.png" alt="FO3S" />
+    <span>Free &amp; Open Source Software Society · Sultan Qaboos University</span>
+  </div>
+  <div class="footer-links">
+    <a href="https://www.instagram.com/fo3s_squ" target="_blank">Instagram</a>
+    <a href="https://github.com/FO3S-SQU" target="_blank">GitHub</a>
+    <a href="mailto:fo3s@squ.edu.om">Email</a>
+    <a href="about.html">About</a>
+  </div>
+  <div class="footer-copy">© 2025 FO3S · جماعة البرمجيات الحرة</div>
+</footer>
+
+<!-- SUGGEST MODAL -->
+<div class="modal-overlay" id="suggest-modal">
+  <div class="modal">
+    <button class="modal-close" onclick="document.getElementById('suggest-modal').classList.remove('open')">✕</button>
+    <h3>Suggest an event</h3>
+    <p>Have an idea for a talk, workshop, or hackathon? Let the team know.</p>
+    <div class="field"><label>YOUR NAME</label><input type="text" placeholder="Ahmed Al-Balushi" /></div>
+    <div class="field"><label>EVENT IDEA</label><textarea placeholder="A workshop on setting up your first Linux environment..."></textarea></div>
+    <button class="btn-primary" style="width:100%;justify-content:center;text-align:center;">Submit idea</button>
+  </div>
+</div>
+
+<!-- PROJECT MODAL -->
+<div class="modal-overlay" id="project-modal">
+  <div class="modal">
+    <button class="modal-close" onclick="document.getElementById('project-modal').classList.remove('open')">✕</button>
+    <h3>Share your project</h3>
+    <p>Built something? Add it to the FO3S community board.</p>
+    <div class="field"><label>YOUR NAME</label><input type="text" placeholder="Fatma Al-Rashdi" /></div>
+    <div class="field"><label>PROJECT TITLE</label><input type="text" placeholder="SQU Timetable Generator" /></div>
+    <div class="field"><label>GITHUB URL</label><input type="url" placeholder="https://github.com/you/project" /></div>
+    <div class="field"><label>BRIEF DESCRIPTION</label><textarea placeholder="What does it do and what's it built with?"></textarea></div>
+    <button class="btn-primary" style="width:100%;justify-content:center;text-align:center;">Submit project</button>
+  </div>
+</div>
+
+<script>
+  // Terminal typewriter with brand-accurate content
+  const lines = [
+    { cmd: 'echo "founded at SQU in partnership with ITA, 2010"', out: '→ Building open-source culture in Oman since day one.' },
+    { cmd: 'sudo apt install open-source-mindset', out: '→ Package installed. Reboot your thinking.' },
+    { cmd: 'git clone https://github.com/FO3S-SQU', out: '→ Cloning into community... done. Welcome aboard.' },
+    { cmd: 'cat /etc/fo3s/four-freedoms.txt', out: '→ Run. Study. Redistribute. Improve.' },
+    { cmd: 'ls ./goals/ | head -1', out: '→ first-omani-gnu-linux-distro/' },
+  ];
+  let li = 0, ci = 0, phase = 'typing';
+  const cmdEl = document.getElementById('typed-cmd');
+  const outEl = document.getElementById('typed-out');
+
+  function tick() {
+    const l = lines[li];
+    if (phase === 'typing') {
+      cmdEl.textContent = l.cmd.slice(0, ci++);
+      if (ci > l.cmd.length) {
+        phase = 'showing';
+        outEl.textContent = l.out;
+        outEl.style.opacity = '1';
+        return setTimeout(tick, 1800);
+      }
+      setTimeout(tick, 38);
+    } else if (phase === 'showing') {
+      phase = 'clearing';
+      outEl.style.opacity = '0';
+      setTimeout(tick, 400);
+    } else {
+      li = (li + 1) % lines.length;
+      ci = 0; phase = 'typing';
+      cmdEl.textContent = '';
+      setTimeout(tick, 300);
+    }
+  }
+  tick();
+
+  // Close modals on backdrop click
+  document.querySelectorAll('.modal-overlay').forEach(el => {
+    el.addEventListener('click', e => { if (e.target === el) el.classList.remove('open'); });
+  });
+</script>
+</body>
+</html>

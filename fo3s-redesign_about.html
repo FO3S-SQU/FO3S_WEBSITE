@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About – FO3S · Free & Open Source Software Society</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --maroon:      #6C2424;
+      --maroon-deep: #4A1818;
+      --maroon-mid:  #8B3030;
+      --maroon-soft: rgba(108,36,36,0.12);
+      --gold:        #E4C024;
+      --gold-deep:   #B89818;
+      --gold-soft:   rgba(228,192,36,0.12);
+      --green:       #3C8430;
+      --green-deep:  #2A5E21;
+      --green-soft:  rgba(60,132,48,0.12);
+      --bg:          #0F0A0A;
+      --surface:     #180E0E;
+      --card:        #1E1212;
+      --border:      #2E1E1E;
+      --dim:         #5A3E3E;
+      --muted:       #9A8080;
+      --text:        #F0E8E8;
+      --mono: 'JetBrains Mono', monospace;
+      --sans: 'Inter', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px; height: 64px;
+      background: rgba(15,10,10,0.93);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 12px;
+      text-decoration: none;
+    }
+    .nav-logo img { height: 38px; width: auto; }
+    .nav-logo-text {
+      font-family: var(--mono); font-size: 16px; font-weight: 700;
+      color: var(--gold); letter-spacing: -0.3px; line-height: 1.1;
+    }
+    .nav-logo-sub {
+      font-family: var(--sans); font-size: 10px; font-weight: 400;
+      color: var(--muted); letter-spacing: 0.5px; display: block;
+    }
+    .nav-links { display: flex; align-items: center; gap: 2px; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none;
+      font-size: 13px; padding: 6px 13px; border-radius: 6px;
+      transition: color .15s, background .15s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); background: var(--surface); }
+    .nav-links a.active { color: var(--gold); }
+    .nav-lang {
+      font-family: var(--mono); font-size: 12px; color: var(--dim);
+      cursor: pointer; padding: 5px 10px;
+      border: 1px solid var(--border); border-radius: 5px;
+      background: transparent; margin-left: 6px;
+      transition: color .15s, border-color .15s;
+    }
+    .nav-lang:hover { color: var(--muted); border-color: var(--dim); }
+    .btn-join-nav {
+      margin-left: 10px; background: var(--maroon); color: var(--gold);
+      border: 1px solid var(--maroon-mid); padding: 7px 18px;
+      border-radius: 6px; font-size: 13px; font-weight: 600;
+      font-family: var(--sans); cursor: pointer; text-decoration: none;
+      transition: background .15s;
+    }
+    .btn-join-nav:hover { background: var(--maroon-mid); }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      padding: 64px 40px 52px;
+      position: relative; overflow: hidden;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-header::before {
+      content: '';
+      position: absolute; top: -80px; right: -60px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(228,192,36,.05) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .breadcrumb {
+      font-family: var(--mono); font-size: 12px;
+      color: var(--dim); margin-bottom: 20px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .breadcrumb a { color: var(--muted); text-decoration: none; transition: color .15s; }
+    .breadcrumb a:hover { color: var(--gold); }
+    .breadcrumb-sep { color: var(--dim); }
+    .breadcrumb-cur { color: var(--gold); }
+
+    .page-header h1 {
+      font-family: var(--mono);
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 700; line-height: 1.15;
+      letter-spacing: -1.5px; color: var(--text);
+      margin-bottom: 14px;
+    }
+    .page-header h1 em { color: var(--gold); font-style: normal; }
+    .page-header p {
+      font-size: 16px; color: var(--muted);
+      max-width: 560px; line-height: 1.7;
+    }
+
+    /* ── SHARED ── */
+    .sec-label {
+      font-family: var(--mono); font-size: 11px;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--green); margin-bottom: 12px;
+    }
+    .sec-title {
+      font-size: 22px; font-weight: 700;
+      color: var(--text); margin-bottom: 10px; line-height: 1.3;
+    }
+    .sec-desc {
+      font-size: 14px; color: var(--muted);
+      max-width: 600px; margin-bottom: 36px; line-height: 1.7;
+    }
+    section { padding: 56px 40px; }
+    hr.divider { border: none; border-top: 1px solid var(--border); }
+
+    .btn-primary {
+      background: var(--maroon); color: var(--gold);
+      border: 1px solid var(--maroon-mid);
+      padding: 11px 26px; border-radius: 7px;
+      font-size: 14px; font-weight: 600;
+      font-family: var(--sans); cursor: pointer;
+      text-decoration: none; display: inline-block;
+      transition: background .15s;
+    }
+    .btn-primary:hover { background: var(--maroon-mid); }
+    .btn-secondary {
+      background: transparent; color: var(--text);
+      border: 1px solid var(--border); padding: 11px 26px;
+      border-radius: 7px; font-size: 14px; font-weight: 500;
+      font-family: var(--sans); cursor: pointer;
+      text-decoration: none; display: inline-block;
+      transition: border-color .15s, background .15s;
+    }
+    .btn-secondary:hover { border-color: var(--dim); background: var(--surface); }
+
+    /* ── MISSION SPLIT ── */
+    .mission-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+      align-items: start;
+    }
+    .mission-text p {
+      font-size: 14px; color: var(--muted); line-height: 1.75;
+      margin-bottom: 16px;
+    }
+    .mission-text p:last-child { margin-bottom: 0; }
+    .mission-text strong { color: var(--text); font-weight: 600; }
+    .mission-aside {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px; padding: 28px;
+    }
+    .mission-aside-title {
+      font-family: var(--mono); font-size: 11px;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 16px;
+    }
+    .timeline { display: flex; flex-direction: column; gap: 0; }
+    .tl-item {
+      display: flex; gap: 16px;
+      padding-bottom: 20px;
+      position: relative;
+    }
+    .tl-item:last-child { padding-bottom: 0; }
+    .tl-left {
+      display: flex; flex-direction: column; align-items: center;
+      flex-shrink: 0; width: 36px;
+    }
+    .tl-dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--maroon); border: 2px solid var(--maroon-mid);
+      flex-shrink: 0; margin-top: 4px;
+    }
+    .tl-line {
+      width: 1px; flex: 1; background: var(--border);
+      margin-top: 4px;
+    }
+    .tl-item:last-child .tl-line { display: none; }
+    .tl-year {
+      font-family: var(--mono); font-size: 11px;
+      color: var(--gold); min-width: 36px;
+      margin-top: 2px; text-align: center;
+    }
+    .tl-content { flex: 1; }
+    .tl-content h4 {
+      font-size: 13px; font-weight: 600;
+      color: var(--text); margin-bottom: 3px;
+    }
+    .tl-content p { font-size: 12px; color: var(--muted); line-height: 1.55; }
+
+    /* ── ITA SECTION ── */
+    .ita-section { background: var(--surface); }
+    .ita-card {
+      background: var(--card);
+      border: 1px solid var(--maroon);
+      border-radius: 12px; padding: 32px 36px;
+      display: grid; grid-template-columns: auto 1fr; gap: 28px;
+      align-items: start;
+    }
+    .ita-emblem {
+      width: 64px; height: 64px;
+      background: var(--maroon);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 30px; flex-shrink: 0;
+    }
+    .ita-card h3 {
+      font-size: 17px; font-weight: 700;
+      color: var(--gold); margin-bottom: 8px;
+    }
+    .ita-card > div > p {
+      font-size: 13px; color: var(--muted);
+      line-height: 1.7; margin-bottom: 20px;
+    }
+    .ita-pillars {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+    }
+    .ita-pillar {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px; padding: 14px;
+    }
+    .ita-pillar-icon { font-size: 18px; margin-bottom: 8px; }
+    .ita-pillar h4 { font-size: 12px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+    .ita-pillar p { font-size: 11px; color: var(--muted); line-height: 1.55; }
+
+    /* ── ACTIVITIES ── */
+    .activities-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+    }
+    .activity-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 22px;
+      transition: border-color .2s;
+    }
+    .activity-card:hover { border-color: var(--maroon-mid); }
+    .activity-icon { font-size: 24px; margin-bottom: 14px; }
+    .activity-card h3 {
+      font-size: 14px; font-weight: 600;
+      color: var(--text); margin-bottom: 8px;
+    }
+    .activity-card p { font-size: 12px; color: var(--muted); line-height: 1.65; }
+    .activity-tag {
+      display: inline-block; margin-top: 12px;
+      font-family: var(--mono); font-size: 10px;
+      color: var(--green); background: var(--green-soft);
+      border-radius: 4px; padding: 2px 8px;
+      letter-spacing: .5px;
+    }
+
+    /* ── FOSS WORLDWIDE ── */
+    .worldwide-section { background: var(--surface); }
+    .countries-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 10px; margin-bottom: 32px;
+    }
+    .country-chip {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 7px; padding: 10px 14px;
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; color: var(--muted);
+      transition: border-color .15s;
+    }
+    .country-chip:hover { border-color: var(--dim); }
+    .country-chip .flag { font-size: 16px; }
+
+    /* ── VISION ── */
+    .vision-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+    }
+    .vision-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 24px;
+      transition: border-color .2s;
+    }
+    .vision-card:hover { border-color: rgba(228,192,36,.3); }
+    .vision-card-num {
+      font-family: var(--mono); font-size: 32px; font-weight: 700;
+      color: rgba(228,192,36,.15); line-height: 1; margin-bottom: 12px;
+    }
+    .vision-card h3 {
+      font-size: 15px; font-weight: 600;
+      color: var(--gold); margin-bottom: 8px;
+    }
+    .vision-card p { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+    /* ── GNU LINUX INITIATIVE ── */
+    .distro-section {
+      background: var(--maroon-deep);
+      border-top: 1px solid var(--maroon);
+      border-bottom: 1px solid var(--maroon);
+    }
+    .distro-inner {
+      display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center;
+    }
+    .distro-inner h2 {
+      font-size: 22px; font-weight: 700; color: var(--text); margin-bottom: 10px;
+    }
+    .distro-inner h2 span { color: var(--gold); }
+    .distro-inner p { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 20px; }
+    .distro-goals { list-style: none; margin-bottom: 24px; }
+    .distro-goals li {
+      font-size: 13px; color: var(--muted);
+      padding: 6px 0; border-top: 1px solid rgba(255,255,255,.05);
+      display: flex; align-items: flex-start; gap: 10px;
+    }
+    .distro-goals li::before {
+      content: '→'; color: var(--green);
+      font-family: var(--mono); font-size: 12px; flex-shrink: 0; margin-top: 2px;
+    }
+    .distro-badge {
+      background: rgba(228,192,36,.08);
+      border: 1px solid rgba(228,192,36,.2);
+      border-radius: 12px; padding: 28px;
+      text-align: center; min-width: 160px; flex-shrink: 0;
+    }
+    .distro-badge-icon { font-size: 40px; margin-bottom: 12px; }
+    .distro-badge-label {
+      font-family: var(--mono); font-size: 11px;
+      color: var(--gold); letter-spacing: 1px;
+      text-transform: uppercase; display: block; margin-bottom: 4px;
+    }
+    .distro-badge-sub { font-size: 12px; color: var(--muted); }
+
+    /* ── TEAM ── */
+    .team-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 14px;
+    }
+    .team-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 22px; text-align: center;
+      transition: border-color .2s;
+    }
+    .team-card:hover { border-color: var(--maroon-mid); }
+    .team-avatar {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--maroon); border: 2px solid var(--maroon-mid);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; margin: 0 auto 14px;
+    }
+    .team-name { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+    .team-role { font-family: var(--mono); font-size: 11px; color: var(--green); letter-spacing: .5px; }
+    .team-placeholder {
+      background: var(--surface); border: 1px dashed var(--border);
+      border-radius: 10px; padding: 32px; text-align: center;
+      grid-column: 1 / -1;
+    }
+    .team-placeholder p { font-size: 13px; color: var(--muted); margin-bottom: 16px; }
+
+    /* ── CONTACT ── */
+    .contact-section { background: var(--surface); }
+    .contact-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 14px;
+    }
+    .contact-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 22px;
+      transition: border-color .2s;
+    }
+    .contact-card:hover { border-color: var(--maroon-mid); }
+    .contact-card-icon { font-size: 22px; margin-bottom: 12px; }
+    .contact-card-label {
+      font-family: var(--mono); font-size: 10px;
+      text-transform: uppercase; letter-spacing: 1.5px;
+      color: var(--dim); margin-bottom: 6px;
+    }
+    .contact-card-val { font-size: 14px; color: var(--text); font-weight: 500; }
+    .contact-card-sub { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 24px 40px; border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .footer-logo { display: flex; align-items: center; gap: 10px; }
+    .footer-logo img { height: 28px; width: auto; opacity: .7; }
+    .footer-logo span { font-family: var(--mono); font-size: 13px; color: var(--muted); }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { font-size: 13px; color: var(--dim); text-decoration: none; transition: color .15s; }
+    .footer-links a:hover { color: var(--muted); }
+    .footer-copy { font-size: 12px; color: var(--dim); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      .mission-grid, .distro-inner { grid-template-columns: 1fr; }
+      .ita-pillars { grid-template-columns: 1fr; }
+      .distro-badge { min-width: unset; }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links a, .nav-lang { display: none; }
+      .page-header { padding: 48px 20px 40px; }
+      section { padding: 44px 20px; }
+      .activities-grid, .vision-grid { grid-template-columns: 1fr; }
+      .ita-card { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      footer { padding: 20px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="https://fo3s-squ.github.io/FO3S_WEBSITE/fo3s_logo-removebg-preview.png" alt="FO3S logo" />
+    <div>
+      <span class="nav-logo-text">FO3S</span>
+      <span class="nav-logo-sub">Sultan Qaboos University</span>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html" class="active">About</a>
+    <a href="index.html#freedoms">What is FOSS</a>
+    <a href="index.html#events">Events</a>
+    <a href="index.html#projects">Projects</a>
+    <button class="nav-lang" title="Switch to Arabic">ع</button>
+    <a href="index.html#join" class="btn-join-nav">Join us ↗</a>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <div class="breadcrumb">
+    <a href="index.html">home</a>
+    <span class="breadcrumb-sep">/</span>
+    <span class="breadcrumb-cur">about</span>
+  </div>
+  <h1>About <em>FO3S</em></h1>
+  <p>
+    Oman's first student-led free and open source software society — founded at Sultan Qaboos
+    University in 2010 to build an open-source culture from the ground up.
+  </p>
+</header>
+
+<!-- MISSION -->
+<section id="mission">
+  <div class="sec-label">// رسالتنا — our mission</div>
+  <h2 class="sec-title">Why we exist</h2>
+  <div class="mission-grid">
+    <div class="mission-text">
+      <p>
+        FO3S was founded on a simple belief: <strong>technology is most powerful when it's free and open.</strong>
+        At Sultan Qaboos University, we saw a community of curious, driven students with no structured
+        pathway into the world of open-source software. We built one.
+      </p>
+      <p>
+        Our mission is to spread <strong>free and open source software culture</strong> at SQU and across Oman —
+        through education, collaboration, and hands-on building. We run workshops, produce resources,
+        support members with labs and mentorship, and contribute to real-world FOSS projects.
+      </p>
+      <p>
+        We are not a coding club. We are a movement — aligned with the global FOSS philosophy that
+        knowledge, software, and innovation must be freely shared. From our founding partnership with the
+        <strong>Information Technology Authority (ITA)</strong>, to our long-term goal of building
+        <strong>Oman's first GNU/Linux distribution</strong>, everything we do is in service of that mission.
+      </p>
+    </div>
+    <div class="mission-aside">
+      <div class="mission-aside-title">// milestones</div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-left">
+            <div class="tl-dot"></div>
+            <div class="tl-line"></div>
+          </div>
+          <div class="tl-year">2010</div>
+          <div class="tl-content">
+            <h4>Society founded</h4>
+            <p>Established at SQU under the Communication & Information Research Center, backed by MOU with ITA.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left">
+            <div class="tl-dot"></div>
+            <div class="tl-line"></div>
+          </div>
+          <div class="tl-year">2010</div>
+          <div class="tl-content">
+            <h4>Free Software Seminar, Muscat</h4>
+            <p>Launched alongside Oman's national FOSS support initiative in March 2010.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left">
+            <div class="tl-dot"></div>
+            <div class="tl-line"></div>
+          </div>
+          <div class="tl-year">ongoing</div>
+          <div class="tl-content">
+            <h4>Workshops, talks & events</h4>
+            <p>Continuous programming — install fests, developer workshops, community sessions.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left">
+            <div class="tl-dot"></div>
+            <div class="tl-line"></div>
+          </div>
+          <div class="tl-year">future</div>
+          <div class="tl-content">
+            <h4>First Omani GNU/Linux distro</h4>
+            <p>Our flagship long-term project — an Omani-made, Arabic-first Linux distribution.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ITA PARTNERSHIP -->
+<section class="ita-section" id="ita">
+  <div class="sec-label">// الشراكة الوطنية — national partnership</div>
+  <h2 class="sec-title">Backed by the Information Technology Authority</h2>
+  <p class="sec-desc">
+    FO3S operates under a formal memorandum of understanding with Oman's ITA — part of the national
+    Digital Strategy to develop the ICT sector through open-source adoption.
+  </p>
+  <div class="ita-card">
+    <div class="ita-emblem">🏛️</div>
+    <div>
+      <h3>National FOSS Support Initiative — مبادرة دعم البرمجيات الحرة والمفتوحة المصدر</h3>
+      <p>
+        Launched in March 2010 during the Free Software Seminar in Muscat, the initiative coordinates
+        governmental institutions, professional bodies, and universities to build a sustainable FOSS
+        ecosystem in the Sultanate of Oman. FO3S at SQU is the university arm of this effort.
+      </p>
+      <div class="ita-pillars">
+        <div class="ita-pillar">
+          <div class="ita-pillar-icon">📢</div>
+          <h4>Advocacy</h4>
+          <p>Promoting FOSS as a credible, strategic alternative to proprietary software in Omani institutions.</p>
+        </div>
+        <div class="ita-pillar">
+          <div class="ita-pillar-icon">🎓</div>
+          <h4>Capacity building</h4>
+          <p>Developing human capital in FOSS through specialised university-level training programs.</p>
+        </div>
+        <div class="ita-pillar">
+          <div class="ita-pillar-icon">🔬</div>
+          <h4>R&D</h4>
+          <p>Encouraging research, development, and innovation in the free and open source software space.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ACTIVITIES -->
+<section id="activities">
+  <div class="sec-label">// ما نفعله — what we do</div>
+  <h2 class="sec-title">Our activities</h2>
+  <p class="sec-desc">Six pillars that make up the FO3S programme — from community events to long-term national projects.</p>
+  <div class="activities-grid">
+    <div class="activity-card">
+      <div class="activity-icon">🎙️</div>
+      <h3>Conferences &amp; seminars</h3>
+      <p>Annual and one-off events bringing together FOSS advocates, developers, and curious newcomers. Open to all SQU students.</p>
+      <span class="activity-tag">community</span>
+    </div>
+    <div class="activity-card">
+      <div class="activity-icon">🖥️</div>
+      <h3>Technical workshops</h3>
+      <p>Hands-on sessions covering Linux, Git, Python, security, DevOps, and more — led by members, for members.</p>
+      <span class="activity-tag">skills</span>
+    </div>
+    <div class="activity-card">
+      <div class="activity-icon">🖼️</div>
+      <h3>Exhibitions</h3>
+      <p>Showcasing FOSS tools, student projects, and open alternatives to popular proprietary software at university events.</p>
+      <span class="activity-tag">outreach</span>
+    </div>
+    <div class="activity-card">
+      <div class="activity-icon">📰</div>
+      <h3>Newsletter &amp; publications</h3>
+      <p>Producing digital and printed materials that spread FOSS knowledge in Arabic and English across the SQU community.</p>
+      <span class="activity-tag">content</span>
+    </div>
+    <div class="activity-card">
+      <div class="activity-icon">🧪</div>
+      <h3>Community labs</h3>
+      <p>Equipped lab spaces for members to experiment, build, and get technical support from experienced peers.</p>
+      <span class="activity-tag">infrastructure</span>
+    </div>
+    <div class="activity-card">
+      <div class="activity-icon">🐧</div>
+      <h3>GNU/Linux distro project</h3>
+      <p>Our flagship long-term initiative — developing Oman's first homegrown GNU/Linux distribution for Arabic-speaking users.</p>
+      <span class="activity-tag">flagship</span>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- FOSS WORLDWIDE -->
+<section class="worldwide-section" id="worldwide">
+  <div class="sec-label">// حول العالم — foss worldwide</div>
+  <h2 class="sec-title">A global movement</h2>
+  <p class="sec-desc">
+    Free and open source software is not just a philosophy — it is national policy in many countries.
+    Governments around the world have officially adopted FOSS to reduce dependency on proprietary vendors,
+    lower costs, and increase digital sovereignty.
+  </p>
+  <div class="countries-grid">
+    <div class="country-chip"><span class="flag">🇧🇷</span> Brazil</div>
+    <div class="country-chip"><span class="flag">🇩🇪</span> Germany</div>
+    <div class="country-chip"><span class="flag">🇷🇺</span> Russia</div>
+    <div class="country-chip"><span class="flag">🇧🇪</span> Belgium</div>
+    <div class="country-chip"><span class="flag">🇻🇪</span> Venezuela</div>
+    <div class="country-chip"><span class="flag">🇮🇳</span> India</div>
+    <div class="country-chip"><span class="flag">🇫🇷</span> France</div>
+    <div class="country-chip"><span class="flag">🇪🇸</span> Spain</div>
+    <div class="country-chip"><span class="flag">🇨🇳</span> China</div>
+    <div class="country-chip"><span class="flag">🇯🇵</span> Japan</div>
+    <div class="country-chip"><span class="flag">🇰🇷</span> South Korea</div>
+    <div class="country-chip"><span class="flag">🇴🇲</span> Oman</div>
+  </div>
+  <p style="font-size: 13px; color: var(--muted);">
+    Oman joined this movement through its national FOSS initiative in 2010 — and FO3S is how SQU students
+    participate in it.
+  </p>
+</section>
+
+<hr class="divider" />
+
+<!-- VISION -->
+<section id="vision">
+  <div class="sec-label">// رؤيتنا — our vision</div>
+  <h2 class="sec-title">Where we're headed</h2>
+  <p class="sec-desc">Four long-term goals that shape everything FO3S does.</p>
+  <div class="vision-grid">
+    <div class="vision-card">
+      <div class="vision-card-num">01</div>
+      <h3>An open-source SQU</h3>
+      <p>Transitioning SQU's student-facing tools and infrastructure to free and open source alternatives — starting with what we can build ourselves.</p>
+    </div>
+    <div class="vision-card">
+      <div class="vision-card-num">02</div>
+      <h3>Oman's first GNU/Linux distro</h3>
+      <p>Shipping an Arabic-first, Omani-made Linux distribution that any institution can adopt — reducing proprietary software dependency at the national level.</p>
+    </div>
+    <div class="vision-card">
+      <div class="vision-card-num">03</div>
+      <h3>A generation of contributors</h3>
+      <p>Equipping SQU graduates with the mindset and skills to contribute to global FOSS projects — and carry the culture into their careers and organisations.</p>
+    </div>
+    <div class="vision-card">
+      <div class="vision-card-num">04</div>
+      <h3>Arabic FOSS ecosystem</h3>
+      <p>Supporting and producing open-source tools, documentation, and resources that serve Arabic-speaking users — a currently underserved community in FOSS.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DISTRO HIGHLIGHT -->
+<section class="distro-section" id="distro">
+  <div class="distro-inner">
+    <div>
+      <div class="sec-label">// المشروع الرئيسي — flagship project</div>
+      <h2>The <span>Omani GNU/Linux</span> Distribution</h2>
+      <p>
+        One of FO3S's most ambitious long-term goals is building Oman's first homegrown
+        GNU/Linux distribution — an Arabic-first, locally-maintained operating system that can be
+        adopted by schools, universities, and government institutions.
+      </p>
+      <ul class="distro-goals">
+        <li>Replace proprietary operating systems in Omani educational institutions</li>
+        <li>Provide a stable, Arabic-language Linux experience out of the box</li>
+        <li>Build and maintain it entirely through student and community contributions</li>
+        <li>Release under a free software license so anyone can use, modify, and redistribute it</li>
+      </ul>
+      <a href="index.html#join" class="btn-primary">Get involved ↗</a>
+    </div>
+    <div class="distro-badge">
+      <div class="distro-badge-icon">🐧</div>
+      <span class="distro-badge-label">In development</span>
+      <div class="distro-badge-sub">GNU/Linux<br>Made in Oman</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- TEAM -->
+<section id="team">
+  <div class="sec-label">// الفريق — the team</div>
+  <h2 class="sec-title">The people behind FO3S</h2>
+  <p class="sec-desc">FO3S is run entirely by SQU students — volunteers who believe in the mission.</p>
+  <div class="team-grid">
+    <div class="team-placeholder">
+      <p>Our team page is coming soon. In the meantime, reach out to us directly.</p>
+      <a href="mailto:fo3s@squ.edu.om" class="btn-primary">Contact the team ↗</a>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="sec-label">// تواصل معنا — get in touch</div>
+  <h2 class="sec-title">Find us</h2>
+  <p class="sec-desc">We're always happy to hear from students, alumni, and anyone who believes in free software.</p>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <div class="contact-card-icon">📧</div>
+      <div class="contact-card-label">Email</div>
+      <div class="contact-card-val">fo3s@squ.edu.om</div>
+      <div class="contact-card-sub">We aim to reply within 2 working days</div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-card-icon">📞</div>
+      <div class="contact-card-label">Phone</div>
+      <div class="contact-card-val">24143697</div>
+      <div class="contact-card-sub">Sultan Qaboos University, Muscat</div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-card-icon">📸</div>
+      <div class="contact-card-label">Instagram</div>
+      <div class="contact-card-val">@fo3s_squ</div>
+      <div class="contact-card-sub">Events, updates, and community moments</div>
+    </div>
+  </div>
+  <div style="margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap;">
+    <a href="mailto:fo3s@squ.edu.om" class="btn-primary">Send us a message ↗</a>
+    <a href="https://www.instagram.com/fo3s_squ" target="_blank" class="btn-secondary">Instagram →</a>
+    <a href="https://github.com/FO3S-SQU" target="_blank" class="btn-secondary">GitHub →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <img src="https://fo3s-squ.github.io/FO3S_WEBSITE/fo3s_logo-removebg-preview.png" alt="FO3S" />
+    <span>Free &amp; Open Source Software Society · Sultan Qaboos University</span>
+  </div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="https://www.instagram.com/fo3s_squ" target="_blank">Instagram</a>
+    <a href="https://github.com/FO3S-SQU" target="_blank">GitHub</a>
+    <a href="mailto:fo3s@squ.edu.om">Email</a>
+  </div>
+  <div class="footer-copy">© 2025 FO3S · جماعة البرمجيات الحرة</div>
+</footer>
+
+</body>
+</html>

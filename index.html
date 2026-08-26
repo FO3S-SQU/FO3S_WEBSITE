@@ -1,127 +1,292 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FO3S – Free and Open Source Software Society</title>
-    <meta name="description" content="Free and Open Source Software Society (FO3S) at Sultan Qaboos University. Learn to code, code to learn. Join workshops, explore member projects, and help spread FOSS culture.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://fo3s-squ.github.io/FO3S_WEBSITE/">
-    <meta property="og:title" content="FO3S – Free and Open Source Software Society">
-    <meta property="og:description" content="A student community at SQU promoting free and open source software through events, projects, and knowledge sharing.">
-    <meta property="og:image" content="assets/images/fo3s-logo.png">
-    <link rel="canonical" href="https://fo3s-squ.github.io/FO3S_WEBSITE/">
-    <link rel="icon" href="assets/images/fo3s-logo.png" type="image/png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Tajawal:wght@400;500;700&display=swap">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <script src="component/header.js" defer></script>
-    <script src="component/footer.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FO3S – Free & Open Source Software Society</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script src="component/header.js" defer></script>
+  <script src="component/footer.js" defer></script>
 </head>
 <body>
-    <header></header>
-    <main>
-        <section class="hero-slider">
-            <div class="slider-wrapper">
-                <div class="c-slide active"><img src="assets/images/ws-preview.webp" alt="FO3S Workshop 1"></div>
-            </div>
 
-            <div class="hero-content">
-                <p class="hero-subtitle" id="hero-subtitle">LEARN TO CODE, CODE TO LEARN</p>
-                <h1 class="hero-title" id="hero-title">Welcome to the Free and <br> Open Source Software Society</h1>
-                <a href="about.html" class="hero-btn" id="hero-btn">Join Us</a>
-            </div>
-        </section>
-        <section id="statistics" class="stats-section">
-            <div class="members_count_container">
-                <h2 id="members_count" data-target="122">0</h2>
-                <p id="label-members">Members</p>
-            </div>
-            
-            <div class="events_count_container">
-                <h2 id="events_count" data-target="100">0</h2>
-                <p id="label-events">Events Hosted</p>
-            </div>
-        </section>
-        
+<!-- NAV -->
+<header class="site-header"></header>
 
-        <section id="upcoming_events">
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">Since 2010 · Sultan Qaboos University · ITA Partnership</div>
+      <h1>Build freely.<br><em>Share openly.</em></h1>
+      <p class="hero-sub">
+        Oman's student-led free and open source software community — founded at SQU in 2010
+        with a mission to spread open-source culture, build local capacity, and contribute back to the world.
+      </p>
 
-            <h2 id="title-events">Upcoming Events</h2>
-            <div class="event" >
-                <div class="no-events">
-                    <div class="placeholder-icon">💡</div>
-                    <h3 id="event-empty-title">We're currently brainstorming!</h3>
-                    <p id="event-empty-p">Have an idea for a special event? Share it with us!.</p>
-                    <button class="btn-small" id="event-btn" onclick="openModal()" aria-haspopup="dialog">Suggest an Idea</button>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <section class="member-projects">
-    <div class="container">
-        <h2 id="title-projects">Members Projects</h2>
-
-        <div class="invite-wrapper">
-            <div class="project-card invite-card">
-                <div class="icon">🚀</div>
-                <h3 id="invite-title">Fill our projects section with your creative projects</h3>
-                <p id="invite-p">Built something cool? Share your GitHub link!</p>
-                <button class="submit-btn" id="invite-btn">Submit Project (TEST)</button>
-            </div>
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="dot dot-r"></div>
+          <div class="dot dot-y"></div>
+          <div class="dot dot-g"></div>
+          <span class="terminal-title">fo3s-mission.sh</span>
         </div>
+        <div class="terminal-body">
+          <div><span class="t-prompt">$</span><span id="typed-cmd"></span><span class="cursor"></span></div>
+          <span class="t-out" id="typed-out" style="opacity:0"></span>
+        </div>
+      </div>
 
-        <div id="project-list" class="project-display-grid">
-            </div>
+      <div class="hero-ctas">
+        <a href="#join" class="btn-primary">Become a member ↗</a>
+        <a href="https://github.com/FO3S-SQU" target="_blank" class="btn-secondary">GitHub →</a>
+      </div>
     </div>
+
+    <div class="hero-logo-display">
+      <img src="https://fo3s-squ.github.io/FO3S_WEBSITE/fo3s_logo-removebg-preview.png" alt="FO3S" />
+    </div>
+  </div>
 </section>
 
-<div id="projectModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="projectModalTitle">
-    <div class="modal-content">
-        <span class="close-modal" id="closeModal" aria-label="Close modal">&times;</span>
-        <h2 id="projectModalTitle" class="modal-heading">Share us your masterpiece!</h2>
-        
-        <form name="member-projects" id="submissionForm">
-            <div class="input-group">
-                <label>Owner Name</label>
-                <input type="text" name="owner" id="memberName" placeholder="Your Name/Team Name" required>
-            </div>
-            <div class="input-group">
-                <label>Project Title</label>
-                <input type="text" name="title" id="memberTitle" placeholder="e.g. ATmega8 Controller" required>
-            </div>
-            <div class="input-group">
-                <label>GitHub URL</label>
-                <input type="url" name="url" id="memberUrl" placeholder="https://github.com/..." required>
-            </div>
-            <div class="input-group">
-                <label>Brief Description</label>
-                <textarea name="description" id="memberDesc" maxlength="150" placeholder="Describe your masterpiece..." required></textarea>
-            </div>
-            <button type="submit" class="submit-btn submit-btn--full">Post Project</button>
-        </form>
-    </div>
+<!-- STATS -->
+<div class="stats">
+  <div class="stat">
+    <div class="stat-val">2010</div>
+    <div class="stat-lbl">Founded</div>
+  </div>
+  <div class="stat">
+    <div class="stat-val">ITA</div>
+    <div class="stat-lbl">Backed by</div>
+  </div>
+  <div class="stat">
+    <div class="stat-val">4</div>
+    <div class="stat-lbl">Core freedoms</div>
+  </div>
+  <div class="stat">
+    <div class="stat-val">∞</div>
+    <div class="stat-lbl">Open to all</div>
+  </div>
 </div>
 
-    <footer></footer>
-    <div id="ideaModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="ideaModalTitle">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()" aria-label="Close modal">&times;</span>
-            <h2 id="ideaModalTitle">Suggest an Event</h2>
-            
-            <form id="ideaForm">
-                <input type="email" name="email" id="userEmail" placeholder="Your Email" required>
-                <input type="text" name="topic" id="eventTopic" placeholder="Proposed Topic" required>
-                <textarea name="message" id="eventDesc" placeholder="Describe the idea..." required></textarea>
-                <button type="submit" class="btn" id="submit_idea_btn">Submit Idea</button>
-                <p id="formStatus"></p> 
-            </form>
-        </div>
+<!-- WORKSHOP PHOTO STRIP -->
+<div class="photo-strip">
+  <div class="photo-strip-inner">
+    <div class="photo-slot">
+      <img src="https://fo3s-squ.github.io/FO3S_WEBSITE/wkshp1.jpg" alt="FO3S workshop" />
+      <span class="photo-slot-label">Workshop</span>
     </div>
-    <script src="assets/js/script.js"></script>
+    <div class="photo-slot">
+      <img src="https://fo3s-squ.github.io/FO3S_WEBSITE/wkshp2.jfif" alt="FO3S session" />
+      <span class="photo-slot-label">Community</span>
+    </div>
+    <div class="photo-slot">
+      <img src="https://fo3s-squ.github.io/FO3S_WEBSITE/wkshp3.jfif" alt="FO3S event" />
+      <span class="photo-slot-label">Events</span>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="sec-label">// من نحن — who we are</div>
+  <h2 class="sec-title">FO3S – Free &amp; Open Source Software Society</h2>
+  <p class="sec-desc">
+    Founded in 2010 under the supervision of the Communication and Information Research Center at SQU,
+    following a memorandum of understanding with the Information Technology Authority (ITA).
+    We believe openness, collaboration, and free knowledge are the foundation of meaningful technology.
+  </p>
+  <div class="about-grid">
+    <div class="about-card">
+      <div class="about-card-icon">🎙️</div>
+      <h3>Conferences, exhibitions &amp; workshops</h3>
+      <p>Regular technical events open to all students — from install fests to full-day symposiums on open-source technology and culture.</p>
+    </div>
+    <div class="about-card">
+      <div class="about-card-icon">📰</div>
+      <h3>Projects, newsletters &amp; printed materials</h3>
+      <p>We produce resources that spread FOSS knowledge across the university and beyond — both digital and in print.</p>
+    </div>
+    <div class="about-card">
+      <div class="about-card-icon">🧪</div>
+      <h3>Community labs &amp; technical support</h3>
+      <p>Access our equipped labs, get hands-on help, and find mentorship from peers who've been building in the open-source world.</p>
+    </div>
+    <div class="about-card">
+      <div class="about-card-icon">🇴🇲</div>
+      <h3>The first Omani GNU/Linux distribution</h3>
+      <p>Our flagship long-term project — building an Omani-made GNU/Linux distro and replacing proprietary software in institutions with free alternatives.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- FOUR FREEDOMS -->
+<section class="freedoms-section" id="freedoms">
+  <div class="sec-label">// ما هي البرمجيات الحرة — what is FOSS</div>
+  <h2 class="sec-title">The four essential freedoms</h2>
+  <p class="sec-desc">
+    Software is considered "free" when its users have these four freedoms. Governments across
+    Brazil, Germany, Russia, Belgium, Venezuela and others have adopted FOSS as policy.
+  </p>
+  <div class="freedoms-grid">
+    <div class="freedom">
+      <div class="freedom-num">00</div>
+      <div>
+        <h3>Freedom to run</h3>
+        <p>Run the program for any purpose, without restriction or limitation.</p>
+        <div class="freedom-ar">حرية تشغيل البرنامج لأي غرض كان</div>
+      </div>
+    </div>
+    <div class="freedom">
+      <div class="freedom-num">01</div>
+      <div>
+        <h3>Freedom to study</h3>
+        <p>Study how the program works and adapt it to your needs. Access to source code is required.</p>
+        <div class="freedom-ar">حرية دراسة كيفية عمل البرنامج وتعديله</div>
+      </div>
+    </div>
+    <div class="freedom">
+      <div class="freedom-num">02</div>
+      <div>
+        <h3>Freedom to redistribute</h3>
+        <p>Share copies freely so you can help your community and the wider world.</p>
+        <div class="freedom-ar">حرية توزيع نسخ من إصداراتك المعدلة</div>
+      </div>
+    </div>
+    <div class="freedom">
+      <div class="freedom-num">03</div>
+      <div>
+        <h3>Freedom to improve</h3>
+        <p>Improve the program and release your improvements publicly so the whole community benefits.</p>
+        <div class="freedom-ar">حرية تطوير البرنامج وتحسينه وإظهارها للعالم</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- NATIONAL INITIATIVE -->
+<section class="initiative" id="initiative">
+  <div class="sec-label">// المبادرة الوطنية — national initiative</div>
+  <h2 class="sec-title">Oman's FOSS support initiative</h2>
+  <p class="sec-desc">Part of Oman's Digital Strategy for developing the ICT sector, launched March 2010 during the Free Software Seminar in Muscat.</p>
+  <div class="initiative-card">
+    <div class="initiative-badge">🇴🇲</div>
+    <div>
+      <h3>National FOSS Support Initiative — مبادرة دعم البرمجيات الحرة</h3>
+      <p>Supported by the Information Technology Authority (ITA) in collaboration with governmental and professional institutions across Oman, the initiative aims to build a sustainable open-source ecosystem in the Sultanate.</p>
+      <ul class="initiative-goals">
+        <li>Promote FOSS as a viable alternative to proprietary software across institutions</li>
+        <li>Build human capacity in FOSS through specialized training programs</li>
+        <li>Encourage research, development, and innovation in the FOSS ecosystem</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- EVENTS -->
+<section id="events">
+  <div class="sec-label">// upcoming events</div>
+  <h2 class="sec-title">What's on</h2>
+  <p class="sec-desc">Workshops, talks, and community sessions — all open to SQU students of any major or skill level.</p>
+  <div class="events-list">
+    <div class="event-empty">
+      <p>We're currently brainstorming our next events. Have an idea? We'd love to hear it.</p>
+      <button class="btn-primary" onclick="document.getElementById('suggest-modal').classList.add('open')">Suggest an idea →</button>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- PROJECTS -->
+<section id="projects" style="background: var(--surface);">
+  <div class="sec-label">// member projects</div>
+  <h2 class="sec-title">Built by the community</h2>
+  <p class="sec-desc">SQU students building in the open. Share your project so others can learn from, use, and contribute to your work.</p>
+  <div class="projects-grid">
+    <div class="project-empty">
+      <p>Our projects board is open. Built something cool? Share it with the FO3S community.</p>
+      <button class="btn-primary" onclick="document.getElementById('project-modal').classList.add('open')">Submit your project →</button>
+    </div>
+  </div>
+</section>
+
+<!-- JOIN -->
+<section class="join-section" id="join">
+  <div class="join-badge">// open to all SQU students</div>
+  <h2>Start contributing today</h2>
+  <p>No experience required — just curiosity and a willingness to learn, share, and build in the open.</p>
+  <div class="join-ctas">
+    <a href="mailto:fo3s@squ.edu.om" class="btn-primary">Get in touch ↗</a>
+    <a href="https://www.instagram.com/fo3s_squ" target="_blank" class="btn-secondary">Instagram →</a>
+    <a href="https://github.com/FO3S-SQU" target="_blank" class="btn-secondary">GitHub →</a>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <div class="contact-card-label">Phone</div>
+      <div class="contact-card-val">24143697</div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-card-label">Email</div>
+      <div class="contact-card-val">fo3s@squ.edu.om</div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-card-label">Instagram</div>
+      <div class="contact-card-val">@fo3s_squ</div>
+    </div>
+  </div>
+  <div class="topic-cloud">
+    <span class="topic">linux</span>
+    <span class="topic">git</span>
+    <span class="topic">python</span>
+    <span class="topic">gnu</span>
+    <span class="topic">web</span>
+    <span class="topic">security</span>
+    <span class="topic">devops</span>
+    <span class="topic">ai</span>
+    <span class="topic">privacy</span>
+    <span class="topic">عمان</span>
+    <span class="topic">مفتوح المصدر</span>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer"></footer>
+
+<!-- SUGGEST MODAL -->
+<div class="modal-overlay" id="suggest-modal">
+  <div class="modal">
+    <button class="modal-close" onclick="document.getElementById('suggest-modal').classList.remove('open')">✕</button>
+    <h3>Suggest an event</h3>
+    <p>Have an idea for a talk, workshop, or hackathon? Let the team know.</p>
+    <div class="field"><label>YOUR NAME</label><input type="text" placeholder="Ahmed Al-Balushi" /></div>
+    <div class="field"><label>EVENT IDEA</label><textarea placeholder="A workshop on setting up your first Linux environment..."></textarea></div>
+    <button class="btn-primary" style="width:100%;justify-content:center;text-align:center;">Submit idea</button>
+  </div>
+</div>
+
+<!-- PROJECT MODAL -->
+<div class="modal-overlay" id="project-modal">
+  <div class="modal">
+    <button class="modal-close" onclick="document.getElementById('project-modal').classList.remove('open')">✕</button>
+    <h3>Share your project</h3>
+    <p>Built something? Add it to the FO3S community board.</p>
+    <div class="field"><label>YOUR NAME</label><input type="text" placeholder="Fatma Al-Rashdi" /></div>
+    <div class="field"><label>PROJECT TITLE</label><input type="text" placeholder="SQU Timetable Generator" /></div>
+    <div class="field"><label>GITHUB URL</label><input type="url" placeholder="https://github.com/you/project" /></div>
+    <div class="field"><label>BRIEF DESCRIPTION</label><textarea placeholder="What does it do and what's it built with?"></textarea></div>
+    <button class="btn-primary" style="width:100%;justify-content:center;text-align:center;">Submit project</button>
+  </div>
+</div>
+<script src="assets/js/script.js"></script>
 </body>
 </html>

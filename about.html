@@ -1,186 +1,337 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About FO3S – Free and Open Source Software Society</title>
-    <meta name="description" content="Learn about the Free and Open Source Software Society (FO3S) at Sultan Qaboos University – our mission, goals, and national FOSS initiative in Oman.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://fo3s-squ.github.io/FO3S_WEBSITE/about.html">
-    <meta property="og:title" content="About FO3S – Free and Open Source Software Society">
-    <meta property="og:description" content="Discover the mission and goals of FO3S, a student community promoting free and open source software at Sultan Qaboos University.">
-    <meta property="og:image" content="assets/images/fo3s-logo.png">
-    <link rel="canonical" href="https://fo3s-squ.github.io/FO3S_WEBSITE/about.html">
-    <link rel="icon" href="assets/images/fo3s-logo.png" type="image/png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Tajawal:wght@400;500;700&display=swap">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <script src="component/header.js" defer></script>
-    <script src="component/footer.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About – FO3S · Free & Open Source Software Society</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/about.css" />
+  <script src="component/header.js" defer></script>
+  <script src="component/footer.js" defer></script>
 </head>
-    <!--.c-->
 <body>
-    <header></header>
 
-    <main class="about-main">
-        <section class="about-hero">
-            <div class="about-hero-text">
-                <p class="about-kicker">
-                    <span data-lang="en">Who We Are</span>
-                    <span data-lang="ar">من نحن</span>
-                </p>
-                <h1>FO3S – Free &amp; Open Source Software Society</h1>
-                <p class="about-lead" data-lang="en">
-                    A community that believes in openness, collaboration, and knowledge sharing through free and open source software.
-                </p>
-                <p class="about-lead" data-lang="ar">
-                    مجتمع يؤمن بالانفتاح والتعاون وتبادل المعرفة من خلال البرمجيات الحرة ومفتوحة المصدر.
-                </p>
-            </div>
-        </section>
+<!-- NAV -->
+<header class="site-header"></header>
 
-        <section class="about-tabs-section">
-            <div class="about-tabs">
-                <button class="about-tab is-active" data-tab="who">
-                    <span data-lang="en">About FO3S</span>
-                    <span data-lang="ar">من نحن؟</span>
-                </button>
-                <button class="about-tab" data-tab="goals">
-                    <span data-lang="en">Our Goals</span>
-                    <span data-lang="ar">أهدافنا</span>
-                </button>
-                <button class="about-tab" data-tab="foss">
-                    <span data-lang="en">Free &amp; Open Source</span>
-                    <span data-lang="ar">البرمجيات الحرة</span>
-                </button>
-                <button class="about-tab" data-tab="initiative">
-                    <span data-lang="en">National Initiative</span>
-                    <span data-lang="ar">المبادرة الوطنية</span>
-                </button>
-            </div>
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <div class="breadcrumb">
+    <a href="index.html">home</a>
+    <span class="breadcrumb-sep">/</span>
+    <span class="breadcrumb-cur">about</span>
+  </div>
+  <h1>About <em>FO3S</em></h1>
+  <p>
+    Oman's first student-led free and open source software society — founded at Sultan Qaboos
+    University in 2010 to build an open-source culture from the ground up.
+  </p>
+</header>
 
-            <div class="about-panels">
-                <!-- Who We Are -->
-                <article class="about-panel is-active" id="tab-who">
-                    <div data-lang="ar">
-                        <h2>من نحن؟ – FO3S</h2>
-                        <p>
-                            نحن جماعة البرمجيات الحرة والمفتوحة المصدر <strong>Free &amp; Open Source Software Society (FO3S)</strong>.
-                            تأسست الجماعة في عام 2010 تحت إشراف مركز أبحاث الاتصالات والمعلومات في جامعة السلطان قابوس،
-                            نتيجة مذكرة تفاهم وقعتها الجامعة مع هيئة تقنية المعلومات (ITA).
-                        </p>
-                    </div>
-                    <div data-lang="en">
-                        <h2>FO3S – Who Are We?</h2>
-                        <p>
-                            We are the <strong>Free &amp; Open Source Software Society (FO3S)</strong>, a student community founded in 2010
-                            under the supervision of the Communication and Information Research Center at Sultan Qaboos University,
-                            following a memorandum of understanding signed between the University and the Information Technology Authority (ITA).
-                        </p>
-                    </div>
-                </article>
+<!-- MISSION -->
+<section id="mission">
+  <div class="sec-label">// رسالتنا — our mission</div>
+  <h2 class="sec-title">Why we exist</h2>
+  <div class="mission-grid">
+    <div class="mission-text">
+      <p>
+        FO3S was founded on a simple belief: <strong>technology is most powerful when it's free and open.</strong>
+        At Sultan Qaboos University, we saw a community of curious, driven students with no structured
+        pathway into the world of open-source software. We built one.
+      </p>
+      <p>
+        Our mission is to spread <strong>free and open source software culture</strong> at SQU and across Oman —
+        through education, collaboration, and hands-on building. We run workshops, produce resources,
+        support members with labs and mentorship, and contribute to real-world FOSS projects.
+      </p>
+      <p>
+        We are not a coding club. We are a movement — aligned with the global FOSS philosophy that
+        knowledge, software, and innovation must be freely shared. From our founding partnership with the
+        <strong>Information Technology Authority (ITA)</strong>, to our long-term goal of building
+        <strong>Oman's first GNU/Linux distribution</strong>, everything we do is in service of that mission.
+      </p>
+    </div>
+    <div class="mission-aside">
+      <div class="mission-aside-title">// milestones</div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-left">
+            <div class="tl-dot"></div>
+            <div class="tl-line"></div>
+          </div>
+          <div class="tl-year">2010</div>
+          <div class="tl-content">
+            <h4>Society founded</h4>
+            <p>Established at SQU under the Communication & Information Research Center, backed by MOU with ITA.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left">
+            <div class="tl-dot"></div>
+            <div class="tl-line"></div>
+          </div>
+          <div class="tl-year">2010</div>
+          <div class="tl-content">
+            <h4>Free Software Seminar, Muscat</h4>
+            <p>Launched alongside Oman's national FOSS support initiative in March 2010.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left">
+            <div class="tl-dot"></div>
+            <div class="tl-line"></div>
+          </div>
+          <div class="tl-year">ongoing</div>
+          <div class="tl-content">
+            <h4>Workshops, talks & events</h4>
+            <p>Continuous programming — install fests, developer workshops, community sessions.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left">
+            <div class="tl-dot"></div>
+            <div class="tl-line"></div>
+          </div>
+          <div class="tl-year">future</div>
+          <div class="tl-content">
+            <h4>First Omani GNU/Linux distro</h4>
+            <p>Our flagship long-term project — an Omani-made, Arabic-first Linux distribution.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-                <!-- Goals -->
-                <article class="about-panel" id="tab-goals">
-                    <div data-lang="ar">
-                        <h2>أهدافنا</h2>
-                        <p>تهدف الجماعة إلى نشر ثقافة البرمجيات الحرة والمفتوحة المصدر من خلال الوسائل التالية:</p>
-                        <ul class="about-list">
-                            <li>المؤتمرات، المعارض، والورش.</li>
-                            <li>المشاريع، الصحف، والمطويات.</li>
-                            <li>التواصل الاجتماعي وباستخدام مختبراتنا المجهزة.</li>
-                            <li>تقديم الدعم التقني.</li>
-                            <li>إصدار أول توزيعة عمانية مبنية على نظام جنو/لينكس.</li>
-                            <li>استبدال البرامج الاحتكارية ببرامج حرة ومفتوحة المصدر.</li>
-                        </ul>
-                    </div>
-                    <div data-lang="en">
-                        <h2>Our Goals</h2>
-                        <p>The society aims to spread the culture of free and open source software through:</p>
-                        <ul class="about-list">
-                            <li>Organizing conferences, exhibitions, and workshops.</li>
-                            <li>Creating projects, newsletters, and printed materials.</li>
-                            <li>Community outreach and activities using our equipped labs.</li>
-                            <li>Providing technical support and guidance.</li>
-                            <li>Releasing the first Omani GNU/Linux distribution.</li>
-                            <li>Replacing proprietary software with free and open source alternatives.</li>
-                        </ul>
-                    </div>
-                </article>
+<hr class="divider" />
 
-                <!-- What is FOSS -->
-                <article class="about-panel" id="tab-foss">
-                    <div data-lang="ar">
-                        <h2>ما هي البرمجيات الحرة والمفتوحة المصدر؟</h2>
-                        <p>
-                            هي البرمجيات التي يمكن استخدامها، ونسخها، ودراستها، وتعديلها، وإعادة توزيعها بدون قيود.
-                            وقد لجأت الكثير من الحكومات لهذه البرمجيات مثل حكومة البرازيل، ألمانيا، روسيا، بلجيكا، فنزويلا وغيرها.
-                        </p>
-                        <p>تكون البرمجيات حرة إذا امتلك مستخدموها الحريات الأساسية التالية:</p>
-                        <ul class="about-list">
-                            <li>حرية تشغيل البرنامج لأي غرض كان.</li>
-                            <li>حرية دراسة كيفية عمل البرنامج وتعديله ليعمل وفق رغباتك.</li>
-                            <li>حرية توزيع نسخ من إصداراتك المعدلة للآخرين.</li>
-                            <li>حرية تطوير البرنامج وتحسينه وإظهارها للعالم.</li>
-                        </ul>
-                    </div>
-                    <div data-lang="en">
-                        <h2>What is Free &amp; Open Source Software?</h2>
-                        <p>
-                            Free and open source software (FOSS) can be used, copied, studied, modified, and redistributed without restrictive limitations.
-                            Many governments around the world have adopted FOSS, such as Brazil, Germany, Russia, Belgium, Venezuela, and others.
-                        </p>
-                        <p>Software is considered "free" when users have the following essential freedoms:</p>
-                        <ul class="about-list">
-                            <li>The freedom to run the program for any purpose.</li>
-                            <li>The freedom to study how the program works and adapt it to your needs.</li>
-                            <li>The freedom to redistribute copies, including your modified versions.</li>
-                            <li>The freedom to improve the program and share your improvements with the world.</li>
-                        </ul>
-                    </div>
-                </article>
+<!-- ITA PARTNERSHIP -->
+<section class="ita-section" id="ita">
+  <div class="sec-label">// الشراكة الوطنية — national partnership</div>
+  <h2 class="sec-title">Backed by the Information Technology Authority</h2>
+  <p class="sec-desc">
+    FO3S operates under a formal memorandum of understanding with Oman's ITA — part of the national
+    Digital Strategy to develop the ICT sector through open-source adoption.
+  </p>
+  <div class="ita-card">
+    <div class="ita-emblem">🏛️</div>
+    <div>
+      <h3>National FOSS Support Initiative — مبادرة دعم البرمجيات الحرة والمفتوحة المصدر</h3>
+      <p>
+        Launched in March 2010 during the Free Software Seminar in Muscat, the initiative coordinates
+        governmental institutions, professional bodies, and universities to build a sustainable FOSS
+        ecosystem in the Sultanate of Oman. FO3S at SQU is the university arm of this effort.
+      </p>
+      <div class="ita-pillars">
+        <div class="ita-pillar">
+          <div class="ita-pillar-icon">📢</div>
+          <h4>Advocacy</h4>
+          <p>Promoting FOSS as a credible, strategic alternative to proprietary software in Omani institutions.</p>
+        </div>
+        <div class="ita-pillar">
+          <div class="ita-pillar-icon">🎓</div>
+          <h4>Capacity building</h4>
+          <p>Developing human capital in FOSS through specialised university-level training programs.</p>
+        </div>
+        <div class="ita-pillar">
+          <div class="ita-pillar-icon">🔬</div>
+          <h4>R&D</h4>
+          <p>Encouraging research, development, and innovation in the free and open source software space.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-                <!-- National Initiative -->
-                <article class="about-panel" id="tab-initiative">
-                    <div data-lang="ar">
-                        <h2>مبادرة دعم البرمجيات الحرة والمفتوحة المصدر</h2>
-                        <p>
-                            تعتبر المبادرة الوطنية لدعم البرمجيات الحرة والمفتوحة المصدر جزءاً من إستراتيجية عمان الرقمية
-                            في تنمية قطاع تقنية المعلومات في السلطنة. وتم تدشين المبادرة في شهر مارس 2010م خلال فترة انعقاد
-                            ندوة البرمجيات الحرة بمسقط، وتدعم هيئة تقنية المعلومات هذه المبادرة بالتعاون مع المؤسسات الحكومية
-                            والمهنية ذات العلاقة.
-                        </p>
-                        <p>تهدف المبادرة إلى:</p>
-                        <ul class="about-list">
-                            <li>التعريف بالبرمجيات الحرة والمفتوحة المصدر كخيار بديل للبرمجيات الأخرى.</li>
-                            <li>بناء القدرات البشرية المتخصصة في مجال البرمجيات الحرة من خلال التدريب المتخصص.</li>
-                            <li>تشجيع البحث والتطوير والإبداع في مجال البرمجيات الحرة.</li>
-                        </ul>
-                    </div>
-                    <div data-lang="en">
-                        <h2>National FOSS Support Initiative</h2>
-                        <p>
-                            The national initiative to support free and open source software is part of Oman's Digital Strategy
-                            for developing the ICT sector. It was launched in March 2010 during the Free Software Seminar in Muscat,
-                            and is supported by the Information Technology Authority in collaboration with relevant governmental
-                            and professional institutions.
-                        </p>
-                        <p>The initiative aims to:</p>
-                        <ul class="about-list">
-                            <li>Promote FOSS as a viable alternative to proprietary software.</li>
-                            <li>Build human capacity in FOSS through specialized training programs.</li>
-                            <li>Encourage research, development, and innovation in the FOSS ecosystem.</li>
-                        </ul>
-                    </div>
-                </article>
-            </div>
-        </section>
-    </main>
+<hr class="divider" />
 
-    <footer></footer>
+<!-- ACTIVITIES -->
+<section id="activities">
+  <div class="sec-label">// ما نفعله — what we do</div>
+  <h2 class="sec-title">Our activities</h2>
+  <p class="sec-desc">Six pillars that make up the FO3S programme — from community events to long-term national projects.</p>
+  <div class="activities-grid">
+    <div class="activity-card">
+      <div class="activity-icon">🎙️</div>
+      <h3>Conferences &amp; seminars</h3>
+      <p>Annual and one-off events bringing together FOSS advocates, developers, and curious newcomers. Open to all SQU students.</p>
+      <span class="activity-tag">community</span>
+    </div>
+    <div class="activity-card">
+      <div class="activity-icon">🖥️</div>
+      <h3>Technical workshops</h3>
+      <p>Hands-on sessions covering Linux, Git, Python, security, DevOps, and more — led by members, for members.</p>
+      <span class="activity-tag">skills</span>
+    </div>
+    <div class="activity-card">
+      <div class="activity-icon">🖼️</div>
+      <h3>Exhibitions</h3>
+      <p>Showcasing FOSS tools, student projects, and open alternatives to popular proprietary software at university events.</p>
+      <span class="activity-tag">outreach</span>
+    </div>
+    <div class="activity-card">
+      <div class="activity-icon">📰</div>
+      <h3>Newsletter &amp; publications</h3>
+      <p>Producing digital and printed materials that spread FOSS knowledge in Arabic and English across the SQU community.</p>
+      <span class="activity-tag">content</span>
+    </div>
+    <div class="activity-card">
+      <div class="activity-icon">🧪</div>
+      <h3>Community labs</h3>
+      <p>Equipped lab spaces for members to experiment, build, and get technical support from experienced peers.</p>
+      <span class="activity-tag">infrastructure</span>
+    </div>
+    <div class="activity-card">
+      <div class="activity-icon">🐧</div>
+      <h3>GNU/Linux distro project</h3>
+      <p>Our flagship long-term initiative — developing Oman's first homegrown GNU/Linux distribution for Arabic-speaking users.</p>
+      <span class="activity-tag">flagship</span>
+    </div>
+  </div>
+</section>
 
-    <script src="assets/js/script.js"></script>
+<hr class="divider" />
+
+<!-- FOSS WORLDWIDE -->
+<section class="worldwide-section" id="worldwide">
+  <div class="sec-label">// حول العالم — foss worldwide</div>
+  <h2 class="sec-title">A global movement</h2>
+  <p class="sec-desc">
+    Free and open source software is not just a philosophy — it is national policy in many countries.
+    Governments around the world have officially adopted FOSS to reduce dependency on proprietary vendors,
+    lower costs, and increase digital sovereignty.
+  </p>
+  <div class="countries-grid">
+    <div class="country-chip"><span class="flag">🇧🇷</span> Brazil</div>
+    <div class="country-chip"><span class="flag">🇩🇪</span> Germany</div>
+    <div class="country-chip"><span class="flag">🇷🇺</span> Russia</div>
+    <div class="country-chip"><span class="flag">🇧🇪</span> Belgium</div>
+    <div class="country-chip"><span class="flag">🇻🇪</span> Venezuela</div>
+    <div class="country-chip"><span class="flag">🇮🇳</span> India</div>
+    <div class="country-chip"><span class="flag">🇫🇷</span> France</div>
+    <div class="country-chip"><span class="flag">🇪🇸</span> Spain</div>
+    <div class="country-chip"><span class="flag">🇨🇳</span> China</div>
+    <div class="country-chip"><span class="flag">🇯🇵</span> Japan</div>
+    <div class="country-chip"><span class="flag">🇰🇷</span> South Korea</div>
+    <div class="country-chip"><span class="flag">🇴🇲</span> Oman</div>
+  </div>
+  <p style="font-size: 13px; color: var(--muted);">
+    Oman joined this movement through its national FOSS initiative in 2010 — and FO3S is how SQU students
+    participate in it.
+  </p>
+</section>
+
+<hr class="divider" />
+
+<!-- VISION -->
+<section id="vision">
+  <div class="sec-label">// رؤيتنا — our vision</div>
+  <h2 class="sec-title">Where we're headed</h2>
+  <p class="sec-desc">Four long-term goals that shape everything FO3S does.</p>
+  <div class="vision-grid">
+    <div class="vision-card">
+      <div class="vision-card-num">01</div>
+      <h3>An open-source SQU</h3>
+      <p>Transitioning SQU's student-facing tools and infrastructure to free and open source alternatives — starting with what we can build ourselves.</p>
+    </div>
+    <div class="vision-card">
+      <div class="vision-card-num">02</div>
+      <h3>Oman's first GNU/Linux distro</h3>
+      <p>Shipping an Arabic-first, Omani-made Linux distribution that any institution can adopt — reducing proprietary software dependency at the national level.</p>
+    </div>
+    <div class="vision-card">
+      <div class="vision-card-num">03</div>
+      <h3>A generation of contributors</h3>
+      <p>Equipping SQU graduates with the mindset and skills to contribute to global FOSS projects — and carry the culture into their careers and organisations.</p>
+    </div>
+    <div class="vision-card">
+      <div class="vision-card-num">04</div>
+      <h3>Arabic FOSS ecosystem</h3>
+      <p>Supporting and producing open-source tools, documentation, and resources that serve Arabic-speaking users — a currently underserved community in FOSS.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DISTRO HIGHLIGHT -->
+<section class="distro-section" id="distro">
+  <div class="distro-inner">
+    <div>
+      <div class="sec-label">// المشروع الرئيسي — flagship project</div>
+      <h2>The <span>Omani GNU/Linux</span> Distribution</h2>
+      <p>
+        One of FO3S's most ambitious long-term goals is building Oman's first homegrown
+        GNU/Linux distribution — an Arabic-first, locally-maintained operating system that can be
+        adopted by schools, universities, and government institutions.
+      </p>
+      <ul class="distro-goals">
+        <li>Replace proprietary operating systems in Omani educational institutions</li>
+        <li>Provide a stable, Arabic-language Linux experience out of the box</li>
+        <li>Build and maintain it entirely through student and community contributions</li>
+        <li>Release under a free software license so anyone can use, modify, and redistribute it</li>
+      </ul>
+      <a href="index.html#join" class="btn-primary">Get involved ↗</a>
+    </div>
+    <div class="distro-badge">
+      <div class="distro-badge-icon">🐧</div>
+      <span class="distro-badge-label">In development</span>
+      <div class="distro-badge-sub">GNU/Linux<br>Made in Oman</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- TEAM -->
+<section id="team">
+  <div class="sec-label">// الفريق — the team</div>
+  <h2 class="sec-title">The people behind FO3S</h2>
+  <p class="sec-desc">FO3S is run entirely by SQU students — volunteers who believe in the mission.</p>
+  <div class="team-grid">
+    <div class="team-placeholder">
+      <p>Our team page is coming soon. In the meantime, reach out to us directly.</p>
+      <a href="mailto:fo3s@squ.edu.om" class="btn-primary">Contact the team ↗</a>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="sec-label">// تواصل معنا — get in touch</div>
+  <h2 class="sec-title">Find us</h2>
+  <p class="sec-desc">We're always happy to hear from students, alumni, and anyone who believes in free software.</p>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <div class="contact-card-icon">📧</div>
+      <div class="contact-card-label">Email</div>
+      <div class="contact-card-val">fo3s@squ.edu.om</div>
+      <div class="contact-card-sub">We aim to reply within 2 working days</div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-card-icon">📞</div>
+      <div class="contact-card-label">Phone</div>
+      <div class="contact-card-val">24143697</div>
+      <div class="contact-card-sub">Sultan Qaboos University, Muscat</div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-card-icon">📸</div>
+      <div class="contact-card-label">Instagram</div>
+      <div class="contact-card-val">@fo3s_squ</div>
+      <div class="contact-card-sub">Events, updates, and community moments</div>
+    </div>
+  </div>
+  <div style="margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap;">
+    <a href="mailto:fo3s@squ.edu.om" class="btn-primary">Send us a message ↗</a>
+    <a href="https://www.instagram.com/fo3s_squ" target="_blank" class="btn-secondary">Instagram →</a>
+    <a href="https://github.com/FO3S-SQU" target="_blank" class="btn-secondary">GitHub →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer"></footer>
+
 </body>
 </html>

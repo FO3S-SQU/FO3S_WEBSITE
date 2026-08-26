@@ -1,43 +1,35 @@
-// Footer component
-// Injects the shared footer into the empty <footer> placeholder on every page.
+/**
+ * Shared Claude redesign footer.
+ *
+ * Injects the redesign footer with the same page-specific links Claude used.
+ */
 (function () {
-    'use strict';
+  'use strict';
 
-    const footerEl = document.querySelector('footer');
-    if (!footerEl) return;
+  const footerEl = document.querySelector('footer.site-footer');
+  if (!footerEl) return;
 
-    footerEl.className = 'footer_container';
+  const page = window.location.pathname.split('/').pop() || 'index.html';
+  const isAbout = page === 'about.html';
 
-    footerEl.innerHTML = `
-        <div class="footer_main_content">
-            <div class="footer_brand footer_left">
-                <h3 id="footer-brand">Free and Open Source Software Society</h3>
-            </div>
+  const links = isAbout
+    ? `
+    <a href="index.html">Home</a>
+    <a href="https://www.instagram.com/fo3s_squ" target="_blank">Instagram</a>
+    <a href="https://github.com/FO3S-SQU" target="_blank">GitHub</a>
+    <a href="mailto:fo3s@squ.edu.om">Email</a>`
+    : `
+    <a href="https://www.instagram.com/fo3s_squ" target="_blank">Instagram</a>
+    <a href="https://github.com/FO3S-SQU" target="_blank">GitHub</a>
+    <a href="mailto:fo3s@squ.edu.om">Email</a>
+    <a href="about.html">About</a>`;
 
-            <div class="footer_nav_group footer_center">
-                <div class="footer_links">
-                    <a href="https://www.instagram.com/fo3s_squ" class="social-link" aria-label="FO3S on Instagram">
-                        <i class="fab fa-instagram" aria-hidden="true"></i>
-                        <span id="footer-ig">Instagram</span>
-                    </a>
-                    <a href="https://github.com/FO3S-SQU" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="FO3S on GitHub">
-                        <i class="fab fa-github" aria-hidden="true"></i>
-                        <span id="footer-github">GitHub</span>
-                    </a>
-                    <a href="mailto:fo3s@squ.edu.om" class="social-link" aria-label="Email FO3S">
-                        <i class="fas fa-envelope" aria-hidden="true"></i>
-                        <span id="footer-mail">Email</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer_copyright" id="footer-copy">
-            <span id="copyright-year"></span> &copy; FO3S
-        </div>
-    `;
-
-    // Set copyright year now that the element exists
-    const yearEl = footerEl.querySelector('#copyright-year');
-    if (yearEl) yearEl.innerText = new Date().getFullYear();
+  footerEl.innerHTML = `
+  <div class="footer-logo">
+    <img src="https://fo3s-squ.github.io/FO3S_WEBSITE/fo3s_logo-removebg-preview.png" alt="FO3S" />
+    <span>Free &amp; Open Source Software Society · Sultan Qaboos University</span>
+  </div>
+  <div class="footer-links">${links}
+  </div>
+  <div class="footer-copy">© 2025 FO3S · جماعة البرمجيات الحرة</div>`;
 })();

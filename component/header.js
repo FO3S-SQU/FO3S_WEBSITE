@@ -1,79 +1,54 @@
 /**
- * header.js — Shared header component
+ * Shared Claude redesign navigation.
  *
- * Injects the site header into every page automatically.
- * Loaded with `defer` in <head>, so it runs after DOM parse
- * but before script.js (order is preserved with defer).
+ * Injects the same nav markup used by the redesign output, with page-specific
+ * links for home vs about.
  */
 (function () {
-    'use strict';
+  'use strict';
 
-    const headerEl = document.querySelector('header');
-    if (!headerEl) return;
+  const headerEl = document.querySelector('header.site-header');
+  if (!headerEl) return;
 
-    // Determine current page for active-link highlighting
-    const page = window.location.pathname.split('/').pop() || 'index.html';
+  const page = window.location.pathname.split('/').pop() || 'index.html';
+  const isAbout = page === 'about.html';
 
-    headerEl.innerHTML = `
-        <nav>
-            <a class="logo" href="index.html">
-                <img src="assets/images/fo3s-logo.png" alt="FO3S Logo">
-            </a>
-
-            <ul class="nav-links">
-                <li><a href="index.html"                   id="nav-home">Home</a></li>
-                <li><a href="about.html"                   id="nav-about">About</a></li>
-                <li><a href="index.html#upcoming_events"   id="nav-events">Events</a></li>
-            </ul>
-
-            <div class="nav-right">
-                <button class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false">
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                </button>
-
-                <div class="lang-switcher" role="group" aria-label="Language selection">
-                    <button class="lang-btn" data-lang="ar"><img src="assets/images/oman.webp" alt="Oman flag" class="lang-flag"> AR</button>
-                    <button class="lang-btn" data-lang="en"><img src="assets/images/uk.webp" alt="UK flag" class="lang-flag"> EN</button>
-                </div>
-            </div>
-        </nav>
-    `;
-
-    // ── Active link highlight ──────────────────────────────────────────────
-    const activeId = page === 'about.html' ? 'nav-about' : 'nav-home';
-    const activeLink = document.getElementById(activeId);
-    if (activeLink) activeLink.classList.add('nav-active');
-
-    // ── Hamburger toggle ──────────────────────────────────────────────────
-    const navToggle = headerEl.querySelector('.nav-toggle');
-    const navLinks  = headerEl.querySelector('.nav-links');
-
-    navToggle.addEventListener('click', () => {
-        const isOpen = navLinks.classList.toggle('nav-open');
-        navToggle.setAttribute('aria-expanded', String(isOpen));
-        navToggle.classList.toggle('is-open', isOpen);
-    });
-
-    // Close on any link click (important for mobile)
-    navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', closeMenu);
-    });
-
-    // Close when clicking outside the header
-    document.addEventListener('click', (e) => {
-        if (!headerEl.contains(e.target)) closeMenu();
-    });
-
-    // Close on ESC
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeMenu();
-    });
-
-    function closeMenu() {
-        navLinks.classList.remove('nav-open');
-        navToggle.setAttribute('aria-expanded', 'false');
-        navToggle.classList.remove('is-open');
-    }
+  headerEl.innerHTML = isAbout
+    ? `
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="https://fo3s-squ.github.io/FO3S_WEBSITE/fo3s_logo-removebg-preview.png" alt="FO3S logo" />
+    <div>
+      <span class="nav-logo-text">FO3S</span>
+      <span class="nav-logo-sub">Sultan Qaboos University</span>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html" class="active">About</a>
+    <a href="index.html#freedoms">What is FOSS</a>
+    <a href="index.html#events">Events</a>
+    <a href="index.html#projects">Projects</a>
+    <button class="nav-lang" title="Switch to Arabic">ع</button>
+    <a href="index.html#join" class="btn-join-nav">Join us ↗</a>
+  </div>
+</nav>`
+    : `
+<nav>
+  <a href="#home" class="nav-logo">
+    <img src="https://fo3s-squ.github.io/FO3S_WEBSITE/fo3s_logo-removebg-preview.png" alt="FO3S logo" />
+    <div>
+      <span class="nav-logo-text">FO3S</span>
+      <span class="nav-logo-sub">Sultan Qaboos University</span>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#freedoms">What is FOSS</a>
+    <a href="#events">Events</a>
+    <a href="#projects">Projects</a>
+    <button class="nav-lang" title="Switch to Arabic">ع</button>
+    <a href="#join" class="btn-join-nav">Join us ↗</a>
+  </div>
+</nav>`;
 })();
