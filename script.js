@@ -110,7 +110,8 @@ document.addEventListener("DOMContentLoaded", function() {
 copyRight = `${new Date().getFullYear()} © FO3S`;
 const translations = {
     en: {
-        navHome: "Home", 
+        navIntro: "Experience",
+        navHome: "Home",
         navAbout: "About", 
         navEvents: "Events", 
         navContact: "Contact",
@@ -139,7 +140,8 @@ const translations = {
 
     },
     ar: {
-        navHome: "الرئيسية", 
+        navIntro: "التجربة",
+        navHome: "الرئيسية",
         navAbout: "من نحن", 
         navEvents: "الفعاليات", 
         navContact: "تواصل معنا",
@@ -195,6 +197,7 @@ function updateLanguage(lang) {
     };
 
     // Navigation & Hero
+    setEl('nav-intro', t.navIntro);
     setEl('nav-home', t.navHome);
     setEl('nav-about', t.navAbout);
     setEl('nav-events', t.navEvents);

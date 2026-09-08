@@ -3,167 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free and open source software society</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <title>FO3S — Free. Open. Source.</title>
+    <meta name="description" content="A scroll-driven introduction to the Free &amp; Open Source Software Society at Sultan Qaboos University — founded 2010.">
+    <link rel="icon" href="fo3s_logo-removebg-preview.png">
+    <link rel="stylesheet" href="scroll.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
-<body>
-    <header>
+<body data-lang="en">
+
+    <!-- 1. Loader -->
+    <div id="loader">
+        <div class="loader-brand">FO3S</div>
+        <div id="loader-track"><div id="loader-bar"></div></div>
+        <div id="loader-percent">0%</div>
+    </div>
+
+    <!-- 2. Fixed header -->
+    <header class="site-header">
         <nav>
-            <div class="logo"><img src="fo3s_logo-removebg-preview.png" alt="logo" srcset=""></div>
-            <ul>
-                <li><a href="#home" id="nav-home">Home</a></li>
-                <li><a href="about.html" id="nav-about">About</a></li>
-                <li><a href="#upcoming_events" id="nav-events">Events</a></li>
-                
-            </ul>
-            <div class="language_container">
-               <span class="lang_label">English</span>
-               <label class="switch">
-                    <input type="checkbox" id="language_toggle">
-                    <span class="slider round"></span>
-                    <span class="flag"></span>
-               </label>
-               <span class="lang_label">العربية</span>
+            <a class="brand" href="#top">
+                <img src="fo3s_logo-removebg-preview.png" alt="FO3S logo">
+            </a>
+            <div class="header-right">
+                <a class="header-link" href="home.html" data-en="Enter the site" data-ar="ادخل الموقع">Enter the site</a>
+                <button id="lang-toggle" class="lang-toggle" type="button" aria-label="Toggle language">
+                    <span data-lang-mark="en">EN</span>
+                    <span class="lang-sep">/</span>
+                    <span data-lang-mark="ar">ع</span>
+                </button>
             </div>
         </nav>
     </header>
-    <main>
-        <section class="hero-slider">
-            <div class="slider-wrapper">
-                <div class="c-slide active"><img src="wkshp1.jpg"></div>
-                <div class="c-slide"><img src="wkshp2.jfif"></div>
-                <div class="c-slide"><img src="wkshp3.jfif"></div>
-            </div>
 
-            <div class="hero-content">
-                <p class="hero-subtitle" id="hero-subtitle">LEARN TO CODE, CODE TO LEARN</p>
-                <h1 class="hero-title" id="hero-title">Welcome to the Free and <br> Open Source Software Society</h1>
-                <a href="#" class="hero-btn" id="hero-btn">Join Us</a>
+    <!-- 3. Hero -->
+    <section class="hero-standalone" id="top">
+        <div class="hero-inner">
+            <span class="section-label" data-en="Est. 2010 · Sultan Qaboos University"
+                  data-ar="تأسست ٢٠١٠ · جامعة السلطان قابوس">Est. 2010 · Sultan Qaboos University</span>
+            <h1 class="hero-heading" aria-label="Free Open Source">
+                <span>Free</span>
+                <span>Open</span>
+                <span>Source</span>
+            </h1>
+            <p class="hero-tagline" data-en="Learn to code, code to learn."
+               data-ar="نتعلّم لنبرمج، ونبرمج لنتعلّم.">Learn to code, code to learn.</p>
+        </div>
+        <div class="scroll-cue" aria-hidden="true">
+            <span data-en="Scroll" data-ar="مرّر">Scroll</span>
+            <span class="scroll-arrow"></span>
+        </div>
+    </section>
+
+    <!-- 4. Canvas -->
+    <div class="canvas-wrap">
+        <canvas id="canvas"></canvas>
+    </div>
+
+    <!-- 5. Dark overlay + text-side scrim -->
+    <div id="dark-overlay" aria-hidden="true"></div>
+    <div id="stage-scrim" aria-hidden="true"></div>
+
+    <!-- 6. Marquees -->
+    <div class="marquee-wrap" data-marquee="a" aria-hidden="true">
+        <div class="marquee-text" data-en="Free · Open · Source · Fork · Share · Free · Open · Source · Fork · Share ·"
+             data-ar="حرية · انفتاح · مصدر · نسخ · مشاركة · حرية · انفتاح · مصدر · نسخ · مشاركة ·">Free · Open · Source · Fork · Share · Free · Open · Source · Fork · Share ·</div>
+    </div>
+    <div class="marquee-wrap" data-marquee="b" aria-hidden="true">
+        <div class="marquee-text" data-en="Run · Study · Share · Improve · Run · Study · Share · Improve ·"
+             data-ar="شغّل · ادرس · شارك · طوّر · شغّل · ادرس · شارك · طوّر ·">Run · Study · Share · Improve · Run · Study · Share · Improve ·</div>
+    </div>
+
+    <!-- 7. Scroll container -->
+    <div id="scroll-container">
+
+        <section class="scroll-section section-content align-left"
+                 data-enter="14" data-leave="27" data-animation="slide-left">
+            <div class="section-inner">
+                <span class="section-label" data-en="01 — The whole" data-ar="٠١ — الكل">01 — The whole</span>
+                <h2 class="section-heading" data-en="One mark, held together"
+                    data-ar="علامة واحدة، يجمعها التعاون">One mark, held together</h2>
+                <p class="section-body" data-en="From a distance the FO3S logo looks like one solid shape. Look closer and it is a key, a gear, and three open hands — parts that only mean something when they hold together."
+                   data-ar="من بعيد يبدو شعار الجماعة كتلة واحدة. اقترب أكثر: مفتاح، وترس، وثلاث أيادٍ مفتوحة — أجزاء لا معنى لها إلا حين تتماسك معًا.">From a distance the FO3S logo looks like one solid shape. Look closer and it is a key, a gear, and three open hands — parts that only mean something when they hold together.</p>
             </div>
         </section>
-        <section id="statistics" class="stats-section">
-            <div class="members_count_container">
-                <h2 id="members_count" data-target="122">0</h2>
-                <p id="label-members">Members</p>
-            </div>
-            
-            <div class="events_count_container">
-                <h2 id="events_count" data-target="100">0</h2>
-                <p id="label-events">Events Hosted</p>
+
+        <section class="scroll-section section-content align-right"
+                 data-enter="29" data-leave="42" data-animation="clip-reveal">
+            <div class="section-inner">
+                <span class="section-label" data-en="02 — The break" data-ar="٠٢ — التفكيك">02 — The break</span>
+                <h2 class="section-heading" data-en="Take it apart"
+                    data-ar="فكّكه بلا قيود">Take it apart</h2>
+                <p class="section-body" data-en="Free software means you are allowed to break it open. Read every line, question every choice, keep what works and rebuild the rest — no permission required."
+                   data-ar="البرمجيات الحرة تعني أن لك الحق في تفكيكها. اقرأ كل سطر، ناقش كل قرار، احتفظ بما ينفع وأعد بناء الباقي — دون إذن من أحد.">Free software means you are allowed to break it open. Read every line, question every choice, keep what works and rebuild the rest — no permission required.</p>
             </div>
         </section>
-        
 
-        <section id="upcoming_events">
+        <section class="scroll-section section-content align-left"
+                 data-enter="44" data-leave="57" data-animation="scale-up">
+            <div class="section-inner">
+                <span class="section-label" data-en="03 — Four freedoms" data-ar="٠٣ — أربع حريات">03 — Four freedoms</span>
+                <h2 class="section-heading" data-en="Run. Study. Share. Improve."
+                    data-ar="شغّل. ادرس. شارك. طوّر.">Run. Study. Share. Improve.</h2>
+                <p class="section-body" data-en="Use it for any purpose. See exactly how it works. Pass copies to a friend. Publish your improvements so the next person starts further ahead than you did."
+                   data-ar="استخدمه لأي غرض. افهم كيف يعمل تمامًا. انسخه لصديق. انشر تحسيناتك ليبدأ من بعدك من حيث انتهيت أنت.">Use it for any purpose. See exactly how it works. Pass copies to a friend. Publish your improvements so the next person starts further ahead than you did.</p>
+            </div>
+        </section>
 
-            <h2 id="title-events">Upcoming Events</h2>
-            <div class="event" >
-                <div class="no-events">
-                    <div class="placeholder-icon">💡</div>
-                    <h3 id="event-empty-title">We're currently brainstorming!</h3>
-                    <p id="event-empty-p">Have an idea for a special event? Share it with us!.</p>
-                    <button class="btn-small" id="event-btn" onclick="openModal()">Suggest an Idea</button>
+        <section class="scroll-section section-content align-right"
+                 data-enter="59" data-leave="72" data-animation="slide-right">
+            <div class="section-inner">
+                <span class="section-label" data-en="04 — Since 2010" data-ar="٠٤ — منذ ٢٠١٠">04 — Since 2010</span>
+                <h2 class="section-heading" data-en="Built in the open at SQU"
+                    data-ar="نُبنى في العلن بجامعة السلطان قابوس">Built in the open at SQU</h2>
+                <p class="section-body" data-en="A student society born in 2010 from a memorandum between Sultan Qaboos University and Oman's Information Technology Authority — equipped labs, public workshops, and a plan for the first Omani GNU/Linux distribution."
+                   data-ar="جماعة طلابية وُلدت عام ٢٠١٠ من مذكرة تفاهم بين جامعة السلطان قابوس وهيئة تقنية المعلومات — مختبرات مجهّزة، وورش مفتوحة، وخطة لأول توزيعة عمانية مبنية على جنو/لينكس.">A student society born in 2010 from a memorandum between Sultan Qaboos University and Oman's Information Technology Authority — equipped labs, public workshops, and a plan for the first Omani GNU/Linux distribution.</p>
+            </div>
+        </section>
+
+        <section class="scroll-section section-stats"
+                 data-enter="74" data-leave="87" data-animation="stagger-up">
+            <div class="stats-inner">
+                <h2 class="section-heading stats-title" data-en="Counted in the open"
+                    data-ar="نحصيها في العلن">Counted in the open</h2>
+                <div class="stats-grid">
+                    <div class="stat">
+                        <span class="stat-number" data-value="2010" data-from="1990" data-decimals="0">0</span>
+                        <span class="stat-label" data-en="Year founded" data-ar="سنة التأسيس">Year founded</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" data-value="122" data-decimals="0">0</span>
+                        <span class="stat-label" data-en="Members" data-ar="عضو">Members</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" data-value="100" data-decimals="0">0</span><span class="stat-suffix">+</span>
+                        <span class="stat-label" data-en="Events hosted" data-ar="فعالية مستضافة">Events hosted</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" data-value="4" data-decimals="0">0</span>
+                        <span class="stat-label" data-en="Software freedoms" data-ar="حريات أساسية">Software freedoms</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-    </main>
-
-    <section class="member-projects">
-    <div class="container">
-        <h2 id="title-projects">Members Projects</h2>
-
-        <div class="invite-wrapper">
-            <div class="project-card invite-card">
-                <div class="icon">🚀</div>
-                <h3 id="invite-title">Fill our projects section with your creative projects</h3>
-                <p id="invite-p">Built something cool? Share your GitHub link!</p>
-                <button class="submit-btn" id="invite-btn">Submit Project (TEST)</button>
-            </div>
-        </div>
-
-        <div id="project-list" class="project-display-grid">
-            </div>
-    </div>
-</section>
-
-<div id="projectModal" class="modal-overlay">
-    <div class="modal-content">
-        <span class="close-modal" id="closeModal">&times;</span>
-        <h2 style="color: var(--accent); margin-bottom: 20px;">Share us your masterpiece!</h2>
-        
-        <form name="member-projects" id="submissionForm">
-            <div class="input-group">
-                <label>Owner Name</label>
-                <input type="text" name="owner" id="memberName" placeholder="Your Name/Team Name" required>
-            </div>
-            <div class="input-group">
-                <label>Project Title</label>
-                <input type="text" name="title" id="memberTitle" placeholder="e.g. ATmega8 Controller" required>
-            </div>
-            <div class="input-group">
-                <label>GitHub URL</label>
-                <input type="url" name="url" id="memberUrl" placeholder="https://github.com/..." required>
-            </div>
-            <div class="input-group">
-                <label>Brief Description</label>
-                <textarea name="description" id="memberDesc" maxlength="150" placeholder="Describe your masterpiece..." required></textarea>
-            </div>
-            <button type="submit" class="submit-btn" style="width: 100%;">Post Project</button>
-        </form>
-    </div>
-</div>
-
-    <footer class="footer_container">
-        <div class="footer_main_content">
-            <div class="footer_brand footer_left">
-                <h3 id="footer-brand">Free and Open Source Software Society</h3>
-            </div>
-
-            <div class="footer_nav_group footer_center">
-                <div class="footer_links">
-                    <a href="https://www.instagram.com/fo3s_squ" class="social-link">
-                        <i class="fab fa-instagram"></i> <span id="footer-ig">Instagram</span>
-                    </a>
-                    <a href="https://github.com/FO3S-SQU" target="_blank" class="social-link">
-                        <i class="fab fa-github"></i> <span id="footer-github">GitHub</span>
-                    </a>
-                    
-                    <a href="mailto:fo3s@squ.edu.om" class="social-link">
-                        <i class="fas fa-envelope"></i> <span id="footer-mail">Email</span>
-                    </a>
+        <section class="scroll-section section-cta align-left"
+                 data-enter="87" data-leave="100" data-animation="fade-up" data-persist="true">
+            <div class="section-inner">
+                <span class="section-label" data-en="05 — Your turn" data-ar="٠٥ — دورك الآن">05 — Your turn</span>
+                <h2 class="section-heading" data-en="Your commit is next"
+                    data-ar="الالتزام القادم لك">Your commit is next</h2>
+                <p class="section-body" data-en="Come to a workshop, open a pull request, or just watch how it is done. The repository is public — and so are we."
+                   data-ar="احضر ورشة، افتح طلب دمج، أو راقب فقط كيف يُصنع. المستودع مفتوح — ونحن كذلك.">Come to a workshop, open a pull request, or just watch how it is done. The repository is public — and so are we.</p>
+                <div class="cta-row">
+                    <a class="cta-button primary" href="home.html" data-en="Enter the site" data-ar="ادخل الموقع">Enter the site</a>
+                    <a class="cta-button ghost" href="https://github.com/FO3S-SQU" target="_blank" rel="noopener">GitHub</a>
                 </div>
             </div>
-            <div class="footer_right">
-             <button id="footer-join" class="join_btn">Join Us</button>
-            </div>
-                
-    
-        </div>
-        
-        <div class="footer_copyright" id="footer-copy">
-            <span id="copyright-year"></span> (c) FO3S
-                <script>
-                    document.getElementById('copyright-year').innerText = new Date().getFullYear();
-                </script>
-        </div>
-    </footer>
-    <div id="ideaModal" class="modal-overlay">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
-            <h2>Suggest an Event</h2>
-            
-            <form id="ideaForm">
-                <input type="email" name="email" id="userEmail" placeholder="Your Email" required>
-                <input type="text" name="topic" id="eventTopic" placeholder="Proposed Topic" required>
-                <textarea name="message" id="eventDesc" placeholder="Describe the idea..." required></textarea>
-                <button type="submit" class="btn" id="submit_idea_btn">Submit Idea</button>
-                <p id="formStatus"></p> 
-            </form>
-        </div>
+        </section>
+
     </div>
-    <script src="script.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script src="scroll.js"></script>
 </body>
 </html>
