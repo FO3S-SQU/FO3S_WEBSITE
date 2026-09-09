@@ -14,6 +14,7 @@
   const page = pathParts[pathParts.length - 1] || 'index.html';
   const isAbout = page === 'about.html';
   const isArabic = pathParts.includes('ar');
+  const assetPrefix = isArabic ? '../' : '';
 
   const langHref = isArabic
     ? (isAbout ? '../about.html' : '../index.html')
@@ -26,7 +27,7 @@
       ? `
 <nav>
   <a href="index.html" class="nav-logo">
-    <img src="https://fo3s-squ.github.io/FO3S_WEBSITE/fo3s_logo-removebg-preview.png" alt="شعار FO3S" />
+    <img src="${assetPrefix}assets/images/fo3s-logo.png" alt="شعار FO3S" />
     <div>
       <span class="nav-logo-text">FO3S</span>
       <span class="nav-logo-sub">جامعة السلطان قابوس</span>
@@ -42,7 +43,7 @@
       : `
 <nav>
   <a href="#home" class="nav-logo">
-    <img src="https://fo3s-squ.github.io/FO3S_WEBSITE/fo3s_logo-removebg-preview.png" alt="شعار FO3S" />
+    <img src="${assetPrefix}assets/images/fo3s-logo.png" alt="شعار FO3S" />
     <div>
       <span class="nav-logo-text">FO3S</span>
       <span class="nav-logo-sub">جامعة السلطان قابوس</span>
@@ -58,7 +59,7 @@
     ? `
 <nav>
   <a href="index.html" class="nav-logo">
-    <img src="https://fo3s-squ.github.io/FO3S_WEBSITE/fo3s_logo-removebg-preview.png" alt="FO3S logo" />
+    <img src="${assetPrefix}assets/images/fo3s-logo.png" alt="FO3S logo" />
     <div>
       <span class="nav-logo-text">FO3S</span>
       <span class="nav-logo-sub">Sultan Qaboos University</span>
@@ -74,7 +75,7 @@
     : `
 <nav>
   <a href="#home" class="nav-logo">
-    <img src="https://fo3s-squ.github.io/FO3S_WEBSITE/fo3s_logo-removebg-preview.png" alt="FO3S logo" />
+    <img src="${assetPrefix}assets/images/fo3s-logo.png" alt="FO3S logo" />
     <div>
       <span class="nav-logo-text">FO3S</span>
       <span class="nav-logo-sub">Sultan Qaboos University</span>
