@@ -70,15 +70,6 @@
       transition: color .15s, border-color .15s;
     }
     .nav-lang:hover { color: var(--muted); border-color: var(--dim); }
-    .btn-join-nav {
-      margin-left: 10px; background: var(--maroon); color: var(--gold);
-      border: 1px solid var(--maroon-mid); padding: 7px 18px;
-      border-radius: 6px; font-size: 13px; font-weight: 600;
-      font-family: var(--sans); cursor: pointer; text-decoration: none;
-      transition: background .15s;
-    }
-    .btn-join-nav:hover { background: var(--maroon-mid); }
-
     /* ── PAGE HEADER ── */
     .page-header {
       padding: 64px 40px 52px;

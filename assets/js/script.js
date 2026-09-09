@@ -41,8 +41,3 @@
     }
   }
   tick();
-
-  // Close modals on backdrop click
-  document.querySelectorAll('.modal-overlay').forEach(el => {
-    el.addEventListener('click', e => { if (e.target === el) el.classList.remove('open'); });
-  });

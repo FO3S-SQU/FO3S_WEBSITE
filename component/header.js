@@ -36,10 +36,7 @@
     <a href="index.html">الرئيسية</a>
     <a href="about.html" class="active">من نحن</a>
     <a href="index.html#freedoms">ما هي FOSS</a>
-    <a href="index.html#events">الفعاليات</a>
-    <a href="index.html#projects">المشاريع</a>
     <a class="nav-lang" href="${langHref}" title="${langTitle}">${langLabel}</a>
-    <a href="index.html#join" class="btn-join-nav">انضم إلينا ↗</a>
   </div>
 </nav>`
       : `
@@ -54,10 +51,7 @@
   <div class="nav-links">
     <a href="#about">من نحن</a>
     <a href="#freedoms">ما هي FOSS</a>
-    <a href="#events">الفعاليات</a>
-    <a href="#projects">المشاريع</a>
     <a class="nav-lang" href="${langHref}" title="${langTitle}">${langLabel}</a>
-    <a href="#join" class="btn-join-nav">انضم إلينا ↗</a>
   </div>
 </nav>`
     : isAbout
@@ -74,10 +68,7 @@
     <a href="index.html">Home</a>
     <a href="about.html" class="active">About</a>
     <a href="index.html#freedoms">What is FOSS</a>
-    <a href="index.html#events">Events</a>
-    <a href="index.html#projects">Projects</a>
     <a class="nav-lang" href="${langHref}" title="${langTitle}">${langLabel}</a>
-    <a href="index.html#join" class="btn-join-nav">Join us ↗</a>
   </div>
 </nav>`
     : `
@@ -92,10 +83,7 @@
   <div class="nav-links">
     <a href="#about">About</a>
     <a href="#freedoms">What is FOSS</a>
-    <a href="#events">Events</a>
-    <a href="#projects">Projects</a>
     <a class="nav-lang" href="${langHref}" title="${langTitle}">${langLabel}</a>
-    <a href="#join" class="btn-join-nav">Join us ↗</a>
   </div>
 </nav>`;
 })();
