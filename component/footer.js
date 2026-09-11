@@ -13,6 +13,7 @@
   const page = pathParts[pathParts.length - 1] || 'index.html';
   const isAbout = page === 'about.html';
   const isArabic = pathParts.includes('ar');
+  const assetPrefix = isArabic ? '../' : '';
 
   const links = isArabic
     ? isAbout
@@ -46,7 +47,7 @@
 
   footerEl.innerHTML = `
   <div class="footer-logo">
-    <img src="https://fo3s-squ.github.io/FO3S_WEBSITE/fo3s_logo-removebg-preview.png" alt="FO3S" />
+    <img src="${assetPrefix}assets/images/fo3s-logo.png" alt="FO3S" />
     <span>${footerText}</span>
   </div>
   <div class="footer-links">${links}

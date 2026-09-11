@@ -9,6 +9,12 @@
   <link rel="alternate" hreflang="en" href="https://fo3s-squ.github.io/FO3S_WEBSITE/" />
   <link rel="alternate" hreflang="ar" href="https://fo3s-squ.github.io/FO3S_WEBSITE/ar/" />
   <link rel="alternate" hreflang="x-default" href="https://fo3s-squ.github.io/FO3S_WEBSITE/" />
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" href="assets/images/favicon-32x32.png" type="image/png" sizes="32x32" />
+  <link rel="icon" href="assets/images/favicon-16x16.png" type="image/png" sizes="16x16" />
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+  <meta name="theme-color" content="#0F0A0A" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -46,13 +52,12 @@
       </div>
 
       <div class="hero-ctas">
-        <a href="#join" class="btn-primary">Become a member ↗</a>
         <a href="https://github.com/FO3S-SQU" target="_blank" class="btn-secondary">GitHub →</a>
       </div>
     </div>
 
     <div class="hero-logo-display">
-      <img src="https://fo3s-squ.github.io/FO3S_WEBSITE/fo3s_logo-removebg-preview.png" alt="FO3S" />
+      <img src="assets/images/fo3s-logo.png" alt="FO3S" />
     </div>
   </div>
 </section>
@@ -81,15 +86,15 @@
 <div class="photo-strip">
   <div class="photo-strip-inner">
     <div class="photo-slot">
-      <img src="https://fo3s-squ.github.io/FO3S_WEBSITE/wkshp1.jpg" alt="FO3S workshop" />
+      <img src="assets/images/wkshp1.jpg" alt="FO3S workshop" />
       <span class="photo-slot-label">Workshop</span>
     </div>
     <div class="photo-slot">
-      <img src="https://fo3s-squ.github.io/FO3S_WEBSITE/wkshp2.jfif" alt="FO3S session" />
+      <img src="assets/images/wkshp2.jfif" alt="FO3S session" />
       <span class="photo-slot-label">Community</span>
     </div>
     <div class="photo-slot">
-      <img src="https://fo3s-squ.github.io/FO3S_WEBSITE/wkshp3.jfif" alt="FO3S event" />
+      <img src="assets/images/wkshp3.jfif" alt="FO3S event" />
       <span class="photo-slot-label">Events</span>
     </div>
   </div>
@@ -191,36 +196,6 @@
   </div>
 </section>
 
-<hr class="divider" />
-
-<!-- EVENTS -->
-<section id="events">
-  <div class="sec-label">// upcoming events</div>
-  <h2 class="sec-title">What's on</h2>
-  <p class="sec-desc">Workshops, talks, and community sessions — all open to SQU students of any major or skill level.</p>
-  <div class="events-list">
-    <div class="event-empty">
-      <p>We're currently brainstorming our next events. Have an idea? We'd love to hear it.</p>
-      <button class="btn-primary" onclick="document.getElementById('suggest-modal').classList.add('open')">Suggest an idea →</button>
-    </div>
-  </div>
-</section>
-
-<hr class="divider" />
-
-<!-- PROJECTS -->
-<section id="projects" style="background: var(--surface);">
-  <div class="sec-label">// member projects</div>
-  <h2 class="sec-title">Built by the community</h2>
-  <p class="sec-desc">SQU students building in the open. Share your project so others can learn from, use, and contribute to your work.</p>
-  <div class="projects-grid">
-    <div class="project-empty">
-      <p>Our projects board is open. Built something cool? Share it with the FO3S community.</p>
-      <button class="btn-primary" onclick="document.getElementById('project-modal').classList.add('open')">Submit your project →</button>
-    </div>
-  </div>
-</section>
-
 <!-- JOIN -->
 <section class="join-section" id="join">
   <div class="join-badge">// open to all SQU students</div>
@@ -260,32 +235,6 @@
 
 <!-- FOOTER -->
 <footer class="site-footer"></footer>
-
-<!-- SUGGEST MODAL -->
-<div class="modal-overlay" id="suggest-modal">
-  <div class="modal">
-    <button class="modal-close" onclick="document.getElementById('suggest-modal').classList.remove('open')">✕</button>
-    <h3>Suggest an event</h3>
-    <p>Have an idea for a talk, workshop, or hackathon? Let the team know.</p>
-    <div class="field"><label>YOUR NAME</label><input type="text" placeholder="Ahmed Al-Balushi" /></div>
-    <div class="field"><label>EVENT IDEA</label><textarea placeholder="A workshop on setting up your first Linux environment..."></textarea></div>
-    <button class="btn-primary" style="width:100%;justify-content:center;text-align:center;">Submit idea</button>
-  </div>
-</div>
-
-<!-- PROJECT MODAL -->
-<div class="modal-overlay" id="project-modal">
-  <div class="modal">
-    <button class="modal-close" onclick="document.getElementById('project-modal').classList.remove('open')">✕</button>
-    <h3>Share your project</h3>
-    <p>Built something? Add it to the FO3S community board.</p>
-    <div class="field"><label>YOUR NAME</label><input type="text" placeholder="Fatma Al-Rashdi" /></div>
-    <div class="field"><label>PROJECT TITLE</label><input type="text" placeholder="SQU Timetable Generator" /></div>
-    <div class="field"><label>GITHUB URL</label><input type="url" placeholder="https://github.com/you/project" /></div>
-    <div class="field"><label>BRIEF DESCRIPTION</label><textarea placeholder="What does it do and what's it built with?"></textarea></div>
-    <button class="btn-primary" style="width:100%;justify-content:center;text-align:center;">Submit project</button>
-  </div>
-</div>
 <script src="assets/js/script.js"></script>
 </body>
 </html>

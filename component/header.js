@@ -14,6 +14,7 @@
   const page = pathParts[pathParts.length - 1] || 'index.html';
   const isAbout = page === 'about.html';
   const isArabic = pathParts.includes('ar');
+  const assetPrefix = isArabic ? '../' : '';
 
   const langHref = isArabic
     ? (isAbout ? '../about.html' : '../index.html')
@@ -26,7 +27,7 @@
       ? `
 <nav>
   <a href="index.html" class="nav-logo">
-    <img src="https://fo3s-squ.github.io/FO3S_WEBSITE/fo3s_logo-removebg-preview.png" alt="شعار FO3S" />
+    <img src="${assetPrefix}assets/images/fo3s-logo.png" alt="شعار FO3S" />
     <div>
       <span class="nav-logo-text">FO3S</span>
       <span class="nav-logo-sub">جامعة السلطان قابوس</span>
@@ -36,16 +37,13 @@
     <a href="index.html">الرئيسية</a>
     <a href="about.html" class="active">من نحن</a>
     <a href="index.html#freedoms">ما هي FOSS</a>
-    <a href="index.html#events">الفعاليات</a>
-    <a href="index.html#projects">المشاريع</a>
     <a class="nav-lang" href="${langHref}" title="${langTitle}">${langLabel}</a>
-    <a href="index.html#join" class="btn-join-nav">انضم إلينا ↗</a>
   </div>
 </nav>`
       : `
 <nav>
   <a href="#home" class="nav-logo">
-    <img src="https://fo3s-squ.github.io/FO3S_WEBSITE/fo3s_logo-removebg-preview.png" alt="شعار FO3S" />
+    <img src="${assetPrefix}assets/images/fo3s-logo.png" alt="شعار FO3S" />
     <div>
       <span class="nav-logo-text">FO3S</span>
       <span class="nav-logo-sub">جامعة السلطان قابوس</span>
@@ -54,17 +52,14 @@
   <div class="nav-links">
     <a href="#about">من نحن</a>
     <a href="#freedoms">ما هي FOSS</a>
-    <a href="#events">الفعاليات</a>
-    <a href="#projects">المشاريع</a>
     <a class="nav-lang" href="${langHref}" title="${langTitle}">${langLabel}</a>
-    <a href="#join" class="btn-join-nav">انضم إلينا ↗</a>
   </div>
 </nav>`
     : isAbout
     ? `
 <nav>
   <a href="index.html" class="nav-logo">
-    <img src="https://fo3s-squ.github.io/FO3S_WEBSITE/fo3s_logo-removebg-preview.png" alt="FO3S logo" />
+    <img src="${assetPrefix}assets/images/fo3s-logo.png" alt="FO3S logo" />
     <div>
       <span class="nav-logo-text">FO3S</span>
       <span class="nav-logo-sub">Sultan Qaboos University</span>
@@ -74,16 +69,13 @@
     <a href="index.html">Home</a>
     <a href="about.html" class="active">About</a>
     <a href="index.html#freedoms">What is FOSS</a>
-    <a href="index.html#events">Events</a>
-    <a href="index.html#projects">Projects</a>
     <a class="nav-lang" href="${langHref}" title="${langTitle}">${langLabel}</a>
-    <a href="index.html#join" class="btn-join-nav">Join us ↗</a>
   </div>
 </nav>`
     : `
 <nav>
   <a href="#home" class="nav-logo">
-    <img src="https://fo3s-squ.github.io/FO3S_WEBSITE/fo3s_logo-removebg-preview.png" alt="FO3S logo" />
+    <img src="${assetPrefix}assets/images/fo3s-logo.png" alt="FO3S logo" />
     <div>
       <span class="nav-logo-text">FO3S</span>
       <span class="nav-logo-sub">Sultan Qaboos University</span>
@@ -92,10 +84,7 @@
   <div class="nav-links">
     <a href="#about">About</a>
     <a href="#freedoms">What is FOSS</a>
-    <a href="#events">Events</a>
-    <a href="#projects">Projects</a>
     <a class="nav-lang" href="${langHref}" title="${langTitle}">${langLabel}</a>
-    <a href="#join" class="btn-join-nav">Join us ↗</a>
   </div>
 </nav>`;
 })();

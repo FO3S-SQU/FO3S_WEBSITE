@@ -9,6 +9,12 @@
   <link rel="alternate" hreflang="en" href="https://fo3s-squ.github.io/FO3S_WEBSITE/" />
   <link rel="alternate" hreflang="ar" href="https://fo3s-squ.github.io/FO3S_WEBSITE/ar/" />
   <link rel="alternate" hreflang="x-default" href="https://fo3s-squ.github.io/FO3S_WEBSITE/" />
+  <link rel="icon" href="../favicon.ico" sizes="any" />
+  <link rel="icon" href="../assets/images/favicon-32x32.png" type="image/png" sizes="32x32" />
+  <link rel="icon" href="../assets/images/favicon-16x16.png" type="image/png" sizes="16x16" />
+  <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png" />
+  <link rel="manifest" href="../site.webmanifest" />
+  <meta name="theme-color" content="#0F0A0A" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -46,13 +52,12 @@
       </div>
 
       <div class="hero-ctas">
-        <a href="#join" class="btn-primary">كن عضوا ↗</a>
         <a href="https://github.com/FO3S-SQU" target="_blank" class="btn-secondary">GitHub →</a>
       </div>
     </div>
 
     <div class="hero-logo-display">
-      <img src="https://fo3s-squ.github.io/FO3S_WEBSITE/fo3s_logo-removebg-preview.png" alt="FO3S" />
+      <img src="../assets/images/fo3s-logo.png" alt="FO3S" />
     </div>
   </div>
 </section>
@@ -81,15 +86,15 @@
 <div class="photo-strip">
   <div class="photo-strip-inner">
     <div class="photo-slot">
-      <img src="https://fo3s-squ.github.io/FO3S_WEBSITE/wkshp1.jpg" alt="ورشة FO3S" />
+      <img src="../assets/images/wkshp1.jpg" alt="ورشة FO3S" />
       <span class="photo-slot-label">ورشة</span>
     </div>
     <div class="photo-slot">
-      <img src="https://fo3s-squ.github.io/FO3S_WEBSITE/wkshp2.jfif" alt="جلسة FO3S" />
+      <img src="../assets/images/wkshp2.jfif" alt="جلسة FO3S" />
       <span class="photo-slot-label">مجتمع</span>
     </div>
     <div class="photo-slot">
-      <img src="https://fo3s-squ.github.io/FO3S_WEBSITE/wkshp3.jfif" alt="فعالية FO3S" />
+      <img src="../assets/images/wkshp3.jfif" alt="فعالية FO3S" />
       <span class="photo-slot-label">فعاليات</span>
     </div>
   </div>
@@ -190,36 +195,6 @@
   </div>
 </section>
 
-<hr class="divider" />
-
-<!-- EVENTS -->
-<section id="events">
-  <div class="sec-label">// الفعاليات القادمة</div>
-  <h2 class="sec-title">ما القادم؟</h2>
-  <p class="sec-desc">ورش ومحاضرات وجلسات مجتمعية مفتوحة لطلبة جامعة السلطان قابوس من كل التخصصات والمستويات.</p>
-  <div class="events-list">
-    <div class="event-empty">
-      <p>نحن نعمل حاليا على أفكار فعالياتنا القادمة. لديك فكرة؟ يسعدنا سماعها.</p>
-      <button class="btn-primary" onclick="document.getElementById('suggest-modal').classList.add('open')">اقترح فكرة →</button>
-    </div>
-  </div>
-</section>
-
-<hr class="divider" />
-
-<!-- PROJECTS -->
-<section id="projects" style="background: var(--surface);">
-  <div class="sec-label">// مشاريع الأعضاء</div>
-  <h2 class="sec-title">من بناء المجتمع</h2>
-  <p class="sec-desc">طلبة جامعة السلطان قابوس يبنون في العلن. شارك مشروعك ليتعلم منه الآخرون ويستخدموه ويساهموا فيه.</p>
-  <div class="projects-grid">
-    <div class="project-empty">
-      <p>لوحة المشاريع مفتوحة. بنيت شيئا جميلا؟ شاركه مع مجتمع FO3S.</p>
-      <button class="btn-primary" onclick="document.getElementById('project-modal').classList.add('open')">أرسل مشروعك →</button>
-    </div>
-  </div>
-</section>
-
 <!-- JOIN -->
 <section class="join-section" id="join">
   <div class="join-badge">// مفتوحة لكل طلبة جامعة السلطان قابوس</div>
@@ -261,32 +236,6 @@
 
 <!-- FOOTER -->
 <footer class="site-footer"></footer>
-
-<!-- SUGGEST MODAL -->
-<div class="modal-overlay" id="suggest-modal">
-  <div class="modal">
-    <button class="modal-close" onclick="document.getElementById('suggest-modal').classList.remove('open')">✕</button>
-    <h3>اقترح فعالية</h3>
-    <p>لديك فكرة لمحاضرة أو ورشة أو هاكاثون؟ شاركها مع الفريق.</p>
-    <div class="field"><label>اسمك</label><input type="text" placeholder="أحمد البلوشي" /></div>
-    <div class="field"><label>فكرة الفعالية</label><textarea placeholder="ورشة عن إعداد أول بيئة لينكس..." ></textarea></div>
-    <button class="btn-primary" style="width:100%;justify-content:center;text-align:center;">إرسال الفكرة</button>
-  </div>
-</div>
-
-<!-- PROJECT MODAL -->
-<div class="modal-overlay" id="project-modal">
-  <div class="modal">
-    <button class="modal-close" onclick="document.getElementById('project-modal').classList.remove('open')">✕</button>
-    <h3>شارك مشروعك</h3>
-    <p>بنيت شيئا؟ أضفه إلى لوحة مجتمع FO3S.</p>
-    <div class="field"><label>اسمك</label><input type="text" placeholder="فاطمة الراشدية" /></div>
-    <div class="field"><label>عنوان المشروع</label><input type="text" placeholder="مولد جداول جامعة السلطان قابوس" /></div>
-    <div class="field"><label>رابط GitHub</label><input type="url" placeholder="https://github.com/you/project" /></div>
-    <div class="field"><label>وصف مختصر</label><textarea placeholder="ماذا يفعل المشروع؟ وبماذا بني؟"></textarea></div>
-    <button class="btn-primary" style="width:100%;justify-content:center;text-align:center;">إرسال المشروع</button>
-  </div>
-</div>
 <script src="../assets/js/script.js"></script>
 </body>
 </html>
